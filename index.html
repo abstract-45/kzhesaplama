@@ -1,70 +1,1592 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Kamu zararı yasal faiz hesaplama aracı.">
-<title>Kamu Zararı Yasal Faiz Hesaplama</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Kamu zararı maaş, ek ders ve yasal faiz hesaplama aracı.">
+<title>Kamu Zararı Hesaplama (Maaş - Ek Ders - Yasal Faiz)</title>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
-:root{--navy:#172a4d;--purple:#5b43c6;--purple2:#7663df;--green:#159a87;--bg:#f4f6fb;--text:#172033;--muted:#667085;--line:#e5e9f2;--shadow:0 10px 30px rgba(23,42,77,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5}a{color:inherit}.topbar{background:#fff;border-bottom:1px solid var(--line);font-size:13px;color:#667085}.topbar-inner{max-width:1180px;margin:auto;padding:9px 20px;display:flex;justify-content:space-between}.hero{background:radial-gradient(circle at 80% 20%,rgba(118,99,223,.35),transparent 30%),linear-gradient(125deg,var(--navy),#243e6d 60%,#4d3e98);color:#fff;position:relative;overflow:hidden}.hero-inner{max-width:1180px;margin:auto;padding:48px 20px 52px}.brand{display:flex;align-items:center;gap:16px}.brand-icon{width:58px;height:58px;border:2px solid rgba(255,255,255,.8);border-radius:17px;display:grid;place-items:center;font-size:28px;background:rgba(255,255,255,.08)}.hero h1{margin:0;font-size:clamp(28px,4vw,44px);letter-spacing:-.7px}.hero p{max-width:720px;color:#e5e9ff;font-size:17px;margin:18px 0 0}.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.badge{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);padding:7px 12px;border-radius:30px;font-size:13px}.container{max-width:1180px;margin:-25px auto 50px;padding:0 20px;position:relative;z-index:2}.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.9fr);gap:22px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.card-head{padding:23px 25px 17px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfbfe)}.card-head h2{margin:0;font-size:20px;color:#1f2f59}.card-head p{margin:5px 0 0;color:var(--muted);font-size:14px}.card-body{padding:24px}.inputs{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:15px}.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}.help{color:var(--muted);font-size:12px;min-height:39px;margin-bottom:8px}.amount-wrap{position:relative}.amount-wrap span{position:absolute;left:13px;top:12px;color:#667085;font-weight:700}input{width:100%;border:1px solid #ccd3e1;border-radius:11px;padding:13px 14px;font-size:16px;outline:none;background:#fff} .amount-wrap input{padding-left:37px}input:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(91,67,198,.10)}.primary{width:100%;border:0;border-radius:11px;background:linear-gradient(100deg,var(--purple),var(--purple2));color:white;padding:15px;font-size:16px;font-weight:800;cursor:pointer;margin-top:20px;box-shadow:0 8px 18px rgba(91,67,198,.22)}.info{margin-top:16px;background:#f2f6ff;border:1px solid #dbe5fb;border-radius:12px;padding:13px 15px;font-size:13px;color:#46536b}.error{display:none;margin-top:15px;background:#fff2f0;border:1px solid #ffd0ca;color:#9e3024;padding:12px 14px;border-radius:10px;font-size:14px}.result{margin-top:22px;display:none}.result.show{display:block}.result-title{color:#1d806f;display:flex;align-items:center;gap:9px}.result-table{width:100%;border-collapse:collapse;margin-top:14px}.result-table td{padding:11px 12px;border-bottom:1px solid var(--line);font-size:14px}.result-table td:last-child{text-align:right;font-weight:700}.total-row td{background:#f0fbf8;color:#117463;font-size:17px;font-weight:800}.breakdown{margin-top:17px;overflow-x:auto}.breakdown table{width:100%;border-collapse:collapse;font-size:13px;min-width:650px}.breakdown th{background:#eef0fa;color:#33416a;padding:10px;text-align:left}.breakdown td{padding:9px 10px;border-bottom:1px solid var(--line)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.action{border:0;border-radius:10px;padding:13px;font-weight:800;cursor:pointer;font-size:14px}.print{background:#159a87;color:#fff}.pdf{background:#5b43c6;color:#fff}.excel-card{padding:17px;border:1px solid var(--line);border-radius:13px;margin-bottom:12px;background:#fff}.excel-icon{width:42px;height:42px;border-radius:10px;background:#e9f7ef;color:#18864d;display:grid;place-items:center;font-size:20px;font-weight:900;float:left;margin-right:12px}.excel-card h3{margin:0 0 4px;font-size:15px}.excel-card p{margin:0 0 12px;color:var(--muted);font-size:12px}.download{display:block;text-align:center;text-decoration:none;background:#5b43c6;color:#fff;border-radius:9px;padding:9px;font-size:13px;font-weight:700;clear:both}.link-list{list-style:none;padding:0;margin:0}.link-list li{border-bottom:1px solid var(--line)}.link-list a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;padding:13px 2px;font-size:13px;color:#35415b}.link-icon{color:var(--purple);font-weight:900}.notice{margin-top:22px;padding:17px;border-radius:14px;background:linear-gradient(135deg,#f6f3ff,#fff);border:1px solid #e3ddfb;color:#4c4a61;font-size:13px}.footer{background:#162947;color:#dce4f5;margin-top:60px}.footer-inner{max-width:1180px;margin:auto;padding:35px 20px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px}.footer h3{margin:0 0 8px;color:#fff;font-size:16px}.footer p{margin:0;color:#b9c4d8;font-size:13px}.footer-bottom{border-top:1px solid rgba(255,255,255,.1);text-align:center;padding:13px;color:#aebbd0;font-size:12px}@media(max-width:850px){.grid{grid-template-columns:1fr}.inputs{grid-template-columns:1fr}.help{min-height:auto}.footer-inner{grid-template-columns:1fr}}@media print{body{background:#fff}.topbar,.hero,.sidebar,.actions,.footer{display:none!important}.container{margin:0;padding:0;max-width:none}.grid{display:block}.card{box-shadow:none;border:0}.result{display:block!important}.result-card{margin-top:20px}}
+:root{
+  --navy:#172a4d;
+  --purple:#5b43c6;
+  --purple2:#7663df;
+  --green:#159a87;
+  --bg:#f4f6fb;
+  --text:#172033;
+  --muted:#667085;
+  --line:#e5e9f2;
+  --shadow:0 10px 30px rgba(23,42,77,.08)
+}
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5
+}
+
+a{
+  color:inherit
+}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 80% 20%,rgba(118,99,223,.35),transparent 30%),
+    linear-gradient(125deg,var(--navy),#243e6d 60%,#4d3e98);
+  color:#fff;
+  position:relative;
+  overflow:hidden
+}
+
+.hero-inner{
+  max-width:1180px;
+  margin:auto;
+  padding:48px 20px 52px
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px
+}
+
+/* Hesap makinesi simgesi */
+.brand-icon{
+  width:62px;
+  height:62px;
+  min-width:62px;
+  border:2px solid rgba(255,255,255,.8);
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.08);
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  padding:8px
+}
+
+.calculator-icon{
+  width:100%;
+  height:100%;
+  position:relative;
+  border:2px solid #fff;
+  border-radius:8px;
+  padding:6px;
+}
+
+.calculator-screen{
+  height:12px;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:3px;
+  margin-bottom:5px;
+}
+
+.calculator-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3px
+}
+
+.calculator-buttons span{
+  display:block;
+  height:5px;
+  border-radius:2px;
+  background:#fff;
+  opacity:.9
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(26px,4vw,42px);
+  letter-spacing:-.7px;
+  line-height:1.15
+}
+
+.hero p{
+  max-width:720px;
+  color:#e5e9ff;
+  font-size:17px;
+  margin:16px 0 0
+}
+
+.badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px
+}
+
+.badge{
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:13px
+}
+
+/* MAIN */
+.container{
+  max-width:1180px;
+  margin:-25px auto 50px;
+  padding:0 20px;
+  position:relative;
+  z-index:2
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(300px,.9fr);
+  gap:22px
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden
+}
+
+.card-head{
+  padding:23px 25px 17px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#fbfbfe)
+}
+
+.card-head h2{
+  margin:0;
+  font-size:20px;
+  color:#1f2f59
+}
+
+.card-head p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:14px
+}
+
+.card-body{
+  padding:24px
+}
+
+/* INPUTS */
+.inputs{
+  display:grid;
+  grid-template-columns:1.1fr 1fr 1fr;
+  gap:15px
+}
+
+.field label{
+  display:block;
+  font-weight:800;
+  font-size:15px;
+  margin-bottom:8px;
+  color:#1d2c4c
+}
+
+/* Bilgilendirmeler daha belirgin */
+.help{
+  color:#33476b;
+  background:#f3f6fc;
+  border-left:4px solid var(--purple);
+  border-radius:7px;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.45;
+  min-height:58px;
+  margin-bottom:10px;
+  padding:9px 11px
+}
+
+.amount-wrap{
+  position:relative
+}
+
+.amount-wrap span{
+  position:absolute;
+  left:13px;
+  top:12px;
+  color:#667085;
+  font-weight:700
+}
+
+input{
+  width:100%;
+  border:1px solid #ccd3e1;
+  border-radius:11px;
+  padding:13px 14px;
+  font-size:16px;
+  outline:none;
+  background:#fff
+}
+
+.amount-wrap input{
+  padding-left:37px
+}
+
+input:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 4px rgba(91,67,198,.10)
+}
+
+.primary{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(100deg,var(--purple),var(--purple2));
+  color:white;
+  padding:15px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:20px;
+  box-shadow:0 8px 18px rgba(91,67,198,.22)
+}
+
+.info{
+  margin-top:16px;
+  background:#f2f6ff;
+  border:1px solid #dbe5fb;
+  border-radius:12px;
+  padding:13px 15px;
+  font-size:13px;
+  color:#46536b
+}
+
+.error{
+  display:none;
+  margin-top:15px;
+  background:#fff2f0;
+  border:1px solid #ffd0ca;
+  color:#9e3024;
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:14px
+}
+
+/* RESULT */
+.result{
+  margin-top:22px;
+  display:none
+}
+
+.result.show{
+  display:block
+}
+
+.result-title{
+  color:#1d806f;
+  display:flex;
+  align-items:center;
+  gap:9px
+}
+
+.result-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px
+}
+
+.result-table td{
+  padding:11px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:14px
+}
+
+.result-table td:last-child{
+  text-align:right;
+  font-weight:700
+}
+
+.total-row td{
+  background:#f0fbf8;
+  color:#117463;
+  font-size:17px;
+  font-weight:800
+}
+
+.breakdown{
+  margin-top:17px;
+  overflow-x:auto
+}
+
+.breakdown table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+  min-width:650px
+}
+
+.breakdown th{
+  background:#eef0fa;
+  color:#33416a;
+  padding:10px;
+  text-align:left
+}
+
+.breakdown td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--line)
+}
+
+/* ACTIONS */
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:18px
+}
+
+.action{
+  border:0;
+  border-radius:10px;
+  padding:13px;
+  font-weight:800;
+  cursor:pointer;
+  font-size:14px
+}
+
+.print{
+  background:#159a87;
+  color:#fff
+}
+
+.pdf{
+  background:#5b43c6;
+  color:#fff
+}
+
+/* EXCEL */
+.excel-card{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#fff
+}
+
+.excel-icon{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:#e9f7ef;
+  color:#18864d;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+  font-weight:900;
+  float:left;
+  margin-right:12px
+}
+
+.excel-card h3{
+  margin:0 0 4px;
+  font-size:15px
+}
+
+.excel-card p{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-size:12px
+}
+
+.download{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:#5b43c6;
+  color:#fff;
+  border-radius:9px;
+  padding:9px;
+  font-size:13px;
+  font-weight:700;
+  clear:both
+}
+
+/* BİLGİ NOTU */
+.notice{
+  margin-top:22px;
+  padding:17px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f6f3ff,#fff);
+  border:1px solid #e3ddfb;
+  color:#4c4a61;
+  font-size:13px
+}
+
+/* FOOTER */
+.footer{
+  background:#162947;
+  color:#dce4f5;
+  margin-top:60px
+}
+
+.footer-inner{
+  max-width:1180px;
+  margin:auto;
+  padding:35px 20px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:25px
+}
+
+.footer h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:16px
+}
+
+.footer p{
+  margin:0;
+  color:#b9c4d8;
+  font-size:13px
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  text-align:center;
+  padding:13px;
+  color:#aebbd0;
+  font-size:12px
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .inputs{
+    grid-template-columns:1fr
+  }
+
+  .help{
+    min-height:auto
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero-inner{
+    padding:35px 18px 45px
+  }
+
+  .brand{
+    align-items:flex-start
+  }
+
+  .brand-icon{
+    width:52px;
+    height:52px;
+    min-width:52px
+  }
+
+  .hero h1{
+    font-size:27px
+  }
+
+  .hero p{
+    font-size:15px
+  }
+
+  .container{
+    padding:0 14px
+  }
+
+  .actions{
+    grid-template-columns:1fr
+  }
+
+}
+
+/* PRINT */
+@media print{
+
+  body{
+    background:#fff
+  }
+
+  .hero,
+  .sidebar,
+  .actions,
+  .footer{
+    display:none!important
+  }
+
+  .container{
+    margin:0;
+    padding:0;
+    max-width:none
+  }
+
+  .grid{
+    display:block
+  }
+
+  .card{
+    box-shadow:none;
+    border:0
+  }
+
+  .result{
+    display:block!important
+  }
+
+  .result-card{
+    margin-top:20px
+  }
+
+}
 </style>
 </head>
+
 <body>
-<div class="topbar"><div class="topbar-inner"><span>Bilgilendirme ve hesaplama aracı</span><span>Resmî mevzuat kaynaklarına bağlantılar</span></div></div>
-<header class="hero"><div class="hero-inner"><div class="brand"><div class="brand-icon">⚖</div><div><h1>Kamu Zararı Yasal Faiz Hesaplama</h1><p>Kamu zararı Borç Bildirim Belgesindeki ana para ve tarih bilgilerini girerek yasal faiz tutarını hızlıca hesaplayın.</p></div></div><div class="badges"><span class="badge">✓ Otomatik oran dönemi</span><span class="badge">✓ Ayrıntılı hesap dökümü</span><span class="badge">✓ Yazdır / PDF</span><span class="badge">✓ Ücretsiz kullanım</span></div></div></header>
-<main class="container"><div class="grid"><section>
-<div class="card"><div class="card-head"><h2>Yasal Faiz Hesaplama</h2><p>Yalnızca aşağıdaki üç bilgiyi girmeniz yeterlidir.</p></div><div class="card-body"><div class="inputs">
-<div class="field"><label for="principal">1. Ana Para</label><div class="help">Kamu zararı Borç Bildirim Belgesinde bulunan ana para tutarını giriniz.</div><div class="amount-wrap"><span>₺</span><input id="principal" type="text" inputmode="decimal" placeholder="0,00"></div></div>
-<div class="field"><label for="startDate">2. Faiz Başlangıç Tarihi</label><div class="help">Borç Bildirim Belgesinde bulunan borcun doğuş tarihini giriniz.</div><input id="startDate" type="date"></div>
-<div class="field"><label for="endDate">3. Faiz Bitiş Tarihi</label><div class="help">Ödemenin yapılacağı günü giriniz.</div><input id="endDate" type="date"></div>
-</div><button class="primary" onclick="calculate()">🧮 Hesapla</button><div id="error" class="error"></div><div class="info"><strong>Hesaplama yöntemi:</strong> Ana para × yıllık faiz oranı × gün / 365. Tarih aralığında faiz oranı değişmişse sistem hesabı ilgili dönemlere ayırır.</div></div></div>
-<div id="resultCard" class="card result"><div class="card-head"><h2 class="result-title">✓ Hesaplama Sonucu</h2><p>Girilen bilgilere göre hesaplanan sonuç.</p></div><div class="card-body" id="printArea">
-<table class="result-table"><tr><td>Ana Para</td><td id="rPrincipal">-</td></tr><tr><td>Faiz Başlangıç Tarihi</td><td id="rStart">-</td></tr><tr><td>Faiz Bitiş Tarihi</td><td id="rEnd">-</td></tr><tr><td>Toplam Gün Sayısı</td><td id="rDays">-</td></tr><tr><td>Uygulanan Faiz Dönemleri</td><td id="rPeriods">-</td></tr><tr><td>Hesaplanan Faiz Tutarı</td><td id="rInterest">-</td></tr><tr class="total-row"><td>TOPLAM TUTAR (Ana Para + Faiz)</td><td id="rTotal">-</td></tr></table>
-<div class="breakdown"><h3 style="font-size:15px;color:#33416a">Ayrıntılı Dönem Hesabı</h3><table><thead><tr><th>Dönem</th><th>Başlangıç</th><th>Bitiş</th><th>Gün</th><th>Oran</th><th>Faiz</th></tr></thead><tbody id="breakdownBody"></tbody></table></div>
-<div class="notice"><strong>Bilgilendirme:</strong> Bu araç bilgilendirme ve hesaplama amacıyla hazırlanmıştır. Resmî işlemde kurumunuzun muhasebe birimi ve yürürlükteki mevzuat hükümleri esas alınmalıdır.</div>
-</div><div class="card-body" style="padding-top:0"><div class="actions"><button class="action print" onclick="window.print()">🖨 Yazdır</button><button class="action pdf" onclick="downloadPDF()">📄 PDF Olarak İndir</button></div></div></div>
-</section>
-<aside class="sidebar">
-<div class="card"><div class="card-head"><h2>Excel Hesap Tabloları</h2><p>Kullanıcıların indirebileceği hazır Excel dosyaları.</p></div><div class="card-body">
-<div class="excel-card"><div class="excel-icon">X</div><h3>Kamu Zararı Maaş Hesap Tablosu</h3><p>Kamu zararı maaş hesaplamalarında kullanılmak üzere hazırlanmış Excel dosyası.</p><a class="download" href="kamu-zarari-maas.xlsx" download>⬇ Excel Dosyasını İndir</a></div>
-<div class="excel-card"><div class="excel-icon">X</div><h3>Kamu Zararı Ek Ders Hesap Tablosu</h3><p>Kamu zararı ek ders hesaplamalarında kullanılmak üzere hazırlanmış Excel dosyası.</p><a class="download" href="kamu-zarari-ekders.xlsx" download>⬇ Excel Dosyasını İndir</a></div>
-<div class="info" style="margin-top:14px"><strong>Dosyaları eklemek:</strong> Excel dosyalarını HTML dosyanızla aynı Netlify klasörüne yüklemeniz yeterlidir.</div>
-</div></div>
-<div class="card" style="margin-top:22px"><div class="card-head"><h2>Mevzuat ve Faydalı Bağlantılar</h2><p>Resmî kaynaklara hızlı erişim.</p></div><div class="card-body"><ul class="link-list">
-<li><a href="https://mevzuat.adalet.gov.tr/mevzuat/104794" target="_blank" rel="noopener"><span>3095 Sayılı Kanun – Kanuni Faiz ve Temerrüt Faizi</span><span class="link-icon">›</span></a></li>
-<li><a href="https://www.hmb.gov.tr/5018-sayili-kanun-uyarinca-yapilan-duzenlemeler" target="_blank" rel="noopener"><span>5018 Sayılı Kanun Uyarınca Yapılan Düzenlemeler</span><span class="link-icon">›</span></a></li>
-<li><a href="https://kmyd.hmb.gov.tr/yonetmelikler" target="_blank" rel="noopener"><span>Hazine ve Maliye Bakanlığı – Yönetmelikler</span><span class="link-icon">›</span></a></li>
-<li><a href="https://muhasebat.hmb.gov.tr/yonetmelikler" target="_blank" rel="noopener"><span>Muhasebat Genel Müdürlüğü – Yönetmelikler</span><span class="link-icon">›</span></a></li>
-<li><a href="https://www.hmb.gov.tr/sgb-mevzuat" target="_blank" rel="noopener"><span>Hazine ve Maliye Bakanlığı – Mevzuat</span><span class="link-icon">›</span></a></li>
-<li><a href="https://www.resmigazete.gov.tr/" target="_blank" rel="noopener"><span>Resmî Gazete</span><span class="link-icon">›</span></a></li>
-<li><a href="https://www.mevzuat.gov.tr/" target="_blank" rel="noopener"><span>Mevzuat Bilgi Sistemi</span><span class="link-icon">›</span></a></li>
-</ul></div></div>
-<div class="notice"><strong>⚖ Kamu zararı mevzuatı</strong><br>Kamu zararlarının tahsiline ilişkin usul ve esaslar 5018 sayılı Kanunun 71. maddesi ve ilgili yönetmelik çerçevesinde düzenlenmektedir.</div>
-</aside></div></main>
-<footer class="footer"><div class="footer-inner"><div><h3>⚖ Kamu Zararı Yasal Faiz Hesaplama</h3><p>Hızlı, sade ve kullanımı kolay hesaplama aracı.</p></div><div><h3>Kaynak</h3><p>Yürürlükteki mevzuat ve resmî kurum kaynakları dikkate alınarak hazırlanmıştır.</p></div><div><h3>Bilgilendirme</h3><p>Sonuçlar bilgilendirme amaçlıdır. Resmî işlemlerde ilgili mevzuat ve yetkili birimin hesaplaması esas alınır.</p></div></div><div class="footer-bottom">© <span id="year"></span> Kamu Zararı Yasal Faiz Hesaplama</div></footer>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        <div class="calculator-icon">
+          <div class="calculator-screen"></div>
+          <div class="calculator-buttons">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h1>Kamu Zararı Hesaplama (Maaş - Ek Ders - Yasal Faiz)</h1>
+
+        <p>
+          Kamu zararı iş ve işlemlerini hızlıca gerçekleştirin
+        </p>
+      </div>
+
+    </div>
+
+    <div class="badges">
+      <span class="badge">✓ Otomatik oran dönemi</span>
+      <span class="badge">✓ Ayrıntılı hesap dökümü</span>
+      <span class="badge">✓ Yazdır / PDF</span>
+    </div>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+  <div class="grid">
+
+    <!-- SOL TARAF -->
+    <section>
+
+      <div class="card">
+
+        <div class="card-head">
+          <h2>Yasal Faiz Hesaplama</h2>
+          <p>Yalnızca aşağıdaki üç bilgiyi girmeniz yeterlidir.</p>
+        </div>
+
+        <div class="card-body">
+
+          <div class="inputs">
+
+            <!-- ANA PARA -->
+            <div class="field">
+
+              <label for="principal">
+                1. Ana Para
+              </label>
+
+              <div class="help">
+                Kamu zararı Borç Bildirim Belgesinde bulunan
+                <strong>ana para tutarını</strong> giriniz.
+              </div>
+
+              <div class="amount-wrap">
+                <span>₺</span>
+                <input
+                  id="principal"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="0,00"
+                >
+              </div>
+
+            </div>
+
+
+            <!-- BAŞLANGIÇ TARİHİ -->
+            <div class="field">
+
+              <label for="startDate">
+                2. Faiz Başlangıç Tarihi
+              </label>
+
+              <div class="help">
+                Borç Bildirim Belgesinde bulunan
+                <strong>borcun doğuş tarihini</strong> giriniz.
+              </div>
+
+              <input
+                id="startDate"
+                type="date"
+              >
+
+            </div>
+
+
+            <!-- BİTİŞ TARİHİ -->
+            <div class="field">
+
+              <label for="endDate">
+                3. Faiz Bitiş Tarihi
+              </label>
+
+              <div class="help">
+                Yasal faizin hesaplanacağı
+                <strong>ödeme tarihini</strong> giriniz.
+              </div>
+
+              <input
+                id="endDate"
+                type="date"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="calculate()"
+          >
+            🧮 Hesapla
+          </button>
+
+
+          <div
+            id="error"
+            class="error"
+          ></div>
+
+
+          <div class="info">
+            <strong>Hesaplama yöntemi:</strong>
+            Ana para × yıllık faiz oranı × gün / 365.
+            Tarih aralığında faiz oranı değişmişse sistem hesabı
+            ilgili dönemlere ayırır.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SONUÇ -->
+      <div
+        id="resultCard"
+        class="card result"
+      >
+
+        <div class="card-head">
+
+          <h2 class="result-title">
+            ✓ Hesaplama Sonucu
+          </h2>
+
+          <p>
+            Girilen bilgilere göre hesaplanan sonuç.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card-body"
+          id="printArea"
+        >
+
+          <table class="result-table">
+
+            <tr>
+              <td>Ana Para</td>
+              <td id="rPrincipal">-</td>
+            </tr>
+
+            <tr>
+              <td>Faiz Başlangıç Tarihi</td>
+              <td id="rStart">-</td>
+            </tr>
+
+            <tr>
+              <td>Faiz Bitiş Tarihi</td>
+              <td id="rEnd">-</td>
+            </tr>
+
+            <tr>
+              <td>Toplam Gün Sayısı</td>
+              <td id="rDays">-</td>
+            </tr>
+
+            <tr>
+              <td>Uygulanan Faiz Dönemleri</td>
+              <td id="rPeriods">-</td>
+            </tr>
+
+            <tr>
+              <td>Hesaplanan Faiz Tutarı</td>
+              <td id="rInterest">-</td>
+            </tr>
+
+            <tr class="total-row">
+              <td>
+                TOPLAM TUTAR (Ana Para + Faiz)
+              </td>
+              <td id="rTotal">-</td>
+            </tr>
+
+          </table>
+
+
+          <div class="breakdown">
+
+            <h3 style="font-size:15px;color:#33416a">
+              Ayrıntılı Dönem Hesabı
+            </h3>
+
+            <table>
+
+              <thead>
+                <tr>
+                  <th>Dönem</th>
+                  <th>Başlangıç</th>
+                  <th>Bitiş</th>
+                  <th>Gün</th>
+                  <th>Oran</th>
+                  <th>Faiz</th>
+                </tr>
+              </thead>
+
+              <tbody id="breakdownBody"></tbody>
+
+            </table>
+
+          </div>
+
+
+          <div class="notice">
+
+            <strong>Bilgilendirme:</strong>
+            Bu araç bilgilendirme ve hesaplama amacıyla hazırlanmıştır.
+            Resmî işlemde kurumunuzun muhasebe birimi ve yürürlükteki
+            mevzuat hükümleri esas alınmalıdır.
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="card-body"
+          style="padding-top:0"
+        >
+
+          <div class="actions">
+
+            <button
+              class="action print"
+              onclick="window.print()"
+            >
+              🖨 Yazdır
+            </button>
+
+            <button
+              class="action pdf"
+              onclick="downloadPDF()"
+            >
+              📄 PDF Olarak İndir
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SAĞ TARAF -->
+    <aside class="sidebar">
+
+      <!-- EXCEL -->
+      <div class="card">
+
+        <div class="card-head">
+          <h2>Excel Hesap Tabloları</h2>
+        </div>
+
+        <div class="card-body">
+
+          <div class="excel-card">
+
+            <div class="excel-icon">
+              X
+            </div>
+
+            <h3>
+              Kamu Zararı Maaş Hesap Tablosu
+            </h3>
+
+            <p>
+              Kamu zararı maaş hesaplamalarında kullanılmak üzere
+              hazırlanmış Excel dosyası.
+            </p>
+
+            <a
+              class="download"
+              href="kamu-zarari-maas.xlsx"
+              download
+            >
+              ⬇ Excel Dosyasını İndir
+            </a>
+
+          </div>
+
+
+          <div
+            class="excel-card"
+            style="margin-top:12px"
+          >
+
+            <div class="excel-icon">
+              X
+            </div>
+
+            <h3>
+              Kamu Zararı Ek Ders Hesap Tablosu
+            </h3>
+
+            <p>
+              Kamu zararı ek ders hesaplamalarında kullanılmak üzere
+              hazırlanmış Excel dosyası.
+            </p>
+
+            <a
+              class="download"
+              href="kamu-zarari-ekders.xlsx"
+              download
+            >
+              ⬇ Excel Dosyasını İndir
+            </a>
+
+          </div>
+
+
+          <div
+            class="info"
+            style="margin-top:14px"
+          >
+            <strong>Önemli:</strong>
+            Excel dosyalarında istenilen bilgilerin eksiksiz
+            doldurulması gerekmektedir.
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h3>
+        ⚖ Kamu Zararı Hesaplama
+      </h3>
+
+      <p>
+        Kamu zararı maaş, ek ders ve yasal faiz işlemleri
+        için hızlı, sade ve kullanımı kolay hesaplama araçları.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Hesaplama
+      </h3>
+
+      <p>
+        Maaş • Ek Ders • Yasal Faiz
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Bilgilendirme
+      </h3>
+
+      <p>
+        Sonuçlar bilgilendirme amaçlıdır.
+        Resmî işlemlerde ilgili mevzuat ve yetkili birimin
+        hesaplaması esas alınır.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    © <span id="year"></span>
+    Kamu Zararı Hesaplama
+  </div>
+
+</footer>
+
+
 <script>
-const RATE_PERIODS=[{start:"1984-12-19",end:"1997-12-31",rate:30},{start:"1998-01-01",end:"1999-12-31",rate:50},{start:"2000-01-01",end:"2002-06-30",rate:60},{start:"2002-07-01",end:"2003-06-30",rate:55},{start:"2003-07-01",end:"2003-12-31",rate:50},{start:"2004-01-01",end:"2004-06-30",rate:43},{start:"2004-07-01",end:"2005-04-30",rate:38},{start:"2005-05-01",end:"2005-12-31",rate:12},{start:"2006-01-01",end:"2024-05-31",rate:9},{start:"2024-06-01",end:"2026-07-30",rate:24},{start:"2026-07-31",end:"2026-12-31",rate:31}];
-const $=id=>document.getElementById(id);
-function parseMoney(v){if(!v)return NaN;let s=String(v).trim().replace(/\s/g,'').replace(/₺/g,'');if(s.includes('.')&&s.includes(','))s=s.replace(/\./g,'').replace(',','.');else if(s.includes(','))s=s.replace(',','.');return Number(s)}
-function formatMoney(n){return new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',minimumFractionDigits:2,maximumFractionDigits:2}).format(n)}
-function parseDateLocal(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)}
-function isoDate(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
-function formatDate(d){return new Intl.DateTimeFormat('tr-TR').format(d)}
-function daysBetween(a,b){return Math.round((b-a)/86400000)}
-function getRate(d){const x=isoDate(d);const p=RATE_PERIODS.find(p=>x>=p.start&&x<=p.end);return p||null}
-function showError(m){$('error').textContent=m;$('error').style.display='block'}
-function calculate(){
- const principal=parseMoney($('principal').value),start=$('startDate').value,end=$('endDate').value;$('error').style.display='none';
- if(!Number.isFinite(principal)||principal<=0)return showError('Lütfen geçerli bir ana para tutarı giriniz.');
- if(!start||!end)return showError('Lütfen faiz başlangıç ve bitiş tarihlerini giriniz.');
- const s=parseDateLocal(start),e=parseDateLocal(end);if(e<=s)return showError('Faiz bitiş tarihi, başlangıç tarihinden sonra olmalıdır.');
- let cursor=new Date(s),total=0,rows=[],guard=0;
- while(cursor<e&&guard++<1000){const p=getRate(cursor);if(!p)return showError('Seçilen tarih aralığında tanımlı faiz oranı bulunamadı.');let pe=parseDateLocal(p.end);pe.setDate(pe.getDate()+1);const segmentEnd=pe<e?pe:e;const days=daysBetween(cursor,segmentEnd);if(days>0){const interest=principal*(p.rate/100)*days/365;total+=interest;rows.push({start:new Date(cursor),end:new Date(segmentEnd),days,rate:p.rate,interest})}cursor=segmentEnd}
- const totalDays=daysBetween(s,e);$('rPrincipal').textContent=formatMoney(principal);$('rStart').textContent=formatDate(s);$('rEnd').textContent=formatDate(e);$('rDays').textContent=totalDays.toLocaleString('tr-TR');$('rPeriods').textContent=[...new Set(rows.map(r=>'%'+r.rate))].join(' / ');$('rInterest').textContent=formatMoney(total);$('rTotal').textContent=formatMoney(principal+total);
- $('breakdownBody').innerHTML=rows.map(r=>`<tr><td>Kanuni faiz</td><td>${formatDate(r.start)}</td><td>${formatDate(r.end)}</td><td>${r.days.toLocaleString('tr-TR')}</td><td>%${r.rate}</td><td>${formatMoney(r.interest)}</td></tr>`).join('');$('resultCard').classList.add('show');$('resultCard').scrollIntoView({behavior:'smooth',block:'start'});
+
+/* FAİZ ORANLARI */
+
+const RATE_PERIODS = [
+
+  {
+    start:"1984-12-19",
+    end:"1997-12-31",
+    rate:30
+  },
+
+  {
+    start:"1998-01-01",
+    end:"1999-12-31",
+    rate:50
+  },
+
+  {
+    start:"2000-01-01",
+    end:"2002-06-30",
+    rate:60
+  },
+
+  {
+    start:"2002-07-01",
+    end:"2003-06-30",
+    rate:55
+  },
+
+  {
+    start:"2003-07-01",
+    end:"2003-12-31",
+    rate:50
+  },
+
+  {
+    start:"2004-01-01",
+    end:"2004-06-30",
+    rate:43
+  },
+
+  {
+    start:"2004-07-01",
+    end:"2005-04-30",
+    rate:38
+  },
+
+  {
+    start:"2005-05-01",
+    end:"2005-12-31",
+    rate:12
+  },
+
+  {
+    start:"2006-01-01",
+    end:"2024-05-31",
+    rate:9
+  },
+
+  {
+    start:"2024-06-01",
+    end:"2026-07-30",
+    rate:24
+  },
+
+  {
+    start:"2026-07-31",
+    end:"2026-12-31",
+    rate:31
+  }
+
+];
+
+
+const $ = id =>
+  document.getElementById(id);
+
+
+/* PARA */
+
+function parseMoney(v){
+
+  if(!v)
+    return NaN;
+
+  let s = String(v)
+    .trim()
+    .replace(/\s/g,'')
+    .replace(/₺/g,'');
+
+  if(
+    s.includes('.') &&
+    s.includes(',')
+  ){
+
+    s = s
+      .replace(/\./g,'')
+      .replace(',','.');
+
+  }
+
+  else if(s.includes(',')){
+
+    s = s.replace(',','.');
+
+  }
+
+  return Number(s);
+
 }
-async function downloadPDF(){if(!$('resultCard').classList.contains('show'))return showError('Önce hesaplama yapınız.');const {jsPDF}=window.jspdf;const card=$('printArea');const canvas=await html2canvas(card,{scale:2,backgroundColor:'#fff',useCORS:true});const pdf=new jsPDF('p','mm','a4'),mw=190,mh=277,ph=canvas.height*mw/canvas.width;let remaining=ph,sourceY=0,pxPerMm=canvas.width/mw;while(remaining>0){const slice=Math.min(remaining,mh),pc=document.createElement('canvas');pc.width=canvas.width;pc.height=Math.floor(slice*pxPerMm);pc.getContext('2d').drawImage(canvas,0,Math.floor(sourceY),canvas.width,pc.height,0,0,pc.width,pc.height);pdf.addImage(pc.toDataURL('image/png'),'PNG',10,10,mw,slice);remaining-=slice;sourceY+=pc.height;if(remaining>0)pdf.addPage()}pdf.save('kamu-zarari-yasal-faiz.pdf')}
-$('year').textContent=new Date().getFullYear();document.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')calculate()}));
-</script></body></html>
+
+
+/* PARA FORMAT */
+
+function formatMoney(n){
+
+  return new Intl.NumberFormat(
+    'tr-TR',
+    {
+      style:'currency',
+      currency:'TRY',
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }
+  ).format(n);
+
+}
+
+
+/* TARİH */
+
+function parseDateLocal(s){
+
+  const [y,m,d] =
+    s.split('-').map(Number);
+
+  return new Date(
+    y,
+    m-1,
+    d
+  );
+
+}
+
+
+function isoDate(d){
+
+  return `${d.getFullYear()}-${String(
+    d.getMonth()+1
+  ).padStart(2,'0')}-${String(
+    d.getDate()
+  ).padStart(2,'0')}`;
+
+}
+
+
+function formatDate(d){
+
+  return new Intl.DateTimeFormat(
+    'tr-TR'
+  ).format(d);
+
+}
+
+
+function daysBetween(a,b){
+
+  return Math.round(
+    (b-a)/86400000
+  );
+
+}
+
+
+/* FAİZ ORANI */
+
+function getRate(d){
+
+  const x = isoDate(d);
+
+  const p =
+    RATE_PERIODS.find(
+      p =>
+        x >= p.start &&
+        x <= p.end
+    );
+
+  return p || null;
+
+}
+
+
+/* HATA */
+
+function showError(m){
+
+  $('error').textContent = m;
+  $('error').style.display = 'block';
+
+}
+
+
+/* HESAPLAMA */
+
+function calculate(){
+
+  const principal =
+    parseMoney(
+      $('principal').value
+    );
+
+  const start =
+    $('startDate').value;
+
+  const end =
+    $('endDate').value;
+
+
+  $('error').style.display =
+    'none';
+
+
+  if(
+    !Number.isFinite(principal) ||
+    principal <= 0
+  ){
+
+    return showError(
+      'Lütfen geçerli bir ana para tutarı giriniz.'
+    );
+
+  }
+
+
+  if(!start || !end){
+
+    return showError(
+      'Lütfen faiz başlangıç ve bitiş tarihlerini giriniz.'
+    );
+
+  }
+
+
+  const s =
+    parseDateLocal(start);
+
+  const e =
+    parseDateLocal(end);
+
+
+  if(e <= s){
+
+    return showError(
+      'Faiz bitiş tarihi, başlangıç tarihinden sonra olmalıdır.'
+    );
+
+  }
+
+
+  let cursor =
+    new Date(s);
+
+  let total = 0;
+
+  let rows = [];
+
+  let guard = 0;
+
+
+  while(
+    cursor < e &&
+    guard++ < 1000
+  ){
+
+    const p =
+      getRate(cursor);
+
+
+    if(!p){
+
+      return showError(
+        'Seçilen tarih aralığında tanımlı faiz oranı bulunamadı.'
+      );
+
+    }
+
+
+    let pe =
+      parseDateLocal(p.end);
+
+    pe.setDate(
+      pe.getDate()+1
+    );
+
+
+    const segmentEnd =
+      pe < e
+        ? pe
+        : e;
+
+
+    const days =
+      daysBetween(
+        cursor,
+        segmentEnd
+      );
+
+
+    if(days > 0){
+
+      const interest =
+        principal *
+        (p.rate/100) *
+        days /
+        365;
+
+
+      total += interest;
+
+
+      rows.push({
+
+        start:new Date(cursor),
+
+        end:new Date(segmentEnd),
+
+        days,
+
+        rate:p.rate,
+
+        interest
+
+      });
+
+    }
+
+
+    cursor =
+      segmentEnd;
+
+  }
+
+
+  const totalDays =
+    daysBetween(s,e);
+
+
+  $('rPrincipal').textContent =
+    formatMoney(principal);
+
+
+  $('rStart').textContent =
+    formatDate(s);
+
+
+  $('rEnd').textContent =
+    formatDate(e);
+
+
+  $('rDays').textContent =
+    totalDays.toLocaleString('tr-TR');
+
+
+  $('rPeriods').textContent =
+    [
+      ...new Set(
+        rows.map(
+          r => '%'+r.rate
+        )
+      )
+    ].join(' / ');
+
+
+  $('rInterest').textContent =
+    formatMoney(total);
+
+
+  $('rTotal').textContent =
+    formatMoney(
+      principal + total
+    );
+
+
+  $('breakdownBody').innerHTML =
+    rows.map(
+      r => `
+
+        <tr>
+
+          <td>Kanuni faiz</td>
+
+          <td>
+            ${formatDate(r.start)}
+          </td>
+
+          <td>
+            ${formatDate(r.end)}
+          </td>
+
+          <td>
+            ${r.days.toLocaleString('tr-TR')}
+          </td>
+
+          <td>
+            %${r.rate}
+          </td>
+
+          <td>
+            ${formatMoney(r.interest)}
+          </td>
+
+        </tr>
+
+      `
+    ).join('');
+
+
+  $('resultCard')
+    .classList
+    .add('show');
+
+
+  $('resultCard')
+    .scrollIntoView({
+      behavior:'smooth',
+      block:'start'
+    });
+
+}
+
+
+/* PDF */
+
+async function downloadPDF(){
+
+  if(
+    !$('resultCard')
+      .classList
+      .contains('show')
+  ){
+
+    return showError(
+      'Önce hesaplama yapınız.'
+    );
+
+  }
+
+
+  const {jsPDF} =
+    window.jspdf;
+
+
+  const card =
+    $('printArea');
+
+
+  const canvas =
+    await html2canvas(
+      card,
+      {
+        scale:2,
+        backgroundColor:'#fff',
+        useCORS:true
+      }
+    );
+
+
+  const pdf =
+    new jsPDF(
+      'p',
+      'mm',
+      'a4'
+    );
+
+
+  const mw = 190;
+  const mh = 277;
+
+  const ph =
+    canvas.height *
+    mw /
+    canvas.width;
+
+
+  let remaining = ph;
+
+  let sourceY = 0;
+
+  const pxPerMm =
+    canvas.width /
+    mw;
+
+
+  while(remaining > 0){
+
+    const slice =
+      Math.min(
+        remaining,
+        mh
+      );
+
+
+    const pc =
+      document.createElement(
+        'canvas'
+      );
+
+
+    pc.width =
+      canvas.width;
+
+
+    pc.height =
+      Math.floor(
+        slice *
+        pxPerMm
+      );
+
+
+    pc
+      .getContext('2d')
+      .drawImage(
+        canvas,
+        0,
+        Math.floor(sourceY),
+        canvas.width,
+        pc.height,
+        0,
+        0,
+        pc.width,
+        pc.height
+      );
+
+
+    pdf.addImage(
+      pc.toDataURL('image/png'),
+      'PNG',
+      10,
+      10,
+      mw,
+      slice
+    );
+
+
+    remaining -= slice;
+
+    sourceY += pc.height;
+
+
+    if(remaining > 0){
+
+      pdf.addPage();
+
+    }
+
+  }
+
+
+  pdf.save(
+    'kamu-zarari-yasal-faiz.pdf'
+  );
+
+}
+
+
+/* YIL */
+
+$('year').textContent =
+  new Date().getFullYear();
+
+
+/* ENTER İLE HESAPLAMA */
+
+document
+  .querySelectorAll('input')
+  .forEach(
+    i => {
+
+      i.addEventListener(
+        'keydown',
+        e => {
+
+          if(
+            e.key === 'Enter'
+          ){
+
+            calculate();
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
