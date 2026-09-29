@@ -1804,14 +1804,12 @@ a{
                 <strong>E-Alacak dosyasının kapatılması ve
                 tahsilat işleminin tamamlanması</strong>
                 açısından gereklidir.
-
+ <strong>Bilgi ve Destek:</strong> Mesut YALVAÇ&nbsp;&nbsp; 0554 926 11 78
               </p>
 
 
             </div>
-<div class="contact-info">
-  <strong>Bilgi ve Destek:</strong> Mesut YALVAÇ&nbsp;&nbsp; 0554 926 11 78
-</div>
+
           </div>
 
 
@@ -2584,189 +2582,346 @@ function calculate(){
    PDF
 ========================================================= */
 
-async function downloadPDF(){
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
 
-  if(
-    !$('resultCard')
-      .classList
-      .contains('show')
-  ){
+    // PDF'ye yalnızca hesap tablosu alınacak alanı oluştur
+    const pdfContent = document.createElement("div");
 
-    return showError(
-      'Önce hesaplama yapınız.'
-    );
+    pdfContent.style.width = "794px";
+    pdfContent.style.background = "#ffffff";
+    pdfContent.style.padding = "35px";
+    pdfContent.style.boxSizing = "border-box";
+    pdfContent.style.fontFamily = "Arial, sans-serif";
+    pdfContent.style.color = "#1f2937";
 
-  }
+    // Başlık
+    const title = document.createElement("div");
+    title.innerHTML = `
+        <div style="
+            text-align:center;
+            font-size:24px;
+            font-weight:800;
+            color:#4c1d95;
+            margin-bottom:6px;
+        ">
+            Kamu Zararı Yasal Faiz Hesap Tablosu
+        </div>
 
+        <div style="
+            text-align:center;
+            font-size:13px;
+            color:#6b7280;
+            margin-bottom:25px;
+        ">
+            Yunusemre İlçe Milli Eğitim Müdürlüğü
+        </div>
+    `;
 
-  const {jsPDF} =
-    window.jspdf;
+    pdfContent.appendChild(title);
 
+    // Hesap bilgileri
+    const info = document.createElement("div");
+    info.innerHTML = `
+        <table style="
+            width:100%;
+            border-collapse:collapse;
+            margin-bottom:18px;
+            font-size:14px;
+        ">
+            <tr>
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                    font-weight:700;
+                    background:#f3f4f6;
+                    width:35%;
+                ">Ana Para</td>
 
-  const card =
-    $('printArea');
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                    text-align:right;
+                ">
+                    ${document.getElementById("resultPrincipal").textContent}
+                </td>
+            </tr>
 
+            <tr>
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                    font-weight:700;
+                    background:#f3f4f6;
+                ">Faiz Başlangıç Tarihi</td>
 
-  const canvas =
-    await html2canvas(
-      card,
-      {
-        scale:2,
-        backgroundColor:'#fff',
-        useCORS:true
-      }
-    );
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                ">
+                    ${document.getElementById("resultStart").textContent}
+                </td>
+            </tr>
 
+            <tr>
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                    font-weight:700;
+                    background:#f3f4f6;
+                ">Faiz Bitiş Tarihi</td>
 
-  const pdf =
-    new jsPDF(
-      'p',
-      'mm',
-      'a4'
-    );
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                ">
+                    ${document.getElementById("resultEnd").textContent}
+                </td>
+            </tr>
 
+            <tr>
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                    font-weight:700;
+                    background:#f3f4f6;
+                ">Toplam Gün</td>
 
-  const pageWidth =
-    190;
+                <td style="
+                    border:1px solid #d1d5db;
+                    padding:10px;
+                ">
+                    ${document.getElementById("resultDays").textContent}
+                </td>
+            </tr>
+        </table>
+    `;
 
-  const pageHeight =
-    277;
+    pdfContent.appendChild(info);
 
+    // Faiz dökümü başlığı
+    const breakdownTitle = document.createElement("div");
+    breakdownTitle.innerHTML = `
+        <div style="
+            font-size:17px;
+            font-weight:800;
+            color:#4c1d95;
+            margin:18px 0 10px;
+            border-bottom:2px solid #7c3aed;
+            padding-bottom:7px;
+        ">
+            Faiz Hesaplama Dökümü
+        </div>
+    `;
 
-  const imageHeight =
-    canvas.height *
-    pageWidth /
-    canvas.width;
+    pdfContent.appendChild(breakdownTitle);
 
+    // Mevcut faiz tablosunu kopyala
+    const originalTable = document.querySelector("#breakdownTable");
 
-  const pixelsPerMm =
-    canvas.width /
-    pageWidth;
+    if (originalTable) {
+        const tableClone = originalTable.cloneNode(true);
 
+        tableClone.style.width = "100%";
+        tableClone.style.borderCollapse = "collapse";
+        tableClone.style.fontSize = "12px";
 
-  let remaining =
-    imageHeight;
+        tableClone.querySelectorAll("th").forEach(th => {
+            th.style.background = "#4c1d95";
+            th.style.color = "#ffffff";
+            th.style.padding = "9px";
+            th.style.border = "1px solid #d1d5db";
+        });
 
+        tableClone.querySelectorAll("td").forEach(td => {
+            td.style.padding = "8px";
+            td.style.border = "1px solid #d1d5db";
+        });
 
-  let sourceY = 0;
-
-  let pageIndex = 0;
-
-
-  while(
-    remaining > 0.1
-  ){
-
-    if(pageIndex > 0){
-
-      pdf.addPage();
-
+        pdfContent.appendChild(tableClone);
     }
 
+    // Sonuçlar
+    const interest = document.getElementById("resultInterest").textContent;
+    const total = document.getElementById("resultTotal").textContent;
 
-    const sliceHeight =
-      Math.min(
-        remaining,
-        pageHeight
-      );
+    const totals = document.createElement("div");
 
+    totals.innerHTML = `
+        <div style="
+            margin-top:25px;
+            border:2px solid #4c1d95;
+            border-radius:12px;
+            overflow:hidden;
+        ">
 
-    const sourceHeight =
-      Math.min(
-        canvas.height - sourceY,
-        Math.floor(
-          sliceHeight *
-          pixelsPerMm
-        )
-      );
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                padding:13px 16px;
+                background:#f5f3ff;
+                border-bottom:1px solid #ddd6fe;
+                font-size:15px;
+            ">
+                <span style="font-weight:700;">
+                    Hesaplanan Faiz
+                </span>
 
+                <strong style="font-size:17px;">
+                    ${interest}
+                </strong>
+            </div>
 
-    if(sourceHeight <= 0)
-      break;
+            <div style="
+                padding:20px 16px;
+                background:#4c1d95;
+                color:#ffffff;
+                text-align:center;
+            ">
+                <div style="
+                    font-size:14px;
+                    font-weight:700;
+                    letter-spacing:.5px;
+                    margin-bottom:7px;
+                ">
+                    YATIRILMASI GEREKEN TOPLAM TUTAR
+                </div>
 
+                <div style="
+                    font-size:28px;
+                    font-weight:900;
+                    letter-spacing:.5px;
+                ">
+                    ${total}
+                </div>
 
-    const pageCanvas =
-      document.createElement(
-        'canvas'
-      );
+                <div style="
+                    font-size:11px;
+                    margin-top:7px;
+                    opacity:.9;
+                ">
+                    Ana Para + Faiz
+                </div>
+            </div>
 
+        </div>
 
-    pageCanvas.width =
-      canvas.width;
+        <div style="
+            margin-top:18px;
+            text-align:center;
+            font-size:10px;
+            color:#6b7280;
+        ">
+            Bu belge hesaplama sonucu olarak düzenlenmiştir.
+        </div>
+    `;
 
+    pdfContent.appendChild(totals);
 
-    pageCanvas.height =
-      sourceHeight;
+    // Ekrana geçici olarak ekle
+    pdfContent.style.position = "absolute";
+    pdfContent.style.left = "-100000px";
+    pdfContent.style.top = "0";
 
+    document.body.appendChild(pdfContent);
 
-    const ctx =
-      pageCanvas.getContext(
-        '2d'
-      );
+    try {
+        const canvas = await html2canvas(pdfContent, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: "#ffffff"
+        });
 
+        const pdf = new jsPDF("p", "mm", "a4");
 
-    ctx.fillStyle =
-      '#ffffff';
+        const pageWidth = 210;
+        const pageHeight = 297;
 
+        const margin = 10;
 
-    ctx.fillRect(
-      0,
-      0,
-      pageCanvas.width,
-      pageCanvas.height
-    );
+        const usableWidth = pageWidth - (margin * 2);
+        const usableHeight = pageHeight - (margin * 2);
 
+        const canvasPageHeight =
+            Math.floor(canvas.width * usableHeight / usableWidth);
 
-    ctx.drawImage(
-      canvas,
-      0,
-      Math.floor(sourceY),
-      canvas.width,
-      sourceHeight,
-      0,
-      0,
-      canvas.width,
-      sourceHeight
-    );
+        let y = 0;
+        let pageNumber = 0;
 
+        while (y < canvas.height) {
 
-    const actualHeight =
-      sourceHeight /
-      pixelsPerMm;
+            if (pageNumber > 0) {
+                pdf.addPage();
+            }
 
+            const remainingHeight = canvas.height - y;
+            const sliceHeight = Math.min(
+                canvasPageHeight,
+                remainingHeight
+            );
 
-    pdf.addImage(
-      pageCanvas.toDataURL(
-        'image/png'
-      ),
-      'PNG',
-      10,
-      10,
-      pageWidth,
-      actualHeight
-    );
+            const pageCanvas = document.createElement("canvas");
 
+            pageCanvas.width = canvas.width;
+            pageCanvas.height = sliceHeight;
 
-    sourceY +=
-      sourceHeight;
+            const ctx = pageCanvas.getContext("2d");
 
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(
+                0,
+                0,
+                pageCanvas.width,
+                pageCanvas.height
+            );
 
-    remaining -=
-      actualHeight;
+            ctx.drawImage(
+                canvas,
+                0,
+                y,
+                canvas.width,
+                sliceHeight,
+                0,
+                0,
+                canvas.width,
+                sliceHeight
+            );
 
+            const sliceHeightMm =
+                sliceHeight * usableWidth / canvas.width;
 
-    pageIndex++;
+            const imageData =
+                pageCanvas.toDataURL("image/jpeg", 0.95);
 
-  }
+            pdf.addImage(
+                imageData,
+                "JPEG",
+                margin,
+                margin,
+                usableWidth,
+                sliceHeightMm
+            );
 
+            y += sliceHeight;
+            pageNumber++;
+        }
 
-  pdf.save(
-    'kamu-zarari-yasal-faiz.pdf'
-  );
+        pdf.save("Kamu-Zarari-Yasal-Faiz-Hesap-Tablosu.pdf");
 
+    } catch (error) {
+
+        console.error("PDF oluşturulurken hata oluştu:", error);
+
+        alert(
+            "PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyiniz."
+        );
+
+    } finally {
+
+        document.body.removeChild(pdfContent);
+    }
 }
-
-
 
 /* =========================================================
    YIL
