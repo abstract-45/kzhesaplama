@@ -426,6 +426,68 @@ a{
     rgba(91,67,198,.10);
 }
 
+   /* Hesaplama tablosunu genişlet ve ferahlat */
+.calculator-card {
+    padding: 30px !important;
+}
+
+.calculator-card .inputs {
+    gap: 24px !important;
+}
+
+.calculator-card .field {
+    min-width: 0;
+}
+
+.calculator-card .field label {
+    margin-bottom: 9px !important;
+    font-size: 14px !important;
+}
+
+.calculator-card .field input,
+.calculator-card .amount-wrap input {
+    height: 54px !important;
+    min-height: 54px !important;
+    padding: 14px 16px !important;
+    font-size: 16px !important;
+}
+
+.calculator-card .help {
+    margin-top: 10px !important;
+    padding: 12px 14px !important;
+    min-height: 76px !important;
+    line-height: 1.5 !important;
+    font-size: 13px !important;
+}
+
+/* Hesapla butonu */
+.calculator-card .calculate-btn {
+    margin-top: 24px !important;
+    min-height: 54px !important;
+    padding: 14px 24px !important;
+    font-size: 16px !important;
+}
+
+/* Sonuç bölümü */
+#result {
+    margin-top: 28px !important;
+}
+
+#result .result-card,
+.result-card {
+    padding: 28px !important;
+}
+
+/* Mobilde taşma olmasın */
+@media (max-width: 800px) {
+    .calculator-card {
+        padding: 20px !important;
+    }
+
+    .calculator-card .inputs {
+        gap: 18px !important;
+    }
+}
 
 /* =========================================================
    BUTON
@@ -1804,7 +1866,6 @@ a{
                 <strong>E-Alacak dosyasının kapatılması ve
                 tahsilat işleminin tamamlanması</strong>
                 açısından gereklidir.
- <strong>Bilgi ve Destek:</strong> Mesut YALVAÇ&nbsp;&nbsp; 0554 926 11 78
               </p>
 
 
