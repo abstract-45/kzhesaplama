@@ -1074,12 +1074,68 @@ footer {
     }
 }
 
+
+/* =========================
+   YENİ ANA SAYFA / NAVİGASYON
+========================= */
+.site-nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 4px 8px}
+.brand{display:flex;align-items:center;gap:10px;color:#21133f;text-decoration:none;font-weight:850;font-size:17px}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#4c1d95,#8b5cf6);display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:0 7px 18px #4c1d952b}
+.nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nav-links a{padding:9px 13px;border-radius:10px;color:#4b5563;text-decoration:none;font-size:13px;font-weight:700}
+.nav-links a:hover{background:#ede9fe;color:#4c1d95}
+.home-intro{margin:22px 0 24px;padding:30px 32px;border-radius:22px;background:linear-gradient(120deg,#17132d 0%,#30205a 58%,#4c1d95 100%);color:#fff;position:relative;overflow:hidden;box-shadow:0 18px 38px #27134b24}
+.home-intro:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff20;border-radius:50%;right:-55px;top:-115px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff06}
+.home-kicker{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid #ffffff30;border-radius:99px;background:#ffffff12;color:#e9ddff;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.home-intro h2{max-width:720px;margin:14px 0 10px;font-size:clamp(25px,3vw,36px);line-height:1.15;letter-spacing:-.7px}
+.home-intro p{max-width:690px;margin:0;color:#e5def4;font-size:15px;line-height:1.7}
+.home-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:800;transition:.18s}
+.home-btn.primary{background:#fff;color:#3b1b70}
+.home-btn.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff0d}
+.home-btn:hover{transform:translateY(-2px)}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 14px}
+.section-heading h2{margin:0;color:#19152b;font-size:21px}
+.section-heading p{margin:4px 0 0;color:#6b7280;font-size:13px}
+.module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.module-card{position:relative;min-height:190px;padding:20px;border:1px solid #e5e7eb;border-radius:17px;background:#fff;box-shadow:0 7px 20px #1720330a;display:flex;flex-direction:column;align-items:flex-start;transition:transform .18s,box-shadow .18s,border-color .18s}
+.module-card.active:hover{transform:translateY(-3px);border-color:#c4b5fd;box-shadow:0 13px 26px #4c1d9515}
+.module-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#f1edff;color:#5b21b6;font-size:22px;margin-bottom:14px}
+.module-card h3{margin:0 0 6px;color:#211a35;font-size:16px}
+.module-card p{margin:0 0 15px;color:#6b7280;font-size:12px;line-height:1.55}
+.module-link{margin-top:auto;color:#5b21b6;text-decoration:none;font-size:12px;font-weight:850}
+.module-card.soon{background:#fafafa;box-shadow:none}
+.module-card.soon .module-icon{background:#f0f1f5;color:#8b90a0}
+.soon-label{margin-top:auto;padding:5px 9px;border-radius:99px;background:#f1f2f6;color:#777d8b;font-size:10px;font-weight:800}
+.home-note{display:flex;align-items:flex-start;gap:12px;margin:18px 0 4px;padding:15px 17px;border:1px solid #dbeafe;border-radius:14px;background:#f5f9ff;color:#42536b;font-size:12px;line-height:1.6}
+.home-note strong{color:#234574}
+.home-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 26px}
+.home-link{display:flex;align-items:center;gap:10px;padding:14px;border:1px solid #e5e7eb;border-radius:13px;background:#fff;text-decoration:none;color:#394150;font-size:12px;font-weight:750}
+.home-link:hover{border-color:#c4b5fd;background:#faf8ff}
+.home-link span:first-child{font-size:18px}
+.coffee-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:11px 15px;border-radius:10px;background:#ffdd00;color:#28200a;text-decoration:none;font-size:13px;font-weight:900}
+.coffee-link:hover{filter:brightness(.96);transform:translateY(-1px)}
+@media(max-width:1050px){.module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.site-nav{align-items:flex-start;flex-direction:column;padding-top:12px}.nav-links{width:100%;gap:2px}.nav-links a{padding:8px 9px}.home-intro{padding:24px 20px;margin-top:15px}.module-grid{grid-template-columns:1fr 1fr;gap:9px}.module-card{min-height:190px;padding:15px}.home-links{grid-template-columns:1fr}.section-heading{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){.module-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 
 <body>
 
 <div class="page">
+
+    <nav class="site-nav" aria-label="Ana navigasyon">
+        <a class="brand" href="#anasayfa"><span class="brand-mark">₺</span><span>Kamu Zararı Hesaplama</span></a>
+        <div class="nav-links">
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#hesaplama-araclari">Hesaplama Araçları</a>
+            <a href="#calculator">Yasal Faiz</a>
+            <a href="#excel">Excel Dosyaları</a>
+        </div>
+    </nav>
+
 
     <!-- =========================
          HERO
@@ -1146,11 +1202,64 @@ footer {
     </section>
 
 
+
+    <section class="home-intro" id="anasayfa">
+        <span class="home-kicker">✦ Kamu personeli için pratik hesaplama araçları</span>
+        <h2>Kamu alacaklarında hesaplama artık daha kolay.</h2>
+        <p>Yasal faiz ve kamu zararı hesaplamalarınızı tek noktadan, anlaşılır adımlarla gerçekleştirin. Ayrıntılı hesap dökümünü görüntüleyin; ihtiyaç duyduğunuzda yazdırın veya PDF olarak kaydedin.</p>
+        <div class="home-actions">
+            <a class="home-btn primary" href="#hesaplama-araclari">Hesaplama araçlarını keşfet <span>→</span></a>
+            <a class="home-btn secondary" href="#calculator">Yasal faiz hesapla</a>
+        </div>
+    </section>
+
+    <section id="hesaplama-araclari" aria-labelledby="modules-title">
+        <div class="section-heading">
+            <div><h2 id="modules-title">Hesaplama araçları</h2><p>İhtiyacınız olan işlemi seçin.</p></div>
+        </div>
+        <div class="module-grid">
+            <article class="module-card active">
+                <div class="module-icon">⚖</div>
+                <h3>Yasal Faiz Hesaplama</h3>
+                <p>Faiz başlangıç ve bitiş tarihine göre dönemsel oranlarla ayrıntılı hesaplama.</p>
+                <a class="module-link" href="#calculator">Hesaplamaya git →</a>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">📚</div>
+                <h3>Ek Ders Kamu Alacağı</h3>
+                <p>Ek ders türü, saat ve ilgili kesintiler üzerinden hesaplama modülü.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">🧾</div>
+                <h3>Maaş Kamu Alacağı</h3>
+                <p>Maaş kaynaklı kamu alacakları için dönem ve katsayı esaslı hesaplama.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">📊</div>
+                <h3>Diğer Tazminatlar</h3>
+                <p>Farklı ödeme ve tazminat kalemleri için ayrı hesaplama alanı.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+        </div>
+        <div class="home-note"><span>ⓘ</span><div><strong>Geliştirme notu:</strong> Şu anda yalnızca yasal faiz hesaplama aracı aktiftir. Diğer modüller tamamlanıp mevzuat ve hesaplama kontrolleri yapıldıktan sonra kullanıma açılacaktır.</div></div>
+    </section>
+
+    <section aria-label="Hızlı bağlantılar">
+        <div class="section-heading"><div><h2>Hızlı bağlantılar</h2><p>İlgili kaynaklara ve dosyalara kolayca ulaşın.</p></div></div>
+        <div class="home-links">
+            <a class="home-link" href="https://www.hmb.gov.tr/" target="_blank" rel="noopener noreferrer"><span>🏛️</span><span>Hazine ve Maliye Bakanlığı</span></a>
+            <a class="home-link" href="https://www.resmigazete.gov.tr/" target="_blank" rel="noopener noreferrer"><span>📜</span><span>Resmî Gazete</span></a>
+            <a class="home-link" href="#excel"><span>📥</span><span>Excel hesaplama dosyaları</span></a>
+        </div>
+    </section>
+
     <!-- =========================
          ANA ALAN
     ========================== -->
 
-    <div class="main-grid">
+    <div class="main-grid" id="calculator">
 
         <main>
 
@@ -1691,7 +1800,7 @@ footer {
 
             <!-- EXCEL -->
 
-            <section class="card excel-card">
+            <section class="card excel-card" id="excel">
 
                 <h2>
                     Excel Hesap Tabloları
@@ -1762,6 +1871,8 @@ footer {
                     0554 926 11 78
                 </div>
 
+                <a class="coffee-link" href="https://buymeacoffee.com/abstract45" target="_blank" rel="noopener noreferrer">☕ Buy Me a Coffee ile destek ol</a>
+
             </section>
 
 
@@ -1781,6 +1892,7 @@ footer {
         </div>
 
         Kamu Zararı Hesaplama Aracı
+        <div style="margin-top:8px"><a href="https://buymeacoffee.com/abstract45" target="_blank" rel="noopener noreferrer" style="color:#6b21a8;text-decoration:none;font-weight:700">☕ Projeye destek olun</a></div>
 
     </footer>
 
