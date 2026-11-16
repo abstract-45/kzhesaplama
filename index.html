@@ -834,22 +834,6 @@ body {
     letter-spacing: .4px;
 }
 
-.support-name {
-    color: #111827;
-
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.support-phone {
-    margin-top: 3px;
-
-    color: #5b21b6;
-
-    font-size: 16px;
-    font-weight: 700;
-}
-
 /* =========================
    FOOTER
 ========================= */
@@ -866,15 +850,6 @@ footer {
     color: #6b7280;
 
     font-size: 12px;
-}
-
-.footer-support {
-    margin-bottom: 7px;
-
-    color: #4c1d95;
-
-    font-size: 13px;
-    font-weight: 700;
 }
 
 /* =========================
@@ -1074,6 +1049,192 @@ footer {
     }
 }
 
+
+/* =========================
+   YENİ ANA SAYFA / NAVİGASYON
+========================= */
+.site-nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 4px 8px}
+.brand{display:flex;align-items:center;gap:10px;color:#21133f;text-decoration:none;font-weight:850;font-size:17px}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#4c1d95,#8b5cf6);display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:0 7px 18px #4c1d952b}
+.nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nav-links a{padding:9px 13px;border-radius:10px;color:#4b5563;text-decoration:none;font-size:13px;font-weight:700}
+.nav-links a:hover{background:#ede9fe;color:#4c1d95}
+.home-intro{margin:22px 0 24px;padding:30px 32px;border-radius:22px;background:linear-gradient(120deg,#17132d 0%,#30205a 58%,#4c1d95 100%);color:#fff;position:relative;overflow:hidden;box-shadow:0 18px 38px #27134b24}
+.home-intro:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff20;border-radius:50%;right:-55px;top:-115px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff06}
+.home-kicker{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid #ffffff30;border-radius:99px;background:#ffffff12;color:#e9ddff;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.home-intro h2{max-width:720px;margin:14px 0 10px;font-size:clamp(25px,3vw,36px);line-height:1.15;letter-spacing:-.7px}
+.home-intro p{max-width:690px;margin:0;color:#e5def4;font-size:15px;line-height:1.7}
+.home-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:800;transition:.18s}
+.home-btn.primary{background:#fff;color:#3b1b70}
+.home-btn.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff0d}
+.home-btn:hover{transform:translateY(-2px)}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 14px}
+.section-heading h2{margin:0;color:#19152b;font-size:21px}
+.section-heading p{margin:4px 0 0;color:#6b7280;font-size:13px}
+.module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.module-card{position:relative;min-height:190px;padding:20px;border:1px solid #e5e7eb;border-radius:17px;background:#fff;box-shadow:0 7px 20px #1720330a;display:flex;flex-direction:column;align-items:flex-start;transition:transform .18s,box-shadow .18s,border-color .18s}
+.module-card.active:hover{transform:translateY(-3px);border-color:#c4b5fd;box-shadow:0 13px 26px #4c1d9515}
+.module-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#f1edff;color:#5b21b6;font-size:22px;margin-bottom:14px}
+.module-card h3{margin:0 0 6px;color:#211a35;font-size:16px}
+.module-card p{margin:0 0 15px;color:#6b7280;font-size:12px;line-height:1.55}
+.module-link{margin-top:auto;color:#5b21b6;text-decoration:none;font-size:12px;font-weight:850}
+.module-card.soon{background:#fafafa;box-shadow:none}
+.module-card.soon .module-icon{background:#f0f1f5;color:#8b90a0}
+.soon-label{margin-top:auto;padding:5px 9px;border-radius:99px;background:#f1f2f6;color:#777d8b;font-size:10px;font-weight:800}
+.home-note{display:flex;align-items:flex-start;gap:12px;margin:18px 0 4px;padding:15px 17px;border:1px solid #dbeafe;border-radius:14px;background:#f5f9ff;color:#42536b;font-size:12px;line-height:1.6}
+.home-note strong{color:#234574}
+.home-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 26px}
+.home-link{display:flex;align-items:center;gap:10px;padding:14px;border:1px solid #e5e7eb;border-radius:13px;background:#fff;text-decoration:none;color:#394150;font-size:12px;font-weight:750}
+.home-link:hover{border-color:#c4b5fd;background:#faf8ff}
+.home-link span:first-child{font-size:18px}
+.coffee-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:11px 15px;border-radius:10px;background:#ffdd00;color:#28200a;text-decoration:none;font-size:13px;font-weight:900}
+.coffee-link:hover{filter:brightness(.96);transform:translateY(-1px)}
+@media(max-width:1050px){.module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.site-nav{align-items:flex-start;flex-direction:column;padding-top:12px}.nav-links{width:100%;gap:2px}.nav-links a{padding:8px 9px}.home-intro{padding:24px 20px;margin-top:15px}.module-grid{grid-template-columns:1fr 1fr;gap:9px}.module-card{min-height:190px;padding:15px}.home-links{grid-template-columns:1fr}.section-heading{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){.module-grid{grid-template-columns:1fr}}
+
+
+/* SAKİN VE UYUMLU RENK PALETİ */
+.hero{
+    background:linear-gradient(135deg,#405966 0%,#536f7a 58%,#66828a 100%);
+    box-shadow:0 16px 38px rgba(55,78,88,.14);
+}
+.brand-mark{
+    background:linear-gradient(145deg,#496875,#6f8d94);
+    box-shadow:0 7px 18px rgba(73,104,117,.18);
+}
+.home-intro{
+    background:linear-gradient(120deg,#e8eff0 0%,#e1ebed 58%,#dce8e9 100%);
+    color:#2d424a;
+    box-shadow:0 12px 28px rgba(55,78,88,.08);
+    border:1px solid #d4e1e3;
+}
+.home-intro:after{
+    border-color:#66828a24;
+    box-shadow:0 0 0 28px #66828a0c,0 0 0 58px #66828a08;
+}
+.home-intro h2{color:#2d424a}
+.home-intro p{color:#536970}
+.home-btn.primary{background:#496875;color:#fff}
+.home-btn.secondary{border:1px solid #9aafb3;color:#405966;background:#ffffff80}
+.home-btn.primary:hover{background:#3d5965}
+.nav-links a:hover{background:#e8eff0;color:#405966}
+.section-heading h2{color:#344b54}
+.module-icon{background:#eaf0f1;color:#496875}
+.module-card.active:hover{border-color:#b8c9cc;box-shadow:0 13px 26px rgba(73,104,117,.10)}
+.module-link{color:#496875}
+.home-link:hover{border-color:#b8c9cc;background:#f7faf9}
+
+/* ÇOKLU YASAL FAİZ HESAPLAMA */
+.accounts-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:4px 0 14px}
+.accounts-toolbar strong{font-size:16px;color:#344b54}.accounts-toolbar p{margin:3px 0 0;color:#718087;font-size:13px}
+.add-account-btn,.remove-account-btn{border:1px solid #b8c9cc;border-radius:9px;background:#eef3f3;color:#405966;padding:10px 13px;font:700 13px Arial,sans-serif;cursor:pointer;white-space:nowrap}
+.add-account-btn:hover{background:#e2ebec}.account-entry{padding:18px;margin:0 0 13px;border:1px solid #dfe7e8;border-radius:14px;background:#fbfcfc}
+.account-entry-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.account-entry-head strong{color:#405966;font-size:14px}
+.remove-account-btn{padding:7px 11px;background:#fff;color:#7b5555;border-color:#e6dada}.remove-account-btn:disabled{opacity:.35;cursor:not-allowed}
+.account-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.account-fields .field label{min-height:0}.account-fields .help{display:none}
+.accounts-hint{margin-top:12px;color:#718087;font-size:12px;line-height:1.55}
+.summary-caption{margin:-10px 0 18px;color:#6b7280;font-size:13px}
+.summary-total-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.summary-total-card{padding:15px;border:1px solid #e0e7e8;border-radius:12px;background:#fff}.summary-total-card span{display:block;margin-bottom:5px;color:#6b7280;font-size:12px}
+.summary-total-card strong{font-size:17px;color:#344b54}.summary-total-card.grand{background:#eaf0f1;border-color:#c8d7da}.summary-total-card.grand strong{color:#304f59}
+#summaryTable th{background:#496875;color:#fff;padding:12px 10px;text-align:left;white-space:nowrap}
+#summaryTable td{padding:12px 10px;border-top:1px solid #e5e7eb;color:#374151;white-space:nowrap}#summaryTable tr:nth-child(even) td{background:#fafcfc}
+@media(max-width:850px){.account-fields{grid-template-columns:1fr;gap:13px}.summary-total-grid{grid-template-columns:1fr}.accounts-toolbar{align-items:flex-start;flex-direction:column}}
+@media print{.accounts-toolbar,.account-entry,.accounts-hint,.calculate-btn{display:none!important}.calculator-card>.card-title{display:none!important}#result{display:block!important}#summaryTable{font-size:11px}#summaryTable th,#summaryTable td{white-space:normal}}
+
+
+/* TWITTER MAVİSİ ESİNTİLİ KURUMSAL TEMA */
+:root{--blue:#1da1f2;--blue-dark:#155b8b;--navy:#173b59;--blue-soft:#eaf6fd;--line:#d8e7f0;--ink:#243b53}
+body{background:#f3f8fc;color:var(--ink)}
+.hero{margin-top:22px;padding:30px 34px;border-radius:24px;background:linear-gradient(118deg,#e7f5fd 0%,#d8edfb 58%,#c8e5f8 100%);border:1px solid #c7e3f5;color:var(--navy);box-shadow:0 14px 34px rgba(27,92,135,.10);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.88fr);gap:24px;min-height:280px;overflow:hidden}
+.hero-copy{align-self:center;position:relative;z-index:1}.hero-eyebrow{display:inline-block;margin-bottom:13px;padding:7px 10px;border-radius:99px;background:#fff;color:#1676b7;font-size:10px;font-weight:800;letter-spacing:.8px}
+.hero h1{margin:0 0 11px;color:#173b59;font-size:clamp(28px,3.3vw,40px);line-height:1.12}.hero p{max-width:570px;color:#45647c;font-size:15px;line-height:1.65}
+.hero-points{display:flex;flex-wrap:wrap;gap:9px;margin-top:19px}.hero-points span{padding:7px 10px;border:1px solid #b8d9ef;border-radius:8px;background:#ffffffa8;color:#315b79;font-size:11px;font-weight:700}
+.hero-art{align-self:center;min-width:0}.hero-art svg{display:block;width:100%;height:auto;max-height:270px}
+.brand{color:#173b59}.brand-mark{background:linear-gradient(145deg,#1da1f2,#1476bd);box-shadow:0 7px 18px #1da1f22e}
+.nav-links a:hover{background:#e5f4fd;color:#126da8}
+.home-intro{background:linear-gradient(120deg,#e9f6fd,#dceefa);border:1px solid #cde6f6;box-shadow:0 12px 28px rgba(27,92,135,.07)}
+.home-intro:after{border-color:#1da1f224;box-shadow:0 0 0 28px #1da1f20c,0 0 0 58px #1da1f208}
+.home-intro h2{color:#173b59}.home-intro p{color:#45647c}.home-kicker{color:#176fa9}
+.home-btn.primary{background:#1d8ed0;color:#fff}.home-btn.primary:hover{background:#1476bd}.home-btn.secondary{border:1px solid #a9cde4;color:#245b80;background:#ffffffa8}
+.section-heading h2{color:#173b59}
+.module-card{border-color:#e0eaf1}.module-card.active:hover{border-color:#a9d5f1;box-shadow:0 13px 26px rgba(29,161,242,.10)}
+.module-icon{background:#e5f4fd;color:#167fc1}.module-link{color:#1476bd}
+.home-note{border-color:#d2e9f8;background:#f1f9fe;color:#45647c}.home-note strong{color:#155b8b}
+.home-link:hover{border-color:#a9d5f1;background:#f4faff}
+.card{border-color:#e0eaf1;box-shadow:0 8px 25px rgba(23,59,89,.05)}
+.field input:focus{border-color:#1d8ed0;box-shadow:0 0 0 4px rgba(29,161,242,.12)}
+.help{border-color:#d6eaf7;background:#f3f9fd;color:#49677d}
+.calculate-btn{background:linear-gradient(135deg,#168bd2,#1da1f2);box-shadow:0 8px 18px rgba(29,161,242,.22)}
+.calculate-btn:hover{box-shadow:0 11px 23px rgba(29,161,242,.28)}
+#breakdownTable th{background:#176fa9}
+.total-box{border-color:#1b83c3}.interest-row{background:#eff8fd;border-bottom-color:#d4e9f7}.total-row{background:#176fa9}
+.action-btn.primary{border-color:#176fa9;background:#176fa9}
+.info-section h4{color:#176fa9}.rate-table th{background:#e5f4fd;color:#155b8b}
+.excel-file:hover{background:#f1f9fe}.excel-info{background:#f1f9fe;border-color:#d4e9f7;color:#45647c}
+.support-box{border-color:#d4e9f7}.support-title{color:#176fa9}
+.accounts-toolbar strong{color:#244e6b}
+.add-account-btn,.remove-account-btn{border-color:#b9d8eb;background:#edf7fd;color:#155b8b}
+.add-account-btn:hover{background:#dff0fb}.account-entry{border-color:#dceaf3;background:#fbfdff}
+.summary-total-card{border-color:#d9e7f0}.summary-total-card strong{color:#245b80}
+.summary-total-card.grand{background:#e7f4fc;border-color:#b9d9ed}.summary-total-card.grand strong{color:#155b8b}
+#summaryTable th{background:#176fa9}#summaryTable td{white-space:normal}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:24px;min-height:0}.hero-art{max-width:460px;width:100%;justify-self:center}}
+@media(max-width:600px){.hero{margin-top:12px;padding:21px 18px;gap:8px}.hero-art svg{max-height:210px}.hero-points{gap:6px}.hero-points span{font-size:10px}}
+
+
+/* TABLO GÖRÜNÜMLÜ ÇOKLU HESAP GİRİŞLERİ */
+.accounts-toolbar{margin-bottom:10px}
+.account-table-wrap{width:100%;overflow-x:auto;border:1px solid #d8e7f0;border-radius:13px;background:#fff}
+.account-table-head,.account-entry .account-fields{display:grid;grid-template-columns:minmax(150px,1fr) minmax(220px,1.35fr) minmax(220px,1.35fr) 104px;gap:12px;align-items:center}
+.account-table-head{padding:12px 13px;background:#e8f5fd;color:#155b8b;font-size:12px;font-weight:800;border-bottom:1px solid #cfe5f4}
+.account-table-head small{display:block;margin-top:4px;color:#52758e;font-size:10px;font-weight:600;line-height:1.3}
+.account-table-head .action-heading{text-align:center}
+#accountsContainer{min-width:760px}
+.account-entry{margin:0;padding:10px 13px;border:0;border-bottom:1px solid #e5eef4;border-radius:0;background:#fff}
+.account-entry:last-child{border-bottom:0}
+.account-entry .account-fields{gap:12px}
+.account-entry .field{margin:0;min-width:0}
+.account-entry .field input{width:100%;min-width:0}
+.account-entry .amount-wrap{width:100%}
+.account-entry .amount-wrap input{min-width:0}
+.account-entry .amount-symbol{flex:0 0 auto}
+.row-actions{display:flex;align-items:center;justify-content:center;gap:7px}
+.row-actions button{width:39px;height:39px;padding:0;display:inline-flex;align-items:center;justify-content:center;font-size:19px;line-height:1}
+.remove-account-btn{background:#fff;border-color:#d9e6ee;color:#7b5555}
+.remove-account-btn:disabled{opacity:.3}
+.add-account-btn{background:#e8f5fd;border-color:#b9d9ed;color:#155b8b}
+.add-account-btn:hover{background:#d9effc}
+@media(max-width:850px){.account-table-wrap{overflow-x:auto}.account-table-head,.account-entry .account-fields{grid-template-columns:minmax(145px,1fr) minmax(205px,1.2fr) minmax(205px,1.2fr) 94px;gap:9px}.account-table-head{font-size:11px}}
+@media print{.account-table-wrap{display:none!important}}
+
+/* Satır çerçevelerini belirginleştir */
+.account-table-wrap{
+    border:2px solid #9bbbd0;
+    box-shadow:0 3px 12px rgba(21,91,139,.07);
+}
+.account-table-head{
+    border-bottom:2px solid #9bbbd0;
+}
+.account-entry{
+    margin:8px 10px;
+    padding:12px;
+    border:1.5px solid #a9c6d8;
+    border-radius:10px;
+    background:#fafdff;
+    box-shadow:0 2px 6px rgba(21,91,139,.05);
+}
+.account-entry:last-child{
+    margin-bottom:8px;
+    border-bottom:1.5px solid #a9c6d8;
+}
+.account-entry:focus-within{
+    border-color:#4b9ac7;
+    box-shadow:0 0 0 3px rgba(29,161,242,.10);
+}
+
 </style>
 </head>
 
@@ -1081,76 +1242,117 @@ footer {
 
 <div class="page">
 
+    <nav class="site-nav" aria-label="Ana navigasyon">
+        <a class="brand" href="#anasayfa"><span class="brand-mark">₺</span><span>Kamu Zararı Hesaplama</span></a>
+        <div class="nav-links">
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#hesaplama-araclari">Hesaplama Araçları</a>
+            <a href="#calculator">Yasal Faiz</a>
+            <a href="#excel">Excel Dosyaları</a>
+        </div>
+    </nav>
+
+
     <!-- =========================
          HERO
     ========================== -->
 
     <section class="hero">
-
-        <div class="hero-left">
-
-            <div class="calculator-logo" aria-hidden="true">
-
-                <div class="calculator-screen"></div>
-
-                <div class="calculator-buttons">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-            </div>
-
-            <div class="hero-text">
-
-                <h1>
-                    Kamu Zararı Hesaplama
-                    (Maaş - Ek Ders - Yasal Faiz)
-                </h1>
-
-                <p>
-                    Kamu zararı iş ve işlemlerini hızlıca gerçekleştirin
-                </p>
-
-            </div>
-
+        <div class="hero-copy">
+            <span class="hero-eyebrow">KAMU MALİ İŞLEMLERİ • HESAPLAMA ARAÇLARI</span>
+            <h1>Kamu Zararı Hesaplama</h1>
+            <p>Maaş, ek ders ve yasal faiz işlemleri için anlaşılır ve pratik hesaplama araçları.</p>
+            <div class="hero-points"><span>✓ Çoklu hesaplama</span><span>✓ Özet PDF çıktısı</span><span>✓ Kolay kullanım</span></div>
         </div>
-
-        <div class="badges">
-
-            <span class="badge">
-                ✓ Otomatik oran dönemi
-            </span>
-
-            <span class="badge">
-                ✓ Ayrıntılı hesap dökümü
-            </span>
-
-            <span class="badge">
-                ✓ Yazdır / PDF
-            </span>
-
+        <div class="hero-art" role="img" aria-label="Terazi, hukuk evrakları ve finansal hesaplama araçlarından oluşan kurumsal illüstrasyon">
+            <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="artPanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff3ff"/><stop offset="1" stop-color="#b8dcf5"/></linearGradient>
+                    <filter id="artShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#17466b" flood-opacity=".14"/></filter>
+                </defs>
+                <rect x="18" y="18" width="524" height="304" rx="28" fill="url(#artPanel)"/>
+                <circle cx="468" cy="68" r="38" fill="#fff" opacity=".46"/><circle cx="78" cy="270" r="50" fill="#fff" opacity=".34"/>
+                <path d="M54 262 C132 210 178 252 242 197 S365 154 498 92" fill="none" stroke="#75b9e8" stroke-width="3" stroke-dasharray="7 9" opacity=".8"/>
+                <g filter="url(#artShadow)">
+                    <rect x="65" y="76" width="176" height="202" rx="15" fill="#fff"/>
+                    <rect x="85" y="99" width="92" height="9" rx="4.5" fill="#1da1f2"/>
+                    <rect x="85" y="123" width="133" height="6" rx="3" fill="#d7e5ed"/><rect x="85" y="139" width="119" height="6" rx="3" fill="#d7e5ed"/><rect x="85" y="155" width="126" height="6" rx="3" fill="#d7e5ed"/>
+                    <rect x="85" y="183" width="136" height="65" rx="9" fill="#edf7fd"/>
+                    <path d="M99 229 L124 208 L146 218 L169 193 L205 202" fill="none" stroke="#168bd2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="169" cy="193" r="5" fill="#168bd2"/>
+                </g>
+                <g filter="url(#artShadow)">
+                    <rect x="333" y="158" width="155" height="130" rx="16" fill="#fff"/>
+                    <rect x="350" y="176" width="121" height="27" rx="7" fill="#e8f5fd"/>
+                    <text x="410" y="195" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#24648f">₺ 1.250,00</text>
+                    <g fill="#d5e9f6"><rect x="350" y="215" width="25" height="20" rx="5"/><rect x="382" y="215" width="25" height="20" rx="5"/><rect x="414" y="215" width="25" height="20" rx="5"/><rect x="446" y="215" width="25" height="20" rx="5"/><rect x="350" y="243" width="25" height="20" rx="5"/><rect x="382" y="243" width="25" height="20" rx="5"/><rect x="414" y="243" width="25" height="20" rx="5"/></g><rect x="446" y="243" width="25" height="20" rx="5" fill="#1da1f2"/>
+                </g>
+                <g filter="url(#artShadow)" stroke="#155b8b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <path d="M292 72 V220 M252 220 H332 M264 72 H320 M292 72 L292 57"/><path d="M250 98 H334 M292 81 L250 98 M292 81 L334 98"/>
+                    <path d="M250 98 L230 142 M250 98 L270 142 M334 98 L314 142 M334 98 L354 142"/><path d="M216 142 Q250 176 284 142 M300 142 Q334 176 368 142"/><path d="M270 220 Q292 202 314 220"/>
+                </g>
+                <circle cx="292" cy="57" r="9" fill="#1da1f2"/><g fill="#1da1f2"><circle cx="110" cy="54" r="5"/><circle cx="453" cy="120" r="6"/><circle cx="300" cy="284" r="4"/></g>
+            </svg>
         </div>
-
     </section>
 
+
+
+    <section class="home-intro" id="anasayfa">
+                <h2>Kamu alacaklarında hesaplama artık daha kolay.</h2>
+        <p>Yasal faiz ve kamu zararı hesaplamalarınızı tek noktadan, anlaşılır adımlarla gerçekleştirin. Ayrıntılı hesap dökümünü görüntüleyin; ihtiyaç duyduğunuzda yazdırın veya PDF olarak kaydedin.</p>
+        <div class="home-actions">
+            <a class="home-btn primary" href="#hesaplama-araclari">Hesaplama araçlarını keşfet <span>→</span></a>
+            <a class="home-btn secondary" href="#calculator">Yasal faiz hesapla</a>
+        </div>
+    </section>
+
+    <section id="hesaplama-araclari" aria-labelledby="modules-title">
+        <div class="section-heading">
+            <div><h2 id="modules-title">Hesaplama araçları</h2><p>İhtiyacınız olan işlemi seçin.</p></div>
+        </div>
+        <div class="module-grid">
+            <article class="module-card active">
+                <div class="module-icon">⚖</div>
+                <h3>Yasal Faiz Hesaplama</h3>
+                <p>Faiz başlangıç ve bitiş tarihine göre dönemsel oranlarla ayrıntılı hesaplama.</p>
+                <a class="module-link" href="#calculator">Hesaplamaya git →</a>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">📚</div>
+                <h3>Ek Ders Kamu Alacağı</h3>
+                <p>Ek ders türü, saat ve ilgili kesintiler üzerinden hesaplama modülü.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">🧾</div>
+                <h3>Maaş Kamu Alacağı</h3>
+                <p>Maaş kaynaklı kamu alacakları için dönem ve katsayı esaslı hesaplama.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+            <article class="module-card soon">
+                <div class="module-icon">📊</div>
+                <h3>Diğer Tazminatlar</h3>
+                <p>Farklı ödeme ve tazminat kalemleri için ayrı hesaplama alanı.</p>
+                <span class="soon-label">HAZIRLANIYOR</span>
+            </article>
+        </div>
+        <div class="home-note"><span>ⓘ</span><div><strong>Geliştirme notu:</strong> Şu anda yalnızca yasal faiz hesaplama aracı aktiftir. Diğer modüller tamamlanıp mevzuat ve hesaplama kontrolleri yapıldıktan sonra kullanıma açılacaktır.</div></div>
+    </section>
+
+    <section aria-label="Hızlı bağlantılar">
+        <div class="section-heading"><div><h2>Hızlı bağlantılar</h2><p>İlgili kaynaklara ve dosyalara kolayca ulaşın.</p></div></div>
+        <div class="home-links">
+            <a class="home-link" href="https://www.hmb.gov.tr/" target="_blank" rel="noopener noreferrer"><span>🏛️</span><span>Hazine ve Maliye Bakanlığı</span></a>
+            <a class="home-link" href="https://www.resmigazete.gov.tr/" target="_blank" rel="noopener noreferrer"><span>📜</span><span>Resmî Gazete</span></a>
+            <a class="home-link" href="#excel"><span>📥</span><span>Excel hesaplama dosyaları</span></a>
+        </div>
+    </section>
 
     <!-- =========================
          ANA ALAN
     ========================== -->
 
-    <div class="main-grid">
+    <div class="main-grid" id="calculator">
 
         <main>
 
@@ -1170,87 +1372,29 @@ footer {
                 </div>
 
 
-                <!-- GİRİŞLER -->
-
-                <div class="inputs">
-
-                    <!-- ANA PARA -->
-
-                    <div class="field">
-
-                        <label for="principal">
-                            Ana Para
-                        </label>
-
-                        <div class="amount-wrap">
-
-                            <input
-                                type="text"
-                                id="principal"
-                                inputmode="decimal"
-                                placeholder="Örn. 45.661,70"
-                            >
-
-                            <span class="amount-symbol">
-                                TL
-                            </span>
-
-                        </div>
-
-                        <div class="help">
-                            Borç Bildirim Belgesinde yer alan
-                            kamu zararı ana para tutarını giriniz.
-                        </div>
-
-                    </div>
-
-
-                    <!-- BAŞLANGIÇ -->
-
-                    <div class="field">
-
-                        <label for="startDate">
-                            Faiz Başlangıç Tarihi
-                        </label>
-
-                        <input
-                            type="date"
-                            id="startDate"
-                        >
-
-                        <div class="help">
-                            Faizin hesaplanmaya başlayacağı tarihi
-                            giriniz. Kamu zararının oluştuğu tarih
-                            veya ilgili mevzuatta belirtilen başlangıç
-                            tarihi esas alınmalıdır.
-                        </div>
-
-                    </div>
-
-
-                    <!-- BİTİŞ -->
-
-                    <div class="field">
-
-                        <label for="endDate">
-                            Faiz Bitiş Tarihi
-                        </label>
-
-                        <input
-                            type="date"
-                            id="endDate"
-                        >
-
-                        <div class="help">
-                            Faizin hesaplanacağı son tarihi giriniz.
-                            Hesaplamada bu tarih faiz günü olarak
-                            dahil edilmez.
-                        </div>
-
-                    </div>
-
+                <!-- ÇOKLU HESAP GİRİŞLERİ -->
+                <div class="accounts-toolbar">
+                    <div><strong>Hesap kalemleri</strong><p>Ana para ve tarihleri her satıra ayrı girin.</p></div>
                 </div>
-
+                <div class="account-table-wrap">
+                    <div class="account-table-head">
+                        <div>Ana Para</div>
+                        <div>Faiz Başlangıç Tarihi <small>(Borcun doğuş tarihi)</small></div>
+                        <div>Faiz Bitiş Tarihi <small>(Ödeme yapılacak tarih)</small></div>
+                        <div class="action-heading">Satır ekle/sil</div>
+                    </div>
+                    <div id="accountsContainer">
+                        <div class="account-entry" data-account>
+                            <div class="account-fields">
+                                <div class="field"><div class="amount-wrap"><input type="text" class="account-principal" inputmode="decimal" placeholder="Örn. 45.661,70"><span class="amount-symbol">TL</span></div></div>
+                                <div class="field"><input type="date" class="account-start" aria-label="Faiz Başlangıç Tarihi (Borcun doğuş tarihi)"></div>
+                                <div class="field"><input type="date" class="account-end" aria-label="Faiz Bitiş Tarihi (Ödeme yapılacak tarih)"></div>
+                                <div class="row-actions"><button type="button" class="add-account-btn" onclick="addAccount()" aria-label="Satır ekle">＋</button><button type="button" class="remove-account-btn" onclick="removeAccount(this)" aria-label="Bu satırı sil" disabled>−</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accounts-hint">Birden fazla borç kalemini aynı işlemde hesaplayabilir, sonuçları tek bir özet rapor olarak alabilirsiniz.</div>
 
                 <button
                     type="button"
@@ -1266,415 +1410,23 @@ footer {
                 ========================== -->
 
                 <div id="result">
-
                     <div class="result-box">
-
-                        <h2 class="result-title">
-                            Hesaplama Sonucu
-                        </h2>
-
-
-                        <div class="result-info">
-
-                            <div class="result-item">
-
-                                <span class="label">
-                                    Ana Para
-                                </span>
-
-                                <strong id="resultPrincipal">
-                                    -
-                                </strong>
-
-                            </div>
-
-
-                            <div class="result-item">
-
-                                <span class="label">
-                                    Faiz Başlangıç Tarihi
-                                </span>
-
-                                <strong id="resultStart">
-                                    -
-                                </strong>
-
-                            </div>
-
-
-                            <div class="result-item">
-
-                                <span class="label">
-                                    Faiz Bitiş Tarihi
-                                </span>
-
-                                <strong id="resultEnd">
-                                    -
-                                </strong>
-
-                            </div>
-
-
-                            <div class="result-item">
-
-                                <span class="label">
-                                    Toplam Gün
-                                </span>
-
-                                <strong id="resultDays">
-                                    -
-                                </strong>
-
-                            </div>
-
+                        <h2 class="result-title">Hesaplama Özeti</h2>
+                        <p class="summary-caption"><span id="resultCount">0</span> hesap kalemi birlikte değerlendirildi.</p>
+                        <div class="summary-total-grid">
+                            <div class="summary-total-card"><span>Toplam Ana Para</span><strong id="summaryPrincipal">0,00 TL</strong></div>
+                            <div class="summary-total-card"><span>Toplam Faiz</span><strong id="summaryInterest">0,00 TL</strong></div>
+                            <div class="summary-total-card grand"><span>Genel Toplam</span><strong id="summaryGrandTotal">0,00 TL</strong></div>
                         </div>
-
-
-                        <!-- FAİZ DÖKÜMÜ -->
-
-                        <div class="table-wrap">
-
-                            <table id="breakdownTable">
-
-                                <thead>
-
-                                    <tr>
-                                        <th>
-                                            Faiz Başlangıcı
-                                        </th>
-
-                                        <th>
-                                            Faiz Bitişi
-                                        </th>
-
-                                        <th>
-                                            Gün
-                                        </th>
-
-                                        <th>
-                                            Yıllık Oran
-                                        </th>
-
-                                        <th>
-                                            Ana Para
-                                        </th>
-
-                                        <th>
-                                            Faiz
-                                        </th>
-                                    </tr>
-
-                                </thead>
-
-                                <tbody id="breakdownBody">
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-
-                        <!-- TOPLAM -->
-
-                        <div class="total-box">
-
-                            <div class="interest-row">
-
-                                <span>
-                                    Hesaplanan Faiz
-                                </span>
-
-                                <strong id="resultInterest">
-                                    0,00 TL
-                                </strong>
-
-                            </div>
-
-
-                            <div class="total-row">
-
-                                <div class="total-label">
-                                    YATIRILMASI GEREKEN TOPLAM TUTAR
-                                </div>
-
-                                <div
-                                    class="total-value"
-                                    id="resultTotal"
-                                >
-                                    0,00 TL
-                                </div>
-
-                                <div class="total-note">
-                                    Ana Para + Faiz
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- BUTONLAR -->
-
+                        <div class="table-wrap"><table id="summaryTable">
+                            <thead><tr><th>Ana Para</th><th>Faiz Başlangıç Tarihi</th><th>Faiz Bitiş Tarihi</th><th>Faiz</th><th>Genel Toplam</th></tr></thead>
+                            <tbody id="summaryBody"></tbody>
+                        </table></div>
                         <div class="actions">
-
-                            <button
-                                type="button"
-                                class="action-btn"
-                                onclick="window.print()"
-                            >
-                                🖨 Yazdır
-                            </button>
-
-                            <button
-                                type="button"
-                                class="action-btn primary"
-                                onclick="downloadPDF()"
-                            >
-                                📄 PDF İndir
-                            </button>
-
+                            <button type="button" class="action-btn" onclick="window.print()">🖨 Yazdır</button>
+                            <button type="button" class="action-btn primary" onclick="downloadPDF()">📄 Özet PDF İndir</button>
                         </div>
-
-
-                        <!-- =========================
-                             FAİZ ORANLARI BİLGİSİ
-                        ========================== -->
-
-                        <section class="info-section">
-
-                            <h3>
-                                Uygulanan Faiz Dönemleri ve Dayanakları
-                            </h3>
-
-                            <p>
-                                Hesaplama sırasında faiz başlangıç ve
-                                bitiş tarihleri arasındaki dönemler
-                                otomatik olarak ayrılır ve ilgili
-                                dönemde geçerli olan yıllık kanuni faiz
-                                oranı uygulanır.
-                            </p>
-
-
-                            <div class="rate-table-wrap">
-
-                                <table class="rate-table">
-
-                                    <thead>
-
-                                        <tr>
-                                            <th>
-                                                Dönem
-                                            </th>
-
-                                            <th>
-                                                Oran
-                                            </th>
-
-                                            <th>
-                                                Dayanak
-                                            </th>
-
-                                            <th>
-                                                Açıklama
-                                            </th>
-                                        </tr>
-
-                                    </thead>
-
-                                    <tbody>
-
-                                        <tr>
-
-                                            <td>
-                                                01.01.2006 -
-                                                31.05.2024
-                                            </td>
-
-                                            <td>
-                                                %9
-                                            </td>
-
-                                            <td>
-                                                2005/9831 sayılı
-                                                Bakanlar Kurulu Kararı
-                                            </td>
-
-                                            <td>
-                                                3095 sayılı Kanunun
-                                                1. maddesi kapsamında
-                                                yıllık kanuni faiz oranı
-                                                %9 olarak uygulanmıştır.
-                                            </td>
-
-                                        </tr>
-
-
-                                        <tr>
-
-                                            <td>
-                                                01.06.2024 -
-                                                30.07.2026
-                                            </td>
-
-                                            <td>
-                                                %24
-                                            </td>
-
-                                            <td>
-                                                8485 sayılı
-                                                Cumhurbaşkanı Kararı
-                                            </td>
-
-                                            <td>
-                                                01.06.2024 tarihinden
-                                                itibaren yıllık kanuni
-                                                faiz oranı %24 olarak
-                                                belirlenmiştir.
-                                            </td>
-
-                                        </tr>
-
-
-                                        <tr>
-
-                                            <td>
-                                                31.07.2026 -
-                                            </td>
-
-                                            <td>
-                                                %31
-                                            </td>
-
-                                            <td>
-                                                7589 sayılı Kanun
-                                                m.10 ile değişik
-                                                3095 sayılı Kanun m.1
-                                            </td>
-
-                                            <td>
-                                                2026 yılı için %38,75
-                                                reeskont oranının %80'i
-                                                esas alınarak %31 oranı
-                                                uygulanmaktadır.
-                                            </td>
-
-                                        </tr>
-
-                                    </tbody>
-
-                                </table>
-
-                            </div>
-
-
-                            <p style="margin-top:15px;">
-
-                                <strong>
-                                    Not:
-                                </strong>
-
-                                2006 yılı öncesindeki tarihsel oranlar
-                                da hesaplama sisteminde ilgili yürürlük
-                                dönemlerine göre tanımlanmıştır.
-                                Dosyanın özel bir hükme, mahkeme kararına
-                                veya farklı bir faiz rejimine tabi olması
-                                halinde ilgili mevzuat ve karar esas
-                                alınmalıdır.
-
-                            </p>
-
-                        </section>
-
-
-                        <!-- =========================
-                             ÖDEME BİLGİSİ
-                        ========================== -->
-
-                        <section class="info-section">
-
-                            <h3>
-                                Faiz Hesabı Sonrası Yapılacak İşlemler
-                            </h3>
-
-                            <p>
-                                Hesaplama sonucunda bulunan
-                                <strong>
-                                    yatırılması gereken toplam tutar
-                                </strong>
-                                (ana para + faiz), kamu zararı borcunun
-                                tahsili amacıyla ilgili muhasebe birimine
-                                ödenmelidir.
-                            </p>
-
-
-                            <h4>
-                                Ödeme Yeri ve Banka Bilgileri
-                            </h4>
-
-                            <p>
-                                Ödeme, Manisa Defterdarlığı Muhasebe
-                                Müdürlüğü veznesine yapılabileceği gibi,
-                                ilgili kurum tarafından belirtilen banka
-                                hesabına havale/EFT yoluyla da
-                                gerçekleştirilebilir.
-                            </p>
-
-
-                            <div class="iban-box">
-                                TR41 0001 0001 8800 0010 0056 75
-                            </div>
-
-
-                            <p>
-                                Havale/EFT açıklamasında;
-                                <strong>
-                                    Ad-Soyad, T.C. Kimlik Numarası
-                                </strong>
-                                ve
-                                <strong>
-                                    "kamu zararı ödemesi"
-                                </strong>
-                                ifadesinin belirtilmesi uygun olacaktır.
-                            </p>
-
-
-                            <h4>
-                                E-Alacak Dosyasının Kapatılması
-                            </h4>
-
-                            <p>
-                                Ödeme gerçekleştirildikten sonra banka
-                                dekontu veya ödeme makbuzunun, resmi
-                                yazı ekinde
-                                <strong>
-                                    Bütçe ve Tahakkuk Hizmetleri Şubesine
-                                </strong>
-                                gönderilmesi gerekmektedir.
-                            </p>
-
-
-                            <p style="
-                                margin-top:18px;
-                                padding:12px 14px;
-                                border-radius:9px;
-                                background:#fff7ed;
-                                border:1px solid #fed7aa;
-                                color:#9a3412;
-                            ">
-
-                                <strong>
-                                    Önemli:
-                                </strong>
-
-                                Ödeme yapmadan önce kurumunuzun güncel
-                                ödeme ve hesap bilgilerini kontrol ediniz.
-
-                            </p>
-
-                        </section>
-
                     </div>
-
                 </div>
 
             </section>
@@ -1691,7 +1443,7 @@ footer {
 
             <!-- EXCEL -->
 
-            <section class="card excel-card">
+            <section class="card excel-card" id="excel">
 
                 <h2>
                     Excel Hesap Tabloları
@@ -1746,21 +1498,15 @@ footer {
             </section>
 
 
-            <!-- BİLGİ DESTEK -->
+            <!-- PROJEYE DESTEK -->
 
             <section class="support-box">
 
                 <div class="support-title">
-                    Bilgi ve Destek
+                    Bu projeye destek olmak ister misiniz?
                 </div>
 
-                <div class="support-name">
-                    Mesut YALVAÇ
-                </div>
-
-                <div class="support-phone">
-                    0554 926 11 78
-                </div>
+                <a class="coffee-link" href="https://buymeacoffee.com/abstract45" target="_blank" rel="noopener noreferrer">☕ Projeye destek olun</a>
 
             </section>
 
@@ -1775,10 +1521,6 @@ footer {
     ========================== -->
 
     <footer>
-
-        <div class="footer-support">
-            Bilgi ve Destek: Mesut YALVAÇ · 0554 926 11 78
-        </div>
 
         Kamu Zararı Hesaplama Aracı
 
@@ -1979,273 +1721,44 @@ function dateToString(date) {
    HESAPLA
 ===================================================== */
 
-function calculate() {
-
-    const principal =
-        parseMoney(
-            document.getElementById("principal").value
-        );
-
-    const startValue =
-        document.getElementById("startDate").value;
-
-    const endValue =
-        document.getElementById("endDate").value;
-
-
-    if (!principal || principal <= 0) {
-
-        alert(
-            "Lütfen geçerli bir ana para tutarı giriniz."
-        );
-
-        return;
-    }
-
-
-    if (!startValue || !endValue) {
-
-        alert(
-            "Lütfen başlangıç ve bitiş tarihlerini giriniz."
-        );
-
-        return;
-    }
-
-
-    const start =
-        parseDate(startValue);
-
-    const end =
-        parseDate(endValue);
-
-
-    if (end <= start) {
-
-        alert(
-            "Faiz bitiş tarihi, başlangıç tarihinden sonra olmalıdır."
-        );
-
-        return;
-    }
-
-
-    let cursor =
-        new Date(start);
-
-    let totalInterest = 0;
-    let totalDays = 0;
-
-    const segments = [];
-
-
-    while (cursor < end) {
-
-        let selectedPeriod = null;
-
-
-        for (const period of ratePeriods) {
-
-            const periodStart =
-                parseDate(period.start);
-
-            const periodEnd =
-                parseDate(period.end);
-
-
-            if (
-                cursor >= periodStart &&
-                cursor < periodEnd
-            ) {
-
-                selectedPeriod = period;
-
-                break;
-            }
-
-        }
-
-
-        if (!selectedPeriod) {
-
-            alert(
-                "Girilen tarih için tanımlı faiz oranı bulunamadı."
-            );
-
-            return;
-        }
-
-
-        const periodEnd =
-            parseDate(
-                selectedPeriod.end
-            );
-
-
-        const segmentEnd =
-            periodEnd < end
-                ? periodEnd
-                : end;
-
-
-        const days =
-            daysBetween(
-                cursor,
-                segmentEnd
-            );
-
-
-        const interest =
-            principal *
-            selectedPeriod.rate *
-            days /
-            365;
-
-
-        totalInterest += interest;
-        totalDays += days;
-
-
-        const displayEnd =
-            new Date(segmentEnd);
-
-        displayEnd.setDate(
-            displayEnd.getDate() - 1
-        );
-
-
-        segments.push({
-
-            start: new Date(cursor),
-
-            end: displayEnd,
-
-            days: days,
-
-            rate: selectedPeriod.rate,
-
-            interest: interest
-
-        });
-
-
-        cursor =
-            new Date(segmentEnd);
-
-    }
-
-
-    const total =
-        principal + totalInterest;
-
-
-    /* SONUÇ BİLGİLERİ */
-
-    document.getElementById(
-        "resultPrincipal"
-    ).textContent =
-        formatMoney(principal);
-
-
-    document.getElementById(
-        "resultStart"
-    ).textContent =
-        formatDate(start);
-
-
-    document.getElementById(
-        "resultEnd"
-    ).textContent =
-        formatDate(end);
-
-
-    document.getElementById(
-        "resultDays"
-    ).textContent =
-        totalDays + " gün";
-
-
-    document.getElementById(
-        "resultInterest"
-    ).textContent =
-        formatMoney(totalInterest);
-
-
-    document.getElementById(
-        "resultTotal"
-    ).textContent =
-        formatMoney(total);
-
-
-    /* TABLO */
-
-    const tbody =
-        document.getElementById(
-            "breakdownBody"
-        );
-
-    tbody.innerHTML = "";
-
-
-    segments.forEach(segment => {
-
-        const tr =
-            document.createElement("tr");
-
-
-        tr.innerHTML = `
-
-            <td>
-                ${formatDate(segment.start)}
-            </td>
-
-            <td>
-                ${formatDate(segment.end)}
-            </td>
-
-            <td>
-                ${segment.days}
-            </td>
-
-            <td>
-                %${(
-                    segment.rate * 100
-                ).toLocaleString(
-                    "tr-TR",
-                    {
-                        maximumFractionDigits: 2
-                    }
-                )}
-            </td>
-
-            <td>
-                ${formatMoney(principal)}
-            </td>
-
-            <td>
-                ${formatMoney(segment.interest)}
-            </td>
-
-        `;
-
-
-        tbody.appendChild(tr);
-
-    });
-
-
-    document.getElementById(
-        "result"
-    ).style.display = "block";
-
-
-    document.getElementById(
-        "result"
-    ).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
+function addAccount(){
+ const c=document.getElementById("accountsContainer"),e=document.createElement("div");
+ e.className="account-entry";e.setAttribute("data-account","");
+ e.innerHTML=`<div class="account-fields"><div class="field"><div class="amount-wrap"><input type="text" class="account-principal" inputmode="decimal" placeholder="Örn. 45.661,70"><span class="amount-symbol">TL</span></div></div><div class="field"><input type="date" class="account-start" aria-label="Faiz Başlangıç Tarihi (Borcun doğuş tarihi)"></div><div class="field"><input type="date" class="account-end" aria-label="Faiz Bitiş Tarihi (Ödeme yapılacak tarih)"></div><div class="row-actions"><button type="button" class="add-account-btn" onclick="addAccount()" aria-label="Satır ekle">＋</button><button type="button" class="remove-account-btn" onclick="removeAccount(this)" aria-label="Bu satırı sil">−</button></div></div>`;
+ c.appendChild(e);refreshAccountRows();e.querySelector(".account-principal").focus();
+}
+function removeAccount(button){const all=document.querySelectorAll("#accountsContainer [data-account]");if(all.length<=1)return;button.closest("[data-account]").remove();refreshAccountRows();}
+function refreshAccountRows(){const all=document.querySelectorAll("#accountsContainer [data-account]");all.forEach(e=>{e.querySelector(".remove-account-btn").disabled=all.length===1;});}
+function calculateSingleInterest(principal,start,end){
+ let cursor=new Date(start),interest=0,daysTotal=0;
+ while(cursor<end){
+  let periodFound=null;
+  for(const p of ratePeriods){const ps=parseDate(p.start),pe=parseDate(p.end);if(cursor>=ps&&cursor<pe){periodFound=p;break;}}
+  if(!periodFound)throw new Error("Girilen tarih için tanımlı faiz oranı bulunamadı.");
+  const pe=parseDate(periodFound.end),segmentEnd=pe<end?pe:end,days=daysBetween(cursor,segmentEnd);
+  interest+=principal*periodFound.rate*days/365;daysTotal+=days;cursor=new Date(segmentEnd);
+ }
+ return {interest,days:daysTotal};
+}
+let lastCalculationResults=[],lastCalculationTotals=null;
+function calculate(){
+ const entries=Array.from(document.querySelectorAll("#accountsContainer [data-account]")),results=[];
+ for(let i=0;i<entries.length;i++){
+  const e=entries[i],principal=parseMoney(e.querySelector(".account-principal").value),sv=e.querySelector(".account-start").value,ev=e.querySelector(".account-end").value;
+  if(!principal||principal<=0){alert("Hesap "+(i+1)+": Lütfen geçerli bir ana para tutarı giriniz.");return;}
+  if(!sv||!ev){alert("Hesap "+(i+1)+": Başlangıç ve bitiş tarihlerini giriniz.");return;}
+  const start=parseDate(sv),end=parseDate(ev);if(end<=start){alert("Hesap "+(i+1)+": Bitiş tarihi başlangıç tarihinden sonra olmalıdır.");return;}
+  try{const r=calculateSingleInterest(principal,start,end);results.push({number:i+1,principal,start,end,days:r.days,interest:r.interest,total:principal+r.interest});}catch(err){alert(err.message);return;}
+ }
+ const totals=results.reduce((a,x)=>({principal:a.principal+x.principal,interest:a.interest+x.interest,total:a.total+x.total}),{principal:0,interest:0,total:0});
+ lastCalculationResults=results;lastCalculationTotals=totals;
+ document.getElementById("resultCount").textContent=results.length;
+ document.getElementById("summaryPrincipal").textContent=formatMoney(totals.principal);
+ document.getElementById("summaryInterest").textContent=formatMoney(totals.interest);
+ document.getElementById("summaryGrandTotal").textContent=formatMoney(totals.total);
+ const body=document.getElementById("summaryBody");body.innerHTML="";
+ results.forEach(x=>{const tr=document.createElement("tr");[formatMoney(x.principal),formatDate(x.start),formatDate(x.end),formatMoney(x.interest),formatMoney(x.total)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});body.appendChild(tr);});
+ document.getElementById("result").style.display="block";document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 
@@ -2254,570 +1767,22 @@ function calculate() {
    SADECE HESAP TABLOSU
 ===================================================== */
 
-async function downloadPDF() {
-
-    const {
-        jsPDF
-    } = window.jspdf;
-
-
-    const pdfContent =
-        document.createElement("div");
-
-
-    pdfContent.style.width = "794px";
-    pdfContent.style.background = "#ffffff";
-    pdfContent.style.padding = "35px";
-    pdfContent.style.boxSizing = "border-box";
-
-    pdfContent.style.fontFamily =
-        "Arial, Helvetica, sans-serif";
-
-    pdfContent.style.color =
-        "#1f2937";
-
-
-    /* BAŞLIK */
-
-    const title =
-        document.createElement("div");
-
-
-    title.innerHTML = `
-
-        <div style="
-            text-align:center;
-            font-size:24px;
-            font-weight:800;
-            color:#4c1d95;
-            margin-bottom:6px;
-        ">
-            Kamu Zararı Yasal Faiz Hesap Tablosu
-        </div>
-
-        <div style="
-            text-align:center;
-            font-size:13px;
-            color:#6b7280;
-            margin-bottom:25px;
-        ">
-            Yunusemre İlçe Milli Eğitim Müdürlüğü
-        </div>
-
-    `;
-
-
-    pdfContent.appendChild(title);
-
-
-    /* HESAP BİLGİLERİ */
-
-    const info =
-        document.createElement("div");
-
-
-    info.innerHTML = `
-
-        <table style="
-            width:100%;
-            border-collapse:collapse;
-            margin-bottom:20px;
-            font-size:14px;
-        ">
-
-            <tr>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                    font-weight:700;
-                    background:#f3f4f6;
-                    width:35%;
-                ">
-                    Ana Para
-                </td>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                    text-align:right;
-                ">
-                    ${document.getElementById(
-                        "resultPrincipal"
-                    ).textContent}
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                    font-weight:700;
-                    background:#f3f4f6;
-                ">
-                    Faiz Başlangıç Tarihi
-                </td>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                ">
-                    ${document.getElementById(
-                        "resultStart"
-                    ).textContent}
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                    font-weight:700;
-                    background:#f3f4f6;
-                ">
-                    Faiz Bitiş Tarihi
-                </td>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                ">
-                    ${document.getElementById(
-                        "resultEnd"
-                    ).textContent}
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                    font-weight:700;
-                    background:#f3f4f6;
-                ">
-                    Toplam Gün
-                </td>
-
-                <td style="
-                    border:1px solid #d1d5db;
-                    padding:10px;
-                ">
-                    ${document.getElementById(
-                        "resultDays"
-                    ).textContent}
-                </td>
-
-            </tr>
-
-        </table>
-
-    `;
-
-
-    pdfContent.appendChild(info);
-
-
-    /* FAİZ TABLOSU */
-
-    const breakdownTitle =
-        document.createElement("div");
-
-
-    breakdownTitle.innerHTML = `
-
-        <div style="
-            font-size:17px;
-            font-weight:800;
-            color:#4c1d95;
-            margin:18px 0 10px;
-            border-bottom:2px solid #7c3aed;
-            padding-bottom:7px;
-        ">
-            Faiz Hesaplama Dökümü
-        </div>
-
-    `;
-
-
-    pdfContent.appendChild(
-        breakdownTitle
-    );
-
-
-    const originalTable =
-        document.querySelector(
-            "#breakdownTable"
-        );
-
-
-    if (originalTable) {
-
-        const tableClone =
-            originalTable.cloneNode(true);
-
-
-        tableClone.style.width =
-            "100%";
-
-        tableClone.style.borderCollapse =
-            "collapse";
-
-        tableClone.style.fontSize =
-            "12px";
-
-
-        tableClone
-            .querySelectorAll("th")
-            .forEach(th => {
-
-                th.style.background =
-                    "#4c1d95";
-
-                th.style.color =
-                    "#ffffff";
-
-                th.style.padding =
-                    "9px";
-
-                th.style.border =
-                    "1px solid #d1d5db";
-
-            });
-
-
-        tableClone
-            .querySelectorAll("td")
-            .forEach(td => {
-
-                td.style.padding =
-                    "8px";
-
-                td.style.border =
-                    "1px solid #d1d5db";
-
-            });
-
-
-        pdfContent.appendChild(
-            tableClone
-        );
-
-    }
-
-
-    /* TOPLAM */
-
-    const interest =
-        document.getElementById(
-            "resultInterest"
-        ).textContent;
-
-
-    const total =
-        document.getElementById(
-            "resultTotal"
-        ).textContent;
-
-
-    const totals =
-        document.createElement("div");
-
-
-    totals.innerHTML = `
-
-        <div style="
-            margin-top:25px;
-            border:2px solid #4c1d95;
-            border-radius:12px;
-            overflow:hidden;
-        ">
-
-            <div style="
-                display:flex;
-                justify-content:space-between;
-                align-items:center;
-                padding:13px 16px;
-                background:#f5f3ff;
-                border-bottom:1px solid #ddd6fe;
-                font-size:15px;
-            ">
-
-                <span style="
-                    font-weight:700;
-                ">
-                    Hesaplanan Faiz
-                </span>
-
-                <strong style="
-                    font-size:17px;
-                ">
-                    ${interest}
-                </strong>
-
-            </div>
-
-
-            <div style="
-                padding:20px 16px;
-                background:#4c1d95;
-                color:#ffffff;
-                text-align:center;
-            ">
-
-                <div style="
-                    font-size:14px;
-                    font-weight:700;
-                    letter-spacing:.5px;
-                    margin-bottom:7px;
-                ">
-                    YATIRILMASI GEREKEN TOPLAM TUTAR
-                </div>
-
-
-                <div style="
-                    font-size:28px;
-                    font-weight:900;
-                    letter-spacing:.5px;
-                ">
-                    ${total}
-                </div>
-
-
-                <div style="
-                    font-size:11px;
-                    margin-top:7px;
-                    opacity:.9;
-                ">
-                    Ana Para + Faiz
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div style="
-            margin-top:18px;
-            text-align:center;
-            font-size:10px;
-            color:#6b7280;
-        ">
-            Bu belge hesaplama sonucu olarak düzenlenmiştir.
-        </div>
-
-    `;
-
-
-    pdfContent.appendChild(
-        totals
-    );
-
-
-    /* GEÇİCİ ALAN */
-
-    pdfContent.style.position =
-        "absolute";
-
-    pdfContent.style.left =
-        "-100000px";
-
-    pdfContent.style.top =
-        "0";
-
-
-    document.body.appendChild(
-        pdfContent
-    );
-
-
-    try {
-
-        const canvas =
-            await html2canvas(
-                pdfContent,
-                {
-                    scale: 2,
-                    useCORS: true,
-                    backgroundColor: "#ffffff"
-                }
-            );
-
-
-        const pdf =
-            new jsPDF(
-                "p",
-                "mm",
-                "a4"
-            );
-
-
-        const pageWidth = 210;
-        const pageHeight = 297;
-
-        const margin = 10;
-
-        const usableWidth =
-            pageWidth -
-            margin * 2;
-
-        const usableHeight =
-            pageHeight -
-            margin * 2;
-
-
-        const canvasPageHeight =
-            Math.floor(
-                canvas.width *
-                usableHeight /
-                usableWidth
-            );
-
-
-        let y = 0;
-        let pageNumber = 0;
-
-
-        while (
-            y < canvas.height
-        ) {
-
-            if (pageNumber > 0) {
-                pdf.addPage();
-            }
-
-
-            const remainingHeight =
-                canvas.height - y;
-
-
-            const sliceHeight =
-                Math.min(
-                    canvasPageHeight,
-                    remainingHeight
-                );
-
-
-            const pageCanvas =
-                document.createElement(
-                    "canvas"
-                );
-
-
-            pageCanvas.width =
-                canvas.width;
-
-            pageCanvas.height =
-                sliceHeight;
-
-
-            const ctx =
-                pageCanvas.getContext(
-                    "2d"
-                );
-
-
-            ctx.fillStyle =
-                "#ffffff";
-
-
-            ctx.fillRect(
-                0,
-                0,
-                pageCanvas.width,
-                pageCanvas.height
-            );
-
-
-            ctx.drawImage(
-                canvas,
-
-                0,
-                y,
-
-                canvas.width,
-                sliceHeight,
-
-                0,
-                0,
-
-                canvas.width,
-                sliceHeight
-            );
-
-
-            const sliceHeightMm =
-                sliceHeight *
-                usableWidth /
-                canvas.width;
-
-
-            const imageData =
-                pageCanvas.toDataURL(
-                    "image/jpeg",
-                    .95
-                );
-
-
-            pdf.addImage(
-                imageData,
-                "JPEG",
-
-                margin,
-                margin,
-
-                usableWidth,
-                sliceHeightMm
-            );
-
-
-            y += sliceHeight;
-
-            pageNumber++;
-
-        }
-
-
-        pdf.save(
-            "Kamu-Zarari-Yasal-Faiz-Hesap-Tablosu.pdf"
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "PDF oluşturma hatası:",
-            error
-        );
-
-        alert(
-            "PDF oluşturulurken bir hata oluştu."
-        );
-
-    } finally {
-
-        if (
-            document.body.contains(
-                pdfContent
-            )
-        ) {
-
-            document.body.removeChild(
-                pdfContent
-            );
-
-        }
-
-    }
-
+async function downloadPDF(){
+ if(!lastCalculationResults.length||!lastCalculationTotals){alert("Önce hesaplama yapınız.");return;}
+ const {jsPDF}=window.jspdf,el=document.createElement("div");
+ el.style.cssText="width:1050px;background:#fff;padding:42px;box-sizing:border-box;font-family:Arial,sans-serif;color:#243b53;position:absolute;left:-100000px;top:0";
+ const cell="padding:13px 10px;border:1px solid #d9e6ef;vertical-align:middle";
+ const rows=lastCalculationResults.map(x=>`<tr><td style="${cell};text-align:right;font-weight:700">${formatMoney(x.principal)}</td><td style="${cell};text-align:center">${formatDate(x.start)}</td><td style="${cell};text-align:center">${formatDate(x.end)}</td><td style="${cell};text-align:right">${formatMoney(x.interest)}</td><td style="${cell};text-align:right;font-weight:700;color:#126da8">${formatMoney(x.total)}</td></tr>`).join("");
+ el.innerHTML=`<div style="text-align:center;margin-bottom:30px"><div style="font-size:25px;font-weight:800;color:#155b8b">Yasal Faiz Hesaplama Özeti</div><div style="font-size:12px;color:#718096;margin-top:7px">Düzenlenme tarihi: ${new Date().toLocaleDateString("tr-TR")}</div></div>
+ <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:26px"><thead><tr style="background:#1d8ed0;color:#fff"><th style="padding:13px 9px;text-align:right">Ana Para</th><th style="padding:13px 9px">Faiz Başlangıç Tarihi</th><th style="padding:13px 9px">Faiz Bitiş Tarihi</th><th style="padding:13px 9px;text-align:right">Faiz</th><th style="padding:13px 9px;text-align:right">Genel Toplam</th></tr></thead><tbody>${rows}</tbody></table>
+ <div style="border:1px solid #c8dceb;border-radius:10px;overflow:hidden"><div style="display:flex;justify-content:space-between;padding:14px 17px;background:#f1f8fd;border-bottom:1px solid #d9e6ef"><strong>Toplam Ana Para</strong><strong>${formatMoney(lastCalculationTotals.principal)}</strong></div><div style="display:flex;justify-content:space-between;padding:14px 17px;background:#f1f8fd;border-bottom:1px solid #d9e6ef"><strong>Toplam Faiz</strong><strong>${formatMoney(lastCalculationTotals.interest)}</strong></div><div style="display:flex;justify-content:space-between;padding:17px;background:#e3f2fc;color:#155b8b;font-size:18px"><strong>Genel Toplam</strong><strong>${formatMoney(lastCalculationTotals.total)}</strong></div></div><div style="text-align:center;color:#8798a5;font-size:10px;margin-top:22px">Bu belge hesaplama özeti amacıyla oluşturulmuştur.</div>`;
+ document.body.appendChild(el);
+ try{
+  const canvas=await html2canvas(el,{scale:2,backgroundColor:"#fff"}),pdf=new jsPDF("p","mm","a4"),margin=10,width=190,height=277;
+  let y=0;while(y<canvas.height){const h=Math.min(Math.round(height*canvas.width/width),canvas.height-y),slice=document.createElement("canvas");slice.width=canvas.width;slice.height=h;slice.getContext("2d").drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);if(y>0)pdf.addPage();pdf.addImage(slice.toDataURL("image/jpeg",.96),"JPEG",margin,margin,width,h*width/canvas.width);y+=h;}
+  pdf.save("Yasal-Faiz-Hesaplama-Ozeti.pdf");
+ }catch(err){console.error("PDF oluşturma hatası:",err);alert("PDF oluşturulurken bir hata oluştu.");}
+ finally{if(document.body.contains(el))document.body.removeChild(el);}
 }
 
 
@@ -2825,40 +1790,7 @@ async function downloadPDF() {
    ENTER TUŞU
 ===================================================== */
 
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Enter"
-        ) {
-
-            const active =
-                document.activeElement;
-
-            if (
-                active &&
-                (
-                    active.id ===
-                    "principal" ||
-
-                    active.id ===
-                    "startDate" ||
-
-                    active.id ===
-                    "endDate"
-                )
-            ) {
-
-                calculate();
-
-            }
-
-        }
-
-    }
-);
-
+document.addEventListener("keydown",function(event){if(event.key==="Enter"&&event.target&&event.target.closest("#accountsContainer"))calculate();});
 </script>
 
 </body>
