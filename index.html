@@ -1210,6 +1210,31 @@ body{background:#f3f8fc;color:var(--ink)}
 @media(max-width:850px){.account-table-wrap{overflow-x:auto}.account-table-head,.account-entry .account-fields{grid-template-columns:minmax(145px,1fr) minmax(205px,1.2fr) minmax(205px,1.2fr) 94px;gap:9px}.account-table-head{font-size:11px}}
 @media print{.account-table-wrap{display:none!important}}
 
+/* Satır çerçevelerini belirginleştir */
+.account-table-wrap{
+    border:2px solid #9bbbd0;
+    box-shadow:0 3px 12px rgba(21,91,139,.07);
+}
+.account-table-head{
+    border-bottom:2px solid #9bbbd0;
+}
+.account-entry{
+    margin:8px 10px;
+    padding:12px;
+    border:1.5px solid #a9c6d8;
+    border-radius:10px;
+    background:#fafdff;
+    box-shadow:0 2px 6px rgba(21,91,139,.05);
+}
+.account-entry:last-child{
+    margin-bottom:8px;
+    border-bottom:1.5px solid #a9c6d8;
+}
+.account-entry:focus-within{
+    border-color:#4b9ac7;
+    box-shadow:0 0 0 3px rgba(29,161,242,.10);
+}
+
 </style>
 </head>
 
@@ -1356,7 +1381,7 @@ body{background:#f3f8fc;color:var(--ink)}
                         <div>Ana Para</div>
                         <div>Faiz Başlangıç Tarihi <small>(Borcun doğuş tarihi)</small></div>
                         <div>Faiz Bitiş Tarihi <small>(Ödeme yapılacak tarih)</small></div>
-                        <div class="action-heading">İşlem</div>
+                        <div class="action-heading">Satır ekle/sil</div>
                     </div>
                     <div id="accountsContainer">
                         <div class="account-entry" data-account>
