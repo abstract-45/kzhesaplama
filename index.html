@@ -1144,6 +1144,46 @@ footer {
 @media(max-width:850px){.account-fields{grid-template-columns:1fr;gap:13px}.summary-total-grid{grid-template-columns:1fr}.accounts-toolbar{align-items:flex-start;flex-direction:column}}
 @media print{.accounts-toolbar,.account-entry,.accounts-hint,.calculate-btn{display:none!important}.calculator-card>.card-title{display:none!important}#result{display:block!important}#summaryTable{font-size:11px}#summaryTable th,#summaryTable td{white-space:normal}}
 
+
+/* TWITTER MAVİSİ ESİNTİLİ KURUMSAL TEMA */
+:root{--blue:#1da1f2;--blue-dark:#155b8b;--navy:#173b59;--blue-soft:#eaf6fd;--line:#d8e7f0;--ink:#243b53}
+body{background:#f3f8fc;color:var(--ink)}
+.hero{margin-top:22px;padding:30px 34px;border-radius:24px;background:linear-gradient(118deg,#e7f5fd 0%,#d8edfb 58%,#c8e5f8 100%);border:1px solid #c7e3f5;color:var(--navy);box-shadow:0 14px 34px rgba(27,92,135,.10);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.88fr);gap:24px;min-height:280px;overflow:hidden}
+.hero-copy{align-self:center;position:relative;z-index:1}.hero-eyebrow{display:inline-block;margin-bottom:13px;padding:7px 10px;border-radius:99px;background:#fff;color:#1676b7;font-size:10px;font-weight:800;letter-spacing:.8px}
+.hero h1{margin:0 0 11px;color:#173b59;font-size:clamp(28px,3.3vw,40px);line-height:1.12}.hero p{max-width:570px;color:#45647c;font-size:15px;line-height:1.65}
+.hero-points{display:flex;flex-wrap:wrap;gap:9px;margin-top:19px}.hero-points span{padding:7px 10px;border:1px solid #b8d9ef;border-radius:8px;background:#ffffffa8;color:#315b79;font-size:11px;font-weight:700}
+.hero-art{align-self:center;min-width:0}.hero-art svg{display:block;width:100%;height:auto;max-height:270px}
+.brand{color:#173b59}.brand-mark{background:linear-gradient(145deg,#1da1f2,#1476bd);box-shadow:0 7px 18px #1da1f22e}
+.nav-links a:hover{background:#e5f4fd;color:#126da8}
+.home-intro{background:linear-gradient(120deg,#e9f6fd,#dceefa);border:1px solid #cde6f6;box-shadow:0 12px 28px rgba(27,92,135,.07)}
+.home-intro:after{border-color:#1da1f224;box-shadow:0 0 0 28px #1da1f20c,0 0 0 58px #1da1f208}
+.home-intro h2{color:#173b59}.home-intro p{color:#45647c}.home-kicker{color:#176fa9}
+.home-btn.primary{background:#1d8ed0;color:#fff}.home-btn.primary:hover{background:#1476bd}.home-btn.secondary{border:1px solid #a9cde4;color:#245b80;background:#ffffffa8}
+.section-heading h2{color:#173b59}
+.module-card{border-color:#e0eaf1}.module-card.active:hover{border-color:#a9d5f1;box-shadow:0 13px 26px rgba(29,161,242,.10)}
+.module-icon{background:#e5f4fd;color:#167fc1}.module-link{color:#1476bd}
+.home-note{border-color:#d2e9f8;background:#f1f9fe;color:#45647c}.home-note strong{color:#155b8b}
+.home-link:hover{border-color:#a9d5f1;background:#f4faff}
+.card{border-color:#e0eaf1;box-shadow:0 8px 25px rgba(23,59,89,.05)}
+.field input:focus{border-color:#1d8ed0;box-shadow:0 0 0 4px rgba(29,161,242,.12)}
+.help{border-color:#d6eaf7;background:#f3f9fd;color:#49677d}
+.calculate-btn{background:linear-gradient(135deg,#168bd2,#1da1f2);box-shadow:0 8px 18px rgba(29,161,242,.22)}
+.calculate-btn:hover{box-shadow:0 11px 23px rgba(29,161,242,.28)}
+#breakdownTable th{background:#176fa9}
+.total-box{border-color:#1b83c3}.interest-row{background:#eff8fd;border-bottom-color:#d4e9f7}.total-row{background:#176fa9}
+.action-btn.primary{border-color:#176fa9;background:#176fa9}
+.info-section h4{color:#176fa9}.rate-table th{background:#e5f4fd;color:#155b8b}
+.excel-file:hover{background:#f1f9fe}.excel-info{background:#f1f9fe;border-color:#d4e9f7;color:#45647c}
+.support-box{border-color:#d4e9f7}.support-title{color:#176fa9}
+.accounts-toolbar strong{color:#244e6b}
+.add-account-btn,.remove-account-btn{border-color:#b9d8eb;background:#edf7fd;color:#155b8b}
+.add-account-btn:hover{background:#dff0fb}.account-entry{border-color:#dceaf3;background:#fbfdff}
+.summary-total-card{border-color:#d9e7f0}.summary-total-card strong{color:#245b80}
+.summary-total-card.grand{background:#e7f4fc;border-color:#b9d9ed}.summary-total-card.grand strong{color:#155b8b}
+#summaryTable th{background:#176fa9}#summaryTable td{white-space:normal}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:24px;min-height:0}.hero-art{max-width:460px;width:100%;justify-self:center}}
+@media(max-width:600px){.hero{margin-top:12px;padding:21px 18px;gap:8px}.hero-art svg{max-height:210px}.hero-points{gap:6px}.hero-points span{font-size:10px}}
+
 </style>
 </head>
 
@@ -1167,63 +1207,41 @@ footer {
     ========================== -->
 
     <section class="hero">
-
-        <div class="hero-left">
-
-            <div class="calculator-logo" aria-hidden="true">
-
-                <div class="calculator-screen"></div>
-
-                <div class="calculator-buttons">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-            </div>
-
-            <div class="hero-text">
-
-                <h1>
-                    Kamu Zararı Hesaplama
-                    (Maaş - Ek Ders - Yasal Faiz)
-                </h1>
-
-                <p>
-                    Kamu zararı iş ve işlemlerini hızlıca gerçekleştirin
-                </p>
-
-            </div>
-
+        <div class="hero-copy">
+            <span class="hero-eyebrow">KAMU MALİ İŞLEMLERİ • HESAPLAMA ARAÇLARI</span>
+            <h1>Kamu Zararı Hesaplama</h1>
+            <p>Maaş, ek ders ve yasal faiz işlemleri için anlaşılır ve pratik hesaplama araçları.</p>
+            <div class="hero-points"><span>✓ Çoklu hesaplama</span><span>✓ Özet PDF çıktısı</span><span>✓ Kolay kullanım</span></div>
         </div>
-
-        <div class="badges">
-
-            <span class="badge">
-                ✓ Otomatik oran dönemi
-            </span>
-
-            <span class="badge">
-                ✓ Ayrıntılı hesap dökümü
-            </span>
-
-            <span class="badge">
-                ✓ Yazdır / PDF
-            </span>
-
+        <div class="hero-art" role="img" aria-label="Terazi, hukuk evrakları ve finansal hesaplama araçlarından oluşan kurumsal illüstrasyon">
+            <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="artPanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff3ff"/><stop offset="1" stop-color="#b8dcf5"/></linearGradient>
+                    <filter id="artShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#17466b" flood-opacity=".14"/></filter>
+                </defs>
+                <rect x="18" y="18" width="524" height="304" rx="28" fill="url(#artPanel)"/>
+                <circle cx="468" cy="68" r="38" fill="#fff" opacity=".46"/><circle cx="78" cy="270" r="50" fill="#fff" opacity=".34"/>
+                <path d="M54 262 C132 210 178 252 242 197 S365 154 498 92" fill="none" stroke="#75b9e8" stroke-width="3" stroke-dasharray="7 9" opacity=".8"/>
+                <g filter="url(#artShadow)">
+                    <rect x="65" y="76" width="176" height="202" rx="15" fill="#fff"/>
+                    <rect x="85" y="99" width="92" height="9" rx="4.5" fill="#1da1f2"/>
+                    <rect x="85" y="123" width="133" height="6" rx="3" fill="#d7e5ed"/><rect x="85" y="139" width="119" height="6" rx="3" fill="#d7e5ed"/><rect x="85" y="155" width="126" height="6" rx="3" fill="#d7e5ed"/>
+                    <rect x="85" y="183" width="136" height="65" rx="9" fill="#edf7fd"/>
+                    <path d="M99 229 L124 208 L146 218 L169 193 L205 202" fill="none" stroke="#168bd2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="169" cy="193" r="5" fill="#168bd2"/>
+                </g>
+                <g filter="url(#artShadow)">
+                    <rect x="333" y="158" width="155" height="130" rx="16" fill="#fff"/>
+                    <rect x="350" y="176" width="121" height="27" rx="7" fill="#e8f5fd"/>
+                    <text x="410" y="195" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#24648f">₺ 1.250,00</text>
+                    <g fill="#d5e9f6"><rect x="350" y="215" width="25" height="20" rx="5"/><rect x="382" y="215" width="25" height="20" rx="5"/><rect x="414" y="215" width="25" height="20" rx="5"/><rect x="446" y="215" width="25" height="20" rx="5"/><rect x="350" y="243" width="25" height="20" rx="5"/><rect x="382" y="243" width="25" height="20" rx="5"/><rect x="414" y="243" width="25" height="20" rx="5"/></g><rect x="446" y="243" width="25" height="20" rx="5" fill="#1da1f2"/>
+                </g>
+                <g filter="url(#artShadow)" stroke="#155b8b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <path d="M292 72 V220 M252 220 H332 M264 72 H320 M292 72 L292 57"/><path d="M250 98 H334 M292 81 L250 98 M292 81 L334 98"/>
+                    <path d="M250 98 L230 142 M250 98 L270 142 M334 98 L314 142 M334 98 L354 142"/><path d="M216 142 Q250 176 284 142 M300 142 Q334 176 368 142"/><path d="M270 220 Q292 202 314 220"/>
+                </g>
+                <circle cx="292" cy="57" r="9" fill="#1da1f2"/><g fill="#1da1f2"><circle cx="110" cy="54" r="5"/><circle cx="453" cy="120" r="6"/><circle cx="300" cy="284" r="4"/></g>
+            </svg>
         </div>
-
     </section>
 
 
@@ -1343,7 +1361,7 @@ footer {
                             <div class="summary-total-card grand"><span>Genel Toplam</span><strong id="summaryGrandTotal">0,00 TL</strong></div>
                         </div>
                         <div class="table-wrap"><table id="summaryTable">
-                            <thead><tr><th>#</th><th>Hesap Dönemi</th><th>Ana Para</th><th>Faiz</th><th>Toplam</th></tr></thead>
+                            <thead><tr><th>Ana Para</th><th>Faiz Başlangıç Tarihi</th><th>Faiz Bitiş Tarihi</th><th>Faiz</th><th>Genel Toplam</th></tr></thead>
                             <tbody id="summaryBody"></tbody>
                         </table></div>
                         <div class="actions">
@@ -1681,7 +1699,7 @@ function calculate(){
  document.getElementById("summaryInterest").textContent=formatMoney(totals.interest);
  document.getElementById("summaryGrandTotal").textContent=formatMoney(totals.total);
  const body=document.getElementById("summaryBody");body.innerHTML="";
- results.forEach(x=>{const tr=document.createElement("tr");[String(x.number),formatDate(x.start)+" – "+formatDate(x.end),formatMoney(x.principal),formatMoney(x.interest),formatMoney(x.total)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});body.appendChild(tr);});
+ results.forEach(x=>{const tr=document.createElement("tr");[formatMoney(x.principal),formatDate(x.start),formatDate(x.end),formatMoney(x.interest),formatMoney(x.total)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});body.appendChild(tr);});
  document.getElementById("result").style.display="block";document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
@@ -1694,15 +1712,16 @@ function calculate(){
 async function downloadPDF(){
  if(!lastCalculationResults.length||!lastCalculationTotals){alert("Önce hesaplama yapınız.");return;}
  const {jsPDF}=window.jspdf,el=document.createElement("div");
- el.style.cssText="width:794px;background:#fff;padding:38px;box-sizing:border-box;font-family:Arial,sans-serif;color:#26383e;position:absolute;left:-100000px;top:0";
- const rows=lastCalculationResults.map(x=>`<tr><td style="padding:10px;border:1px solid #dce4e6">${x.number}</td><td style="padding:10px;border:1px solid #dce4e6">${formatDate(x.start)} – ${formatDate(x.end)}</td><td style="padding:10px;border:1px solid #dce4e6;text-align:right">${formatMoney(x.principal)}</td><td style="padding:10px;border:1px solid #dce4e6;text-align:right">${formatMoney(x.interest)}</td><td style="padding:10px;border:1px solid #dce4e6;text-align:right">${formatMoney(x.total)}</td></tr>`).join("");
- el.innerHTML=`<div style="text-align:center;margin-bottom:26px"><div style="font-size:23px;font-weight:800;color:#405966">Yasal Faiz Hesaplama Özeti</div><div style="font-size:12px;color:#718087;margin-top:6px">Düzenlenme tarihi: ${new Date().toLocaleDateString("tr-TR")}</div></div>
- <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:22px"><thead><tr style="background:#496875;color:#fff"><th style="padding:11px">#</th><th style="padding:11px;text-align:left">Hesap Dönemi</th><th style="padding:11px;text-align:right">Ana Para</th><th style="padding:11px;text-align:right">Faiz</th><th style="padding:11px;text-align:right">Toplam</th></tr></thead><tbody>${rows}</tbody></table>
- <div style="border:1px solid #c8d7da;border-radius:10px;overflow:hidden"><div style="display:flex;justify-content:space-between;padding:13px 15px;background:#f4f7f7;border-bottom:1px solid #dce4e6"><strong>Toplam Ana Para</strong><strong>${formatMoney(lastCalculationTotals.principal)}</strong></div><div style="display:flex;justify-content:space-between;padding:13px 15px;background:#f4f7f7;border-bottom:1px solid #dce4e6"><strong>Toplam Faiz</strong><strong>${formatMoney(lastCalculationTotals.interest)}</strong></div><div style="display:flex;justify-content:space-between;padding:17px 15px;background:#e8eff0;color:#304f59;font-size:17px"><strong>Genel Toplam</strong><strong>${formatMoney(lastCalculationTotals.total)}</strong></div></div><div style="text-align:center;color:#89969a;font-size:10px;margin-top:20px">Bu belge hesaplama özeti amacıyla oluşturulmuştur.</div>`;
+ el.style.cssText="width:1050px;background:#fff;padding:42px;box-sizing:border-box;font-family:Arial,sans-serif;color:#243b53;position:absolute;left:-100000px;top:0";
+ const cell="padding:13px 10px;border:1px solid #d9e6ef;vertical-align:middle";
+ const rows=lastCalculationResults.map(x=>`<tr><td style="${cell};text-align:right;font-weight:700">${formatMoney(x.principal)}</td><td style="${cell};text-align:center">${formatDate(x.start)}</td><td style="${cell};text-align:center">${formatDate(x.end)}</td><td style="${cell};text-align:right">${formatMoney(x.interest)}</td><td style="${cell};text-align:right;font-weight:700;color:#126da8">${formatMoney(x.total)}</td></tr>`).join("");
+ el.innerHTML=`<div style="text-align:center;margin-bottom:30px"><div style="font-size:25px;font-weight:800;color:#155b8b">Yasal Faiz Hesaplama Özeti</div><div style="font-size:12px;color:#718096;margin-top:7px">Düzenlenme tarihi: ${new Date().toLocaleDateString("tr-TR")}</div></div>
+ <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:26px"><thead><tr style="background:#1d8ed0;color:#fff"><th style="padding:13px 9px;text-align:right">Ana Para</th><th style="padding:13px 9px">Faiz Başlangıç Tarihi</th><th style="padding:13px 9px">Faiz Bitiş Tarihi</th><th style="padding:13px 9px;text-align:right">Faiz</th><th style="padding:13px 9px;text-align:right">Genel Toplam</th></tr></thead><tbody>${rows}</tbody></table>
+ <div style="border:1px solid #c8dceb;border-radius:10px;overflow:hidden"><div style="display:flex;justify-content:space-between;padding:14px 17px;background:#f1f8fd;border-bottom:1px solid #d9e6ef"><strong>Toplam Ana Para</strong><strong>${formatMoney(lastCalculationTotals.principal)}</strong></div><div style="display:flex;justify-content:space-between;padding:14px 17px;background:#f1f8fd;border-bottom:1px solid #d9e6ef"><strong>Toplam Faiz</strong><strong>${formatMoney(lastCalculationTotals.interest)}</strong></div><div style="display:flex;justify-content:space-between;padding:17px;background:#e3f2fc;color:#155b8b;font-size:18px"><strong>Genel Toplam</strong><strong>${formatMoney(lastCalculationTotals.total)}</strong></div></div><div style="text-align:center;color:#8798a5;font-size:10px;margin-top:22px">Bu belge hesaplama özeti amacıyla oluşturulmuştur.</div>`;
  document.body.appendChild(el);
  try{
-  const canvas=await html2canvas(el,{scale:2,backgroundColor:"#fff"}),pdf=new jsPDF("p","mm","a4"),margin=12,width=186,height=273;
-  let y=0;while(y<canvas.height){const h=Math.min(Math.round(height*canvas.width/width),canvas.height-y),slice=document.createElement("canvas");slice.width=canvas.width;slice.height=h;slice.getContext("2d").drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);if(y>0)pdf.addPage();pdf.addImage(slice.toDataURL("image/jpeg",.95),"JPEG",margin,margin,width,h*width/canvas.width);y+=h;}
+  const canvas=await html2canvas(el,{scale:2,backgroundColor:"#fff"}),pdf=new jsPDF("p","mm","a4"),margin=10,width=190,height=277;
+  let y=0;while(y<canvas.height){const h=Math.min(Math.round(height*canvas.width/width),canvas.height-y),slice=document.createElement("canvas");slice.width=canvas.width;slice.height=h;slice.getContext("2d").drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);if(y>0)pdf.addPage();pdf.addImage(slice.toDataURL("image/jpeg",.96),"JPEG",margin,margin,width,h*width/canvas.width);y+=h;}
   pdf.save("Yasal-Faiz-Hesaplama-Ozeti.pdf");
  }catch(err){console.error("PDF oluşturma hatası:",err);alert("PDF oluşturulurken bir hata oluştu.");}
  finally{if(document.body.contains(el))document.body.removeChild(el);}
