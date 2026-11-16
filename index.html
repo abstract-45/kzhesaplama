@@ -1094,6 +1094,37 @@ footer {
 @media(max-width:650px){.site-nav{align-items:flex-start;flex-direction:column;padding-top:12px}.nav-links{width:100%;gap:2px}.nav-links a{padding:8px 9px}.home-intro{padding:24px 20px;margin-top:15px}.module-grid{grid-template-columns:1fr 1fr;gap:9px}.module-card{min-height:190px;padding:15px}.home-links{grid-template-columns:1fr}.section-heading{align-items:flex-start;flex-direction:column}}
 @media(max-width:390px){.module-grid{grid-template-columns:1fr}}
 
+
+/* SAKİN VE UYUMLU RENK PALETİ */
+.hero{
+    background:linear-gradient(135deg,#405966 0%,#536f7a 58%,#66828a 100%);
+    box-shadow:0 16px 38px rgba(55,78,88,.14);
+}
+.brand-mark{
+    background:linear-gradient(145deg,#496875,#6f8d94);
+    box-shadow:0 7px 18px rgba(73,104,117,.18);
+}
+.home-intro{
+    background:linear-gradient(120deg,#e8eff0 0%,#e1ebed 58%,#dce8e9 100%);
+    color:#2d424a;
+    box-shadow:0 12px 28px rgba(55,78,88,.08);
+    border:1px solid #d4e1e3;
+}
+.home-intro:after{
+    border-color:#66828a24;
+    box-shadow:0 0 0 28px #66828a0c,0 0 0 58px #66828a08;
+}
+.home-intro h2{color:#2d424a}
+.home-intro p{color:#536970}
+.home-btn.primary{background:#496875;color:#fff}
+.home-btn.secondary{border:1px solid #9aafb3;color:#405966;background:#ffffff80}
+.home-btn.primary:hover{background:#3d5965}
+.nav-links a:hover{background:#e8eff0;color:#405966}
+.section-heading h2{color:#344b54}
+.module-icon{background:#eaf0f1;color:#496875}
+.module-card.active:hover{border-color:#b8c9cc;box-shadow:0 13px 26px rgba(73,104,117,.10)}
+.module-link{color:#496875}
+.home-link:hover{border-color:#b8c9cc;background:#f7faf9}
 </style>
 </head>
 
@@ -1179,8 +1210,7 @@ footer {
 
 
     <section class="home-intro" id="anasayfa">
-        <span class="home-kicker">✦ Kamu personeli için pratik hesaplama araçları</span>
-        <h2>Kamu alacaklarında hesaplama artık daha kolay.</h2>
+                <h2>Kamu alacaklarında hesaplama artık daha kolay.</h2>
         <p>Yasal faiz ve kamu zararı hesaplamalarınızı tek noktadan, anlaşılır adımlarla gerçekleştirin. Ayrıntılı hesap dökümünü görüntüleyin; ihtiyaç duyduğunuzda yazdırın veya PDF olarak kaydedin.</p>
         <div class="home-actions">
             <a class="home-btn primary" href="#hesaplama-araclari">Hesaplama araçlarını keşfet <span>→</span></a>
