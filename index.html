@@ -1567,9 +1567,9 @@ body{background:#f3f8fc;color:var(--ink)}
   </div>
   <div class="ekders-section-title">Personel ve kurum bilgileri</div>
   <div class="ekders-grid">
-    <div class="ekders-field"><label for="ekPersonName">Personel adı soyadı</label><input id="ekPersonName" type="text" placeholder="Adı Soyadı"></div>
-    <div class="ekders-field"><label for="ekTc">T.C. kimlik numarası</label><input id="ekTc" type="text" inputmode="numeric" maxlength="11" placeholder="T.C. kimlik numarası"></div>
-    <div class="ekders-field"><label for="ekBirth">Doğum tarihi</label><input id="ekBirth" type="date"></div>
+    <div class="ekders-field"><label for="ekPersonName">Personel adı soyadı <span style="color:#be123c">*</span></label><input id="ekPersonName" type="text" autocomplete="name" required placeholder="Adı Soyadı"></div>
+    <div class="ekders-field"><label for="ekTc">T.C. kimlik numarası <span style="color:#be123c">*</span></label><input id="ekTc" type="text" inputmode="numeric" maxlength="11" minlength="11" pattern="[0-9]{11}" autocomplete="off" required placeholder="11 haneli T.C. kimlik numarası"><small id="ekTcStatus" aria-live="polite" style="font-size:11px;color:#64748b">Kimlik numarası kontrolü hesaplama sırasında yapılır.</small></div>
+    <div class="ekders-field"><label for="ekBirth">Doğum tarihi <span style="color:#be123c">*</span></label><input id="ekBirth" type="date" required></div>
     <div class="ekders-field"><label for="ekInstitution">Kurum</label><input id="ekInstitution" type="text" placeholder="Görev yaptığı kurum"></div>
     <div class="ekders-field"><label for="ekDuty">Görevi / unvanı</label><input id="ekDuty" type="text" placeholder="Öğretmen, yönetici vb."></div>
     <div class="ekders-field"><label for="ekDebtDate">Borcun doğuş tarihi</label><input id="ekDebtDate" type="date"></div>
@@ -1609,6 +1609,14 @@ body{background:#f3f8fc;color:var(--ink)}
   </div>
   <p class="ekders-hint">Katsayı, ödeme tarihine göre otomatik belirlenir. 2026 öncesi tarihler veya listede bulunmayan dönemler için katsayıyı ilgili resmî genelgeden kontrol ederek elle girebilirsiniz. Her satır farklı ödeme dönemini temsil edebilir.</p>
 
+  <div class="ekders-section-title">Vergi kesintileri hakkında</div>
+  <div class="ekders-disclaimer" style="background:#f2f8fc;color:#36536b;border:1px solid #c8dfef">
+    <strong>Gelir vergisi:</strong> Ek ders ücreti, ücret geliri kapsamında değerlendirilir. 2026 yılında kümülatif ücret matrahına göre %15, %20, %27, %35 ve %40 oranları uygulanır. Ek ders ödemesi aynı ay içindeki diğer ücretlerle birlikte değerlendirilir; yalnızca ek ders tutarına bakılarak sabit oran seçilmez.
+    <br><br><strong>Asgari ücret istisnası:</strong> 2026 brüt asgari ücret aylık 33.030 TL'dir. Gelir vergisi ve damga vergisi istisnası, aynı ayın ücret ödemeleri toplamında mevzuattaki şart ve sınırlar çerçevesinde uygulanır. Maaş bordrosunda zaten kullanılan istisna bu hesapta ikinci kez düşülmemelidir.
+    <br><br><strong>Damga vergisi:</strong> Ücret ve ek ders ödemelerinde genel oran binde 7,59 (%0,759)'dur. Asgari ücret istisnasına ilişkin uygulama ve aynı ay içindeki diğer ücretlerle birlikte değerlendirme dikkate alınmalıdır.
+    <br><br><strong>Personel statüsü:</strong> Bu modül kamu görevlisi/657 kapsamındaki öğretmenlerin ek ders ödemeleri için tasarlanmıştır. 4/a sigortalı özel okul personelinde SGK ve işsizlik primi gibi ilave kesintiler doğabileceğinden aynı net hesap doğrudan kullanılamaz.
+    <br><br><span>Kaynaklar: <a href="https://gib.gov.tr/mevzuat/kanun/433/madde/6937" target="_blank" rel="noopener">Gelir Vergisi Kanunu m.103</a> · <a href="https://cdn.gib.gov.tr/api/gibportal-file/file/getFileResources?objectKey=arsiv%2Fyardim-kaynaklar%2Fyararli-bilgiler%2FAsgariUcrettenYapilanKesintiler.pdf" target="_blank" rel="noopener">GİB – Asgari ücret istisnası</a> · <a href="https://tckimlik.nvi.gov.tr/Home" target="_blank" rel="noopener">NVİ kimlik doğrulama</a></span>
+  </div>
   <div class="ekders-section-title">Kesinti bilgileri</div>
   <div class="ekders-grid">
     <div class="ekders-field"><label for="ekCumulative">Ek ders öncesi kümülatif gelir vergisi matrahı (TL)</label><input id="ekCumulative" type="text" inputmode="decimal" placeholder="Bordrodaki kümülatif matrah"></div>
@@ -1940,7 +1948,24 @@ function ekTaxDue(income){
  return tax;
 }
 let lastEkdersReport=null;
+function ekValidTckn(value){
+ if(!/^\\d{11}$/.test(value)||value[0]==="0")return false;
+ const d=value.split("").map(Number);
+ const tenth=((d[0]+d[2]+d[4]+d[6]+d[8])*7-(d[1]+d[3]+d[5]+d[7]))%10;
+ const eleventh=d.slice(0,10).reduce((a,b)=>a+b,0)%10;
+ return tenth===d[9]&&eleventh===d[10];
+}
+function ekValidBirthDate(value){
+ if(!value)return false;
+ const d=new Date(value+"T00:00:00");
+ return !Number.isNaN(d.getTime())&&d.toISOString().slice(0,10)===value&&d<=new Date();
+}
 function calculateEkders(){
+ const person=document.getElementById("ekPersonName").value.trim(),tc=document.getElementById("ekTc").value.trim(),birth=document.getElementById("ekBirth").value;
+ if(!person){alert("Personel adı soyadı zorunludur.");document.getElementById("ekPersonName").focus();return;}
+ if(!ekValidTckn(tc)){document.getElementById("ekTcStatus").textContent="T.C. kimlik numarası kontrol algoritmasına uygun değil.";document.getElementById("ekTcStatus").style.color="#be123c";alert("Geçerli bir 11 haneli T.C. kimlik numarası giriniz.");document.getElementById("ekTc").focus();return;}
+ if(!ekValidBirthDate(birth)){alert("Geçerli bir doğum tarihi giriniz. Doğum tarihi zorunludur ve gelecekte olamaz.");document.getElementById("ekBirth").focus();return;}
+ document.getElementById("ekTcStatus").textContent="T.C. kimlik numarası biçim ve kontrol basamakları uygun. Bu kontrol, kişinin kimlik bilgilerinin resmî kayıttan eşleştiğini göstermez.";document.getElementById("ekTcStatus").style.color="#15803d";
  const rows=Array.from(document.querySelectorAll("#ekdersRows [data-ek-row]")),items=[];let year=null,totalHours=0,gross=0;
  for(let i=0;i<rows.length;i++){
   const r=rows[i],date=r.querySelector(".ek-date").value,hours=Number(r.querySelector(".ek-hours").value),indicator=Number(r.querySelector(".ek-indicator").value),coefficient=Number(r.querySelector(".ek-coefficient").value);
@@ -1954,7 +1979,7 @@ function calculateEkders(){
  const incomeTax=Math.max(0,ekTaxDue(cumulative+gross)-ekTaxDue(cumulative)),stamp=gross*stampRate/100,other=gross*otherRate/100+otherFixed,net=gross-incomeTax-stamp-other;
  const fmt=n=>ekMoney(n);
  document.getElementById("ekGross").textContent=fmt(gross);document.getElementById("ekIncomeTax").textContent=fmt(incomeTax);document.getElementById("ekStamp").textContent=fmt(stamp);document.getElementById("ekOther").textContent=fmt(other);document.getElementById("ekNet").textContent=fmt(net);document.getElementById("ekTotalHours").textContent=String(totalHours).replace(".",",");
- const person=document.getElementById("ekPersonName").value.trim(),institution=document.getElementById("ekInstitution").value.trim(),duty=document.getElementById("ekDuty").value.trim();
+ const institution=document.getElementById("ekInstitution").value.trim(),duty=document.getElementById("ekDuty").value.trim();
  document.getElementById("ekdersPersonSummary").textContent=[person,institution,duty].filter(Boolean).join(" • ");
  document.getElementById("ekReportMutemet").textContent=document.getElementById("ekMutemet").value;document.getElementById("ekReportManager").textContent=document.getElementById("ekManager").value;
  const tbody=document.getElementById("ekdersResultRows");tbody.innerHTML="";
