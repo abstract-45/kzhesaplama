@@ -1235,6 +1235,45 @@ body{background:#f3f8fc;color:var(--ink)}
     box-shadow:0 0 0 3px rgba(29,161,242,.10);
 }
 
+
+/* EK DERS KAMU ALACAĞI */
+#ekdersModule{margin:26px 0 30px;scroll-margin-top:20px}
+.ekders-card{padding:30px}
+.ekders-section-title{margin:26px 0 13px;color:#155b8b;font-size:16px;font-weight:800}
+.ekders-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ekders-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ekders-field label{font-size:13px;font-weight:750;color:#334155}
+.ekders-field input,.ekders-field select{width:100%;height:44px;padding:10px 12px;border:1.5px solid #cbd5e1;border-radius:9px;background:#fff;color:#1f2937;font:inherit;min-width:0}
+.ekders-field input:focus,.ekders-field select:focus{outline:none;border-color:#1d9bf0;box-shadow:0 0 0 3px #1d9bf01c}
+.ekders-table-wrap{overflow-x:auto;border:2px solid #9bbbd0;border-radius:12px;background:#fff}
+.ekders-table{width:100%;min-width:900px;border-collapse:separate;border-spacing:0}
+.ekders-table th{padding:12px 10px;background:#eaf5fc;color:#155b8b;text-align:left;font-size:12px;border-bottom:2px solid #9bbbd0;white-space:nowrap}
+.ekders-table td{padding:9px;border-bottom:1px solid #d7e4ed}
+.ekders-table tr:last-child td{border-bottom:0}
+.ekders-table input,.ekders-table select{width:100%;min-width:90px;height:40px;padding:8px;border:1.5px solid #c2d2df;border-radius:8px;background:#fff;font:inherit;color:#243447}
+.ekders-table .ekders-type{min-width:210px}
+.ekders-row-actions{display:flex;gap:6px}
+.ekders-row-actions button{width:34px;height:34px;border-radius:8px;border:1px solid #b7d4e6;font-size:19px;font-weight:800;cursor:pointer;background:#e8f5fd;color:#155b8b}
+.ekders-row-actions .remove{background:#fff1f2;border-color:#fecdd3;color:#be123c}
+.ekders-row-actions button:disabled{opacity:.35;cursor:not-allowed}
+.ekders-hint{margin:10px 0 0;color:#64748b;font-size:12px;line-height:1.6}
+.ekders-calc-btn{width:100%;margin-top:22px;min-height:52px;border:0;border-radius:11px;background:#168bd0;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.ekders-calc-btn:hover{background:#1179b8}
+.ekders-results{display:none;margin-top:26px;padding:22px;border:1.5px solid #b8d6e8;border-radius:14px;background:#f8fcff}
+.ekders-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+.ekders-summary div{padding:14px;border:1px solid #d6e5ef;border-radius:10px;background:#fff}
+.ekders-summary span{display:block;color:#64748b;font-size:12px}
+.ekders-summary strong{display:block;margin-top:4px;color:#183b56;font-size:18px}
+.ekders-summary .net{background:#eaf6ff;border-color:#8fc6e8}
+.ekders-result-table{width:100%;border-collapse:collapse;font-size:12px;background:#fff}
+.ekders-result-table th,.ekders-result-table td{padding:10px;border:1px solid #d8e4ec;text-align:left;white-space:nowrap}
+.ekders-result-table th{background:#eaf5fc;color:#155b8b}
+.ekders-signatures{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:55px;text-align:center;color:#334155;font-size:13px}
+.ekders-signatures div{padding-top:8px;border-top:1px solid #64748b}
+.ekders-disclaimer{margin-top:14px;padding:12px;border-radius:9px;background:#fff8e8;color:#75551c;font-size:12px;line-height:1.6}
+@media(max-width:850px){.ekders-card{padding:20px}.ekders-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ekders-summary{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ekders-grid{grid-template-columns:1fr}.ekders-summary{grid-template-columns:1fr}.ekders-signatures{gap:24px}}
+
 </style>
 </head>
 
@@ -1317,11 +1356,11 @@ body{background:#f3f8fc;color:var(--ink)}
                 <p>Faiz başlangıç ve bitiş tarihine göre dönemsel oranlarla ayrıntılı hesaplama.</p>
                 <a class="module-link" href="#calculator">Hesaplamaya git →</a>
             </article>
-            <article class="module-card soon">
+            <article class="module-card active">
                 <div class="module-icon">📚</div>
                 <h3>Ek Ders Kamu Alacağı</h3>
-                <p>Ek ders türü, saat ve ilgili kesintiler üzerinden hesaplama modülü.</p>
-                <span class="soon-label">HAZIRLANIYOR</span>
+                <p>Ek ders türü, saat ve ilgili kesintiler üzerinden hesaplama.</p>
+                <a class="module-link" href="#ekdersModule">Hesaplamaya git →</a>
             </article>
             <article class="module-card soon">
                 <div class="module-icon">🧾</div>
@@ -1520,7 +1559,83 @@ body{background:#f3f8fc;color:var(--ink)}
          FOOTER
     ========================== -->
 
-    <footer>
+    
+<section class="card ekders-card" id="ekdersModule">
+  <div class="card-title">
+    <h2>Ek Ders Kamu Alacağı Hesaplama</h2>
+    <p>Ek ders türü, saat ve ödeme tarihine göre brüt tutarı hesaplayın; vergi ve diğer kesintileri düşerek net tutarı görün.</p>
+  </div>
+  <div class="ekders-section-title">Personel ve kurum bilgileri</div>
+  <div class="ekders-grid">
+    <div class="ekders-field"><label for="ekPersonName">Personel adı soyadı</label><input id="ekPersonName" type="text" placeholder="Adı Soyadı"></div>
+    <div class="ekders-field"><label for="ekTc">T.C. kimlik numarası</label><input id="ekTc" type="text" inputmode="numeric" maxlength="11" placeholder="T.C. kimlik numarası"></div>
+    <div class="ekders-field"><label for="ekBirth">Doğum tarihi</label><input id="ekBirth" type="date"></div>
+    <div class="ekders-field"><label for="ekInstitution">Kurum</label><input id="ekInstitution" type="text" placeholder="Görev yaptığı kurum"></div>
+    <div class="ekders-field"><label for="ekDuty">Görevi / unvanı</label><input id="ekDuty" type="text" placeholder="Öğretmen, yönetici vb."></div>
+    <div class="ekders-field"><label for="ekDebtDate">Borcun doğuş tarihi</label><input id="ekDebtDate" type="date"></div>
+    <div class="ekders-field"><label for="ekMutemet">Mutemet</label><input id="ekMutemet" type="text" placeholder="Adı Soyadı"></div>
+    <div class="ekders-field"><label for="ekManager">Kurum müdürü</label><input id="ekManager" type="text" placeholder="Adı Soyadı"></div>
+    <div class="ekders-field"><label for="ekPrepared">Hazırlama tarihi</label><input id="ekPrepared" type="date"></div>
+  </div>
+
+  <div class="ekders-section-title">Ek ders kalemleri</div>
+  <div class="ekders-table-wrap">
+    <table class="ekders-table">
+      <thead><tr><th>Ek ders türü</th><th>Saat</th><th>Ödeme tarihi</th><th>Gösterge</th><th>Aylık katsayı</th><th>İşlem</th></tr></thead>
+      <tbody id="ekdersRows">
+        <tr data-ek-row>
+          <td><select class="ek-type ekders-type">
+            <option value="140">Gündüz ek ders — 140</option>
+            <option value="150">Gece / hafta sonu — 150</option>
+            <option value="280">DYK gündüz — 280</option>
+            <option value="300">DYK gece / hafta sonu — 300</option>
+            <option value="175">Özel eğitim gündüz (%25) — 175</option>
+            <option value="187.5">Özel eğitim gece / hafta sonu (%25) — 187,5</option>
+            <option value="140">Nöbet — 140</option>
+            <option value="150">Belleticilik — 150</option>
+            <option value="140">Hazırlık ve planlama — 140</option>
+            <option value="140">Sınav görevi (gündüz) — 140</option>
+            <option value="150">Sınav görevi (gece / hafta sonu) — 150</option>
+            <option value="custom">Diğer (gösterge giriniz)</option>
+          </select><input class="ek-custom-indicator" type="number" min="0" step="0.01" placeholder="Özel gösterge" style="display:none;margin-top:5px"></td>
+          <td><input class="ek-hours" type="number" min="0" step="0.5" placeholder="Saat"></td>
+          <td><input class="ek-date" type="date" aria-label="Ödeme tarihi"></td>
+          <td><input class="ek-indicator" type="number" min="0" step="0.01" value="140" readonly></td>
+          <td><input class="ek-coefficient" type="number" min="0" step="0.000001" placeholder="Tarihten seçilir"></td>
+          <td><div class="ekders-row-actions"><button type="button" onclick="addEkdersRow()" aria-label="Satır ekle">＋</button><button type="button" class="remove" onclick="removeEkdersRow(this)" aria-label="Satırı sil" disabled>−</button></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="ekders-hint">Katsayı, ödeme tarihine göre otomatik belirlenir. 2026 öncesi tarihler veya listede bulunmayan dönemler için katsayıyı ilgili resmî genelgeden kontrol ederek elle girebilirsiniz. Her satır farklı ödeme dönemini temsil edebilir.</p>
+
+  <div class="ekders-section-title">Kesinti bilgileri</div>
+  <div class="ekders-grid">
+    <div class="ekders-field"><label for="ekCumulative">Ek ders öncesi kümülatif gelir vergisi matrahı (TL)</label><input id="ekCumulative" type="text" inputmode="decimal" placeholder="Bordrodaki kümülatif matrah"></div>
+    <div class="ekders-field"><label for="ekStampRate">Damga vergisi oranı (%)</label><input id="ekStampRate" type="number" min="0" step="0.001" value="0.759"></div>
+    <div class="ekders-field"><label for="ekOtherRate">Diğer kesinti oranı (%)</label><input id="ekOtherRate" type="number" min="0" step="0.01" value="0"></div>
+    <div class="ekders-field"><label for="ekOtherFixed">Diğer kesinti tutarı (TL)</label><input id="ekOtherFixed" type="text" inputmode="decimal" placeholder="Varsa sabit kesinti"></div>
+  </div>
+  <button type="button" class="ekders-calc-btn" onclick="calculateEkders()">Ek Ders Kamu Alacağını Hesapla</button>
+  <div class="ekders-results" id="ekdersResults">
+    <h3 style="margin:0;color:#155b8b">Hesaplama özeti</h3>
+    <div id="ekdersPersonSummary" class="ekders-hint"></div>
+    <div class="ekders-summary">
+      <div><span>Toplam brüt ek ders</span><strong id="ekGross">0,00 TL</strong></div>
+      <div><span>Gelir vergisi</span><strong id="ekIncomeTax">0,00 TL</strong></div>
+      <div><span>Damga vergisi</span><strong id="ekStamp">0,00 TL</strong></div>
+      <div><span>Diğer kesintiler</span><strong id="ekOther">0,00 TL</strong></div>
+      <div class="net"><span>Net kamu alacağı</span><strong id="ekNet">0,00 TL</strong></div>
+      <div><span>Toplam saat</span><strong id="ekTotalHours">0</strong></div>
+    </div>
+    <div style="overflow-x:auto"><table class="ekders-result-table"><thead><tr><th>Ek ders türü</th><th>Saat</th><th>Ödeme tarihi</th><th>Gösterge</th><th>Katsayı</th><th>Brüt tutar</th></tr></thead><tbody id="ekdersResultRows"></tbody></table></div>
+    <div class="ekders-disclaimer">Hesaplama, girilen görev/saat ve ödeme tarihleri ile 2026 ücret gelirleri vergi tarifesi esas alınarak tahmini olarak yapılır. Vergi matrahı ve kesinti uygulaması bordro/KBS kayıtlarıyla doğrulanmalıdır. Diğer kesintiler kullanıcı girişine bağlıdır.</div>
+    <div class="ekders-signatures"><div>Hesaplamayı Yapan<br><strong id="ekReportMutemet"></strong><br>Mutemet</div><div>Kontrol Eden<br><strong id="ekReportManager"></strong><br>Kurum Müdürü</div></div>
+    <div class="actions"><button type="button" class="action-btn" onclick="printEkdersReport()">🖨 Yazdır / İmzaya Hazırla</button></div>
+  </div>
+</section>
+
+<footer>
 
         Kamu Zararı Hesaplama Aracı
 
@@ -1791,6 +1906,73 @@ async function downloadPDF(){
 ===================================================== */
 
 document.addEventListener("keydown",function(event){if(event.key==="Enter"&&event.target&&event.target.closest("#accountsContainer"))calculate();});
+</script>
+
+
+<script>
+/* EK DERS KAMU ALACAĞI — YASAL FAİZ HESABINDAN BAĞIMSIZ */
+const ekdersCoefficients=[{start:"2026-01-01",end:"2026-07-01",value:1.387871},{start:"2026-07-01",end:"2027-01-01",value:1.575512}];
+const ekdersNames={"140":"Gündüz / ilgili gündüz görevi","150":"Gece / hafta sonu / belleticilik","280":"DYK gündüz","300":"DYK gece / hafta sonu","175":"Özel eğitim gündüz (%25 artırımlı)","187.5":"Özel eğitim gece / hafta sonu (%25 artırımlı)"};
+function ekMoney(v){return new Intl.NumberFormat("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2}).format(v)+" TL";}
+function ekParseMoney(v){if(!v)return 0;v=String(v).replace(/\s|TL|₺/gi,"");if(v.includes(","))v=v.replace(/\./g,"").replace(",",".");else v=v.replace(/,/g,"");return Number(v)||0;}
+function ekCoefficientFor(date){const p=ekdersCoefficients.find(x=>date>=x.start&&date<x.end);return p?p.value:null;}
+function ekUpdateRow(row){
+ const type=row.querySelector(".ek-type"),custom=row.querySelector(".ek-custom-indicator"),indicator=row.querySelector(".ek-indicator"),date=row.querySelector(".ek-date"),coefficient=row.querySelector(".ek-coefficient");
+ const isCustom=type.value==="custom";custom.style.display=isCustom?"block":"none";
+ indicator.readOnly=!isCustom;
+ if(!isCustom){indicator.value=type.value;}else if(!indicator.dataset.customReady){indicator.value="";indicator.dataset.customReady="1";}
+ const auto=date.value?ekCoefficientFor(date.value):null;
+ if(auto!==null){coefficient.value=auto;coefficient.dataset.auto="1";}
+ else if(coefficient.dataset.auto==="1"){coefficient.value="";delete coefficient.dataset.auto;}
+}
+function addEkdersRow(){
+ const body=document.getElementById("ekdersRows"),row=body.querySelector("[data-ek-row]").cloneNode(true);
+ row.querySelector(".ek-hours").value="";row.querySelector(".ek-date").value="";row.querySelector(".ek-coefficient").value="";row.querySelector(".ek-indicator").value="140";row.querySelector(".ek-type").value="140";row.querySelector(".ek-custom-indicator").value="";row.querySelector(".ek-custom-indicator").style.display="none";row.querySelector(".ek-indicator").readOnly=true;delete row.querySelector(".ek-indicator").dataset.customReady;delete row.querySelector(".ek-coefficient").dataset.auto;
+ body.appendChild(row);refreshEkdersRows();
+}
+function removeEkdersRow(btn){const rows=document.querySelectorAll("#ekdersRows [data-ek-row]");if(rows.length<=1)return;btn.closest("tr").remove();refreshEkdersRows();}
+function refreshEkdersRows(){const rows=document.querySelectorAll("#ekdersRows [data-ek-row]");rows.forEach(r=>r.querySelector(".remove").disabled=rows.length===1);}
+document.addEventListener("change",e=>{if(e.target.matches(".ek-type,.ek-date"))ekUpdateRow(e.target.closest("[data-ek-row]"));});
+function ekTaxDue(income){
+ const brackets=[{limit:190000,rate:.15},{limit:400000,rate:.20},{limit:1500000,rate:.27},{limit:5300000,rate:.35},{limit:Infinity,rate:.40}];
+ let tax=0,lower=0;
+ for(const b of brackets){const taxable=Math.max(0,Math.min(income,b.limit)-lower);tax+=taxable*b.rate;if(income<=b.limit)break;lower=b.limit;}
+ return tax;
+}
+let lastEkdersReport=null;
+function calculateEkders(){
+ const rows=Array.from(document.querySelectorAll("#ekdersRows [data-ek-row]")),items=[];let year=null,totalHours=0,gross=0;
+ for(let i=0;i<rows.length;i++){
+  const r=rows[i],date=r.querySelector(".ek-date").value,hours=Number(r.querySelector(".ek-hours").value),indicator=Number(r.querySelector(".ek-indicator").value),coefficient=Number(r.querySelector(".ek-coefficient").value);
+  if(!date||!hours||hours<=0||!indicator||indicator<=0||!coefficient||coefficient<=0){alert((i+1)+". satır için ek ders türü, pozitif saat, ödeme tarihi ve geçerli katsayıyı kontrol edin.");return;}
+  const rowYear=Number(date.slice(0,4));if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
+  const type=r.querySelector(".ek-type"),typeLabel=type.options[type.selectedIndex].text.replace(/\s—\s[\d.,]+$/,"");
+  const amount=hours*indicator*coefficient;items.push({type:typeLabel,hours,date,indicator,coefficient,amount});gross+=amount;totalHours+=hours;
+ }
+ const cumulative=ekParseMoney(document.getElementById("ekCumulative").value),stampRate=Number(document.getElementById("ekStampRate").value),otherRate=Number(document.getElementById("ekOtherRate").value),otherFixed=ekParseMoney(document.getElementById("ekOtherFixed").value);
+ if(cumulative<0||stampRate<0||otherRate<0||otherFixed<0){alert("Kesinti ve matrah değerleri negatif olamaz.");return;}
+ const incomeTax=Math.max(0,ekTaxDue(cumulative+gross)-ekTaxDue(cumulative)),stamp=gross*stampRate/100,other=gross*otherRate/100+otherFixed,net=gross-incomeTax-stamp-other;
+ const fmt=n=>ekMoney(n);
+ document.getElementById("ekGross").textContent=fmt(gross);document.getElementById("ekIncomeTax").textContent=fmt(incomeTax);document.getElementById("ekStamp").textContent=fmt(stamp);document.getElementById("ekOther").textContent=fmt(other);document.getElementById("ekNet").textContent=fmt(net);document.getElementById("ekTotalHours").textContent=String(totalHours).replace(".",",");
+ const person=document.getElementById("ekPersonName").value.trim(),institution=document.getElementById("ekInstitution").value.trim(),duty=document.getElementById("ekDuty").value.trim();
+ document.getElementById("ekdersPersonSummary").textContent=[person,institution,duty].filter(Boolean).join(" • ");
+ document.getElementById("ekReportMutemet").textContent=document.getElementById("ekMutemet").value;document.getElementById("ekReportManager").textContent=document.getElementById("ekManager").value;
+ const tbody=document.getElementById("ekdersResultRows");tbody.innerHTML="";
+ items.forEach(x=>{const tr=document.createElement("tr");[x.type,String(x.hours).replace(".",","),new Date(x.date+"T12:00:00").toLocaleDateString("tr-TR"),String(x.indicator).replace(".",","),String(x.coefficient).replace(".",","),fmt(x.amount)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});tbody.appendChild(tr);});
+ lastEkdersReport={items,gross,incomeTax,stamp,other,net,totalHours,year,person,institution,duty,tc:document.getElementById("ekTc").value,birth:document.getElementById("ekBirth").value,debtDate:document.getElementById("ekDebtDate").value,mutemet:document.getElementById("ekMutemet").value,manager:document.getElementById("ekManager").value,prepared:document.getElementById("ekPrepared").value,cumulative,stampRate,otherRate,otherFixed};
+ const box=document.getElementById("ekdersResults");box.style.display="block";box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function printEkdersReport(){
+ if(!lastEkdersReport){alert("Önce hesaplama yapınız.");return;}
+ const d=lastEkdersReport,fmt=ekMoney,escapeHtml=v=>String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const rows=d.items.map(x=>"<tr><td>"+escapeHtml(x.type)+"</td><td>"+x.hours+"</td><td>"+new Date(x.date+"T12:00:00").toLocaleDateString("tr-TR")+"</td><td>"+x.indicator+"</td><td>"+x.coefficient+"</td><td>"+fmt(x.amount)+"</td></tr>").join("");
+ const w=window.open("","_blank");if(!w){alert("Yazdırma penceresi açılamadı. Tarayıcı açılır pencere iznini kontrol edin.");return;}
+ w.document.write('<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>Ek Ders Kamu Alacağı Hesap Özeti</title><style>body{font-family:Arial,sans-serif;color:#243447;padding:28px;font-size:12px}h1{text-align:center;color:#155b8b;font-size:21px}h2{font-size:15px;color:#155b8b;margin-top:24px}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{border:1px solid #cbd8e2;padding:8px;text-align:left}th{background:#eaf5fc}.info{display:grid;grid-template-columns:1fr 1fr;gap:8px}.info div{padding:7px;border-bottom:1px solid #e5e7eb}.totals{width:60%;margin-left:auto}.totals td:last-child{text-align:right;font-weight:bold}.sign{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:75px;text-align:center}.sign div{border-top:1px solid #555;padding-top:8px}.foot{margin-top:20px;color:#6b7280;font-size:10px}@media print{body{padding:10mm}}</style></head><body>');
+ w.document.write('<h1>EK DERS KAMU ALACAĞI HESAP ÖZETİ</h1><p style="text-align:center">Düzenlenme tarihi: '+escapeHtml(d.prepared||new Date().toLocaleDateString("tr-TR"))+'</p><h2>Personel ve kurum bilgileri</h2><div class="info">'+[['Adı Soyadı',d.person],['T.C. Kimlik No',d.tc],['Doğum Tarihi',d.birth],['Kurum',d.institution],['Görevi',d.duty],['Borcun Doğuş Tarihi',d.debtDate]].map(x=>'<div><b>'+x[0]+':</b> '+escapeHtml(x[1])+'</div>').join("")+'</div><h2>Ek ders kalemleri</h2><table><thead><tr><th>Tür</th><th>Saat</th><th>Ödeme tarihi</th><th>Gösterge</th><th>Katsayı</th><th>Brüt tutar</th></tr></thead><tbody>'+rows+'</tbody></table><h2>Kesinti ve toplamlar</h2><table class="totals"><tr><td>Toplam brüt ek ders</td><td>'+fmt(d.gross)+'</td></tr><tr><td>Gelir vergisi</td><td>'+fmt(d.incomeTax)+'</td></tr><tr><td>Damga vergisi</td><td>'+fmt(d.stamp)+'</td></tr><tr><td>Diğer kesintiler</td><td>'+fmt(d.other)+'</td></tr><tr><th>Net kamu alacağı</th><th>'+fmt(d.net)+'</th></tr></table><div class="sign"><div><b>'+escapeHtml(d.mutemet)+'</b><br>Mutemet</div><div><b>'+escapeHtml(d.manager)+'</b><br>Kurum Müdürü</div></div><p class="foot">Bu çıktı, girilen bilgiler üzerinden hesaplama özeti olarak düzenlenmiştir. Kesin işlem öncesinde ödeme bordrosu, kümülatif vergi matrahı ve ilgili mevzuat kayıtlarıyla kontrol edilmelidir.</p></body></html>');
+ w.document.close();w.focus();setTimeout(()=>w.print(),300);
+}
+document.getElementById("ekPrepared").value=new Date().toISOString().slice(0,10);
+refreshEkdersRows();
 </script>
 
 </body>
