@@ -1948,11 +1948,7 @@ function ekTaxDue(income,year){
 }
 let lastEkdersReport=null;
 function ekValidTckn(value){
- if(!/^\d{11}$/.test(value)||value[0]==="0")return false;
- const d=value.split("").map(Number);
- const tenth=((d[0]+d[2]+d[4]+d[6]+d[8])*7-(d[1]+d[3]+d[5]+d[7]))%10;
- const eleventh=d.slice(0,10).reduce((a,b)=>a+b,0)%10;
- return tenth===d[9]&&eleventh===d[10];
+ return /^\d{11}$/.test(String(value).trim());
 }
 function ekValidBirthDate(value){
  if(!value)return false;
