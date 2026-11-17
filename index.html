@@ -1601,13 +1601,13 @@ body{background:#f3f8fc;color:var(--ink)}
           <td><input class="ek-hours" type="number" min="0" step="0.5" placeholder="Saat"></td>
           <td><input class="ek-date" type="date" aria-label="Ödeme tarihi"></td>
           <td><input class="ek-indicator" type="number" min="0" step="0.01" value="140" readonly></td>
-          <td><input class="ek-coefficient" type="number" min="0" step="0.000001" placeholder="Tarihten seçilir"></td>
+          <td><input class="ek-coefficient" type="number" min="0" step="0.000001" placeholder="Ödeme tarihini seçin" readonly aria-label="Ödeme tarihine göre otomatik aylık katsayı"></td>
           <td><div class="ekders-row-actions"><button type="button" onclick="addEkdersRow()" aria-label="Satır ekle">＋</button><button type="button" class="remove" onclick="removeEkdersRow(this)" aria-label="Satırı sil" disabled>−</button></div></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p class="ekders-hint">Katsayı, ödeme tarihine göre otomatik belirlenir. 2026 öncesi tarihler veya listede bulunmayan dönemler için katsayıyı ilgili resmî genelgeden kontrol ederek elle girebilirsiniz. Her satır farklı ödeme dönemini temsil edebilir.</p>
+  <p class="ekders-hint">Ödeme tarihini seçtiğinizde aylık katsayı otomatik doldurulur; bu alan elle değiştirilemez. Her satırın katsayısı kendi ödeme tarihine göre belirlenir. Tanımlı olmayan dönemlerde hesaplama yapılmaz.</p>
 
   <div class="ekders-section-title">Vergi kesintileri hakkında</div>
   <div class="ekders-disclaimer" style="background:#f2f8fc;color:#36536b;border:1px solid #c8dfef">
@@ -1969,7 +1969,7 @@ function calculateEkders(){
  const rows=Array.from(document.querySelectorAll("#ekdersRows [data-ek-row]")),items=[];let year=null,totalHours=0,gross=0;
  for(let i=0;i<rows.length;i++){
   const r=rows[i],date=r.querySelector(".ek-date").value,hours=Number(r.querySelector(".ek-hours").value),indicator=Number(r.querySelector(".ek-indicator").value),coefficient=Number(r.querySelector(".ek-coefficient").value);
-  if(!date||!hours||hours<=0||!indicator||indicator<=0||!coefficient||coefficient<=0){alert((i+1)+". satır için ek ders türü, pozitif saat, ödeme tarihi ve geçerli katsayıyı kontrol edin.");return;}
+  if(!date||!hours||hours<=0||!indicator||indicator<=0){alert((i+1)+". satır için ek ders türünü, pozitif saati ve ödeme tarihini kontrol edin.");return;}\n   const expectedCoefficient=ekCoefficientFor(date);if(expectedCoefficient===null){alert((i+1)+". satırdaki ödeme tarihi için otomatik aylık katsayı tanımlı değil. Lütfen tanımlı katsayı dönemi içinden tarih seçin.");return;}\n   if(coefficient!==expectedCoefficient){alert((i+1)+". satırın aylık katsayısı ödeme tarihine göre otomatik güncellenecek. Tarihi yeniden seçin.");return;}
   const rowYear=Number(date.slice(0,4));if(rowYear!==2026){alert("Gelir vergisi tarifesi ve otomatik katsayı tablosu şu anda 2026 yılı için tanımlıdır. 2026 dışındaki ödeme dönemlerini bu modülde hesaplamayın.");return;}if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
   const type=r.querySelector(".ek-type"),typeLabel=type.options[type.selectedIndex].text.replace(/\s—\s[\d.,]+$/,"");
   const amount=hours*indicator*coefficient;items.push({type:typeLabel,hours,date,indicator,coefficient,amount});gross+=amount;totalHours+=hours;
