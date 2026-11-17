@@ -1283,14 +1283,34 @@ body{background:#f3f8fc;color:var(--ink)}
 .main-grid{grid-template-columns:minmax(0,1fr)!important}
 .sidebar{display:none!important}
 .ekders-card{margin:0 auto 24px;max-width:1120px}
-body.page-ekders #calculator,body.page-ekders .sidebar{display:none!important}body.page-ekders #ekdersModule{display:block!important;margin-top:0}</style>
+body.page-ekders #calculator,body.page-ekders .sidebar{display:none!important}body.page-ekders #ekdersModule{display:block!important;margin-top:0}
+/* Instagram esintili görsel kimlik */
+.site-nav{flex-wrap:wrap}
+.nav-support{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 15px;border-radius:999px;background:linear-gradient(110deg,#f58529 0%,#dd2a7b 48%,#8134af 78%,#515bd4 100%);color:#fff!important;text-decoration:none;font-size:12px;font-weight:850;white-space:nowrap;box-shadow:0 7px 18px #dd2a7b26;transition:.18s}
+.nav-support:hover{transform:translateY(-2px);filter:saturate(1.08);box-shadow:0 10px 22px #dd2a7b38}
+.brand-mark{background:linear-gradient(135deg,#f58529,#dd2a7b 52%,#8134af)!important;box-shadow:0 7px 18px #dd2a7b30!important}
+.hero{background:linear-gradient(112deg,#f58529 0%,#dd2a7b 43%,#8134af 76%,#515bd4 100%)!important;box-shadow:0 18px 42px #dd2a7b24!important;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:300px;height:300px;border:1px solid #ffffff35;border-radius:50%;right:8%;top:-190px;box-shadow:0 0 0 26px #ffffff0c,0 0 0 54px #ffffff0a;pointer-events:none}
+.hero-copy,.hero-art{position:relative;z-index:1}
+.hero-art svg{filter:drop-shadow(0 10px 18px #6d164b22)}
+.calculate-btn,.ekders-calc-btn,.action-btn{background:linear-gradient(110deg,#f58529,#dd2a7b 55%,#8134af)!important;box-shadow:0 8px 18px #dd2a7b25!important}
+.calculate-btn:hover,.ekders-calc-btn:hover,.action-btn:hover{filter:saturate(1.12);box-shadow:0 11px 23px #dd2a7b35!important}
+.card-title,.section-heading{border-color:#f0d8e5}
+.card-title h2,.section-heading h2{color:#8134af}
+input:focus,select:focus,textarea:focus{border-color:#dd2a7b!important;box-shadow:0 0 0 3px #dd2a7b18!important}
+.support-box{border-color:#f1d5e4!important;background:linear-gradient(145deg,#fff,#fff7fb)!important}
+.support-title{color:#bd3479!important}
+.coffee-link{background:linear-gradient(110deg,#f58529,#dd2a7b 55%,#8134af)!important;color:#fff!important;border-radius:999px!important;box-shadow:0 7px 18px #dd2a7b26}
+footer{border-color:#f0dce7!important}
+@media(max-width:650px){.site-nav{align-items:flex-start;flex-direction:row!important}.nav-links{order:3;width:100%;flex-basis:100%}.nav-support{margin-left:auto}.hero{padding:24px 20px!important}.hero-art{max-width:180px}}
+</style>
 </head>
 
 <body class="page-ekders">
 
 <div class="page">
 
-    <nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="index.html"><span class="brand-mark">₺</span><span>Kamu Zararı Hesaplama</span></a><div class="nav-links"><a href="index.html">Ana Sayfa</a><a href="yasal-faiz.html">Yasal Faiz</a><a href="ekders.html">Ek Ders</a></div></nav>
+    <nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="index.html"><span class="brand-mark">₺</span><span>Kamu Zararı Hesaplama</span></a><div class="nav-links"><a href="index.html">Ana Sayfa</a><a href="yasal-faiz.html">Yasal Faiz</a><a href="ekders.html">Ek Ders</a></div><a class="nav-support" href="https://buymeacoffee.com/abstract45" target="_blank" rel="noopener noreferrer">☕ Kahve ısmarla</a></nav>
 
 
     <!-- =========================
@@ -1300,8 +1320,8 @@ body.page-ekders #calculator,body.page-ekders .sidebar{display:none!important}bo
     <section class="hero">
         <div class="hero-copy">
             <span class="hero-eyebrow">KAMU MALİ İŞLEMLERİ • HESAPLAMA ARAÇLARI</span>
-            <h1>Kamu Zararı Hesaplama</h1>
-            <p>Maaş, ek ders ve yasal faiz işlemleri için anlaşılır ve pratik hesaplama araçları.</p>
+            <h1>Ek Ders Kamu Alacağı</h1>
+            <p>Ek ders ödemelerine ilişkin brüt tutar, kesintiler ve tahsilat hesabı.</p>
             <div class="hero-points"><span>✓ Çoklu hesaplama</span><span>✓ Özet PDF çıktısı</span><span>✓ Kolay kullanım</span></div>
         </div>
         <div class="hero-art" role="img" aria-label="Terazi, hukuk evrakları ve finansal hesaplama araçlarından oluşan kurumsal illüstrasyon">
