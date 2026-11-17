@@ -1632,8 +1632,8 @@ body.page-ekders #calculator,body.page-ekders .sidebar{display:none!important}bo
       <option value="net">Vergiler düşüldükten sonraki net tutar tahsil edilecek</option>
     </select>
     <div class="ekders-disclaimer" style="margin-top:10px">
-      <strong>Brüt tutarın tamamı:</strong> Vergi ve diğer kesintiler düşülmeden önceki brüt tutarın tamamı geri alınacaksa seçilir. Vergi kesintileri bordroda yapılmışsa, bunların ayrıca düzeltilip düzeltilmeyeceği kontrol edilmelidir.
-      <br><br><strong>Vergiler düşüldükten sonraki net tutar:</strong> Personele fiilen ödenen, gelir vergisi ve damga vergisi gibi kesintiler sonrası kalan tutarın geri alınması gerekiyorsa seçilir.
+      <strong>Brüt tutarın tamamı:</strong> Vergi ve diğer kesintiler düşülmeden önceki brüt tutarın tamamı geri alınacaksa seçilir. Bu yöntemde ekranda gösterilen kesinti tutarları bilgilendirme amaçlıdır ve tahsil edilecek brüt tutardan düşülmez. Vergi kesintileri bordroda yapılmışsa, bunların ayrıca düzeltilip düzeltilmeyeceği kontrol edilmelidir.
+      <br><br><strong>Vergiler düşüldükten sonraki net tutar:</strong> Personele fiilen ödenen, gelir vergisi ve damga vergisi gibi kesintiler sonrası kalan tutarın geri alınması gerekiyorsa seçilir. Diğer kesinti alanlarına tutar girilmişse bunlar da net tutardan düşülür.
       <br><br><strong>Önemli:</strong> Seçim, ilgili ödemenin bordrosu ve daha önce yapılan kesintiler incelenerek belirlenmelidir. Tereddütte muhasebe/mutemet biriminden teyit alınmalıdır.
     </div>
   </div>
@@ -1641,6 +1641,7 @@ body.page-ekders #calculator,body.page-ekders .sidebar{display:none!important}bo
   <div class="ekders-results" id="ekdersResults">
     <h3 style="margin:0;color:#155b8b">Hesaplama özeti</h3>
     <div id="ekdersPersonSummary" class="ekders-hint"></div>
+    <div id="ekCollectionSummary" class="ekders-hint"></div>
     <div class="ekders-summary">
       <div><span>Toplam brüt ek ders</span><strong id="ekGross">0,00 TL</strong></div>
       <div><span>Gelir vergisi</span><strong id="ekIncomeTax">0,00 TL</strong></div>
@@ -1993,7 +1994,7 @@ function calculateEkders(){
  const collectionAmount=collectionMode==="gross"?gross:net;
  const collectionLabel=collectionMode==="gross"?"Brüt tutarın tamamı":"Vergiler düşüldükten sonraki net tutar";
  const fmt=n=>ekMoney(n);
- document.getElementById("ekGross").textContent=fmt(gross);document.getElementById("ekIncomeTax").textContent=fmt(incomeTax);document.getElementById("ekStamp").textContent=fmt(stamp);document.getElementById("ekOther").textContent=fmt(other);document.getElementById("ekNet").textContent=fmt(collectionAmount);document.getElementById("ekTotalHours").textContent=String(totalHours).replace(".",",");
+ document.getElementById("ekGross").textContent=fmt(gross);document.getElementById("ekIncomeTax").textContent=fmt(incomeTax);document.getElementById("ekStamp").textContent=fmt(stamp);document.getElementById("ekOther").textContent=fmt(other);document.getElementById("ekNet").textContent=fmt(collectionAmount);document.getElementById("ekCollectionSummary").textContent="Seçilen yöntem: "+collectionLabel;document.getElementById("ekTotalHours").textContent=String(totalHours).replace(".",",");
  const institution=document.getElementById("ekInstitution").value.trim(),duty=document.getElementById("ekDuty").value.trim();
  document.getElementById("ekdersPersonSummary").textContent=[person,institution,duty].filter(Boolean).join(" • ");
  document.getElementById("ekReportMutemet").textContent=document.getElementById("ekMutemet").value;document.getElementById("ekReportManager").textContent=document.getElementById("ekManager").value;
