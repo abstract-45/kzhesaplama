@@ -1573,8 +1573,7 @@ body.page-yasal #ekdersModule{display:none!important}</style>
     <div class="ekders-field"><label for="ekBirth">Doğum tarihi <span style="color:#be123c">*</span></label><input id="ekBirth" type="date" required></div>
     <div class="ekders-field"><label for="ekInstitution">Kurum</label><input id="ekInstitution" type="text" placeholder="Görev yaptığı kurum"></div>
     <div class="ekders-field"><label for="ekDuty">Görevi / unvanı</label><input id="ekDuty" type="text" placeholder="Öğretmen, yönetici vb."></div>
-    <div class="ekders-field"><label for="ekDebtDate">Borcun doğuş tarihi</label><input id="ekDebtDate" type="date"></div>
-    <div class="ekders-field"><label for="ekMutemet">Mutemet</label><input id="ekMutemet" type="text" placeholder="Adı Soyadı"></div>
+    <div class="ekders-field"><label for="ekMutemet">Hazırlayan (Mutemet)</label><input id="ekMutemet" type="text" placeholder="Adı Soyadı"></div>
     <div class="ekders-field"><label for="ekManager">Kurum müdürü</label><input id="ekManager" type="text" placeholder="Adı Soyadı"></div>
     <div class="ekders-field"><label for="ekPrepared">Hazırlama tarihi</label><input id="ekPrepared" type="date"></div>
   </div>
@@ -1597,8 +1596,7 @@ body.page-yasal #ekdersModule{display:none!important}</style>
             <option value="140">Hazırlık ve planlama — 140</option>
             <option value="140">Sınav görevi (gündüz) — 140</option>
             <option value="150">Sınav görevi (gece / hafta sonu) — 150</option>
-            <option value="custom">Diğer (gösterge giriniz)</option>
-          </select><input class="ek-custom-indicator" type="number" min="0" step="0.01" placeholder="Özel gösterge" style="display:none;margin-top:5px"></td>
+          </select></td>
           <td><input class="ek-hours" type="number" min="0" step="0.5" placeholder="Saat"></td>
           <td><input class="ek-date" type="date" aria-label="Ödeme tarihi"></td>
           <td><input class="ek-indicator" type="number" min="0" step="0.01" value="140" readonly></td>
@@ -1612,8 +1610,8 @@ body.page-yasal #ekdersModule{display:none!important}</style>
 
   <div class="ekders-section-title">Vergi kesintileri hakkında</div>
   <div class="ekders-disclaimer" style="background:#f2f8fc;color:#36536b;border:1px solid #c8dfef">
-    <strong>Gelir vergisi:</strong> Ek ders ücreti, ücret geliri kapsamında değerlendirilir. 2026 yılında kümülatif ücret matrahına göre %15, %20, %27, %35 ve %40 oranları uygulanır. Ek ders ödemesi aynı ay içindeki diğer ücretlerle birlikte değerlendirilir; yalnızca ek ders tutarına bakılarak sabit oran seçilmez.
-    <br><br><strong>Asgari ücret istisnası:</strong> 2026 brüt asgari ücret aylık 33.030 TL'dir. Gelir vergisi ve damga vergisi istisnası, aynı ayın ücret ödemeleri toplamında mevzuattaki şart ve sınırlar çerçevesinde uygulanır. Maaş bordrosunda zaten kullanılan istisna bu hesapta ikinci kez düşülmemelidir.
+    <strong>Gelir vergisi:</strong> Ek ders ücreti, ücret geliri kapsamında değerlendirilir. Ödeme yılının ücret gelirlerine ait kümülatif vergi tarifesi uygulanır (%15, %20, %27, %35 ve %40). Ek ders ödemesi aynı ay içindeki diğer ücretlerle birlikte değerlendirilir; yalnızca ek ders tutarına bakılarak sabit oran seçilmez.
+    <br><br><strong>Asgari ücret istisnası:</strong> Asgari ücret gelir ve damga vergisi istisnası, ilgili yılın tutarları ve aynı ayın ücret ödemeleri birlikte dikkate alınarak uygulanır. Maaş bordrosunda zaten kullanılan istisna bu hesapta ikinci kez düşülmemelidir.
     <br><br><strong>Damga vergisi:</strong> Ücret ve ek ders ödemelerinde genel oran binde 7,59 (%0,759)'dur. Asgari ücret istisnasına ilişkin uygulama ve aynı ay içindeki diğer ücretlerle birlikte değerlendirme dikkate alınmalıdır.
     <br><br><strong>Personel statüsü:</strong> Bu modül kamu görevlisi/657 kapsamındaki öğretmenlerin ek ders ödemeleri için tasarlanmıştır. 4/a sigortalı özel okul personelinde SGK ve işsizlik primi gibi ilave kesintiler doğabileceğinden aynı net hesap doğrudan kullanılamaz.
     <br><br><span>Kaynaklar: <a href="https://gib.gov.tr/mevzuat/kanun/433/madde/6937" target="_blank" rel="noopener">Gelir Vergisi Kanunu m.103</a> · <a href="https://cdn.gib.gov.tr/api/gibportal-file/file/getFileResources?objectKey=arsiv%2Fyardim-kaynaklar%2Fyararli-bilgiler%2FAsgariUcrettenYapilanKesintiler.pdf" target="_blank" rel="noopener">GİB – Asgari ücret istisnası</a> · <a href="https://tckimlik.nvi.gov.tr/Home" target="_blank" rel="noopener">NVİ kimlik doğrulama</a></span>
@@ -1638,8 +1636,8 @@ body.page-yasal #ekdersModule{display:none!important}</style>
       <div><span>Toplam saat</span><strong id="ekTotalHours">0</strong></div>
     </div>
     <div style="overflow-x:auto"><table class="ekders-result-table"><thead><tr><th>Ek ders türü</th><th>Saat</th><th>Ödeme tarihi</th><th>Gösterge</th><th>Katsayı</th><th>Brüt tutar</th></tr></thead><tbody id="ekdersResultRows"></tbody></table></div>
-    <div class="ekders-disclaimer">Hesaplama, girilen görev/saat ve ödeme tarihleri ile 2026 ücret gelirleri vergi tarifesi esas alınarak tahmini olarak yapılır. Vergi matrahı ve kesinti uygulaması bordro/KBS kayıtlarıyla doğrulanmalıdır. Diğer kesintiler kullanıcı girişine bağlıdır.</div>
-    <div class="ekders-signatures"><div>Hesaplamayı Yapan<br><strong id="ekReportMutemet"></strong><br>Mutemet</div><div>Kontrol Eden<br><strong id="ekReportManager"></strong><br>Kurum Müdürü</div></div>
+    <div class="ekders-disclaimer">Hesaplama, girilen görev/saat ve ödeme tarihleri ile ödeme yılına ait ücret gelirleri vergi tarifesi esas alınarak tahmini olarak yapılır. Vergi matrahı ve kesinti uygulaması bordro/KBS kayıtlarıyla doğrulanmalıdır. Diğer kesintiler kullanıcı girişine bağlıdır.</div>
+    <div class="ekders-signatures"><div>Hesaplamayı Yapan<br><strong id="ekReportMutemet"></strong><br>Hazırlayan (Mutemet)</div><div>Kontrol Eden<br><strong id="ekReportManager"></strong><br>Kurum Müdürü</div></div>
     <div class="actions"><button type="button" class="action-btn" onclick="printEkdersReport()">🖨 Yazdır / İmzaya Hazırla</button></div>
   </div>
 </section>
@@ -1920,30 +1918,30 @@ document.addEventListener("keydown",function(event){if(event.key==="Enter"&&even
 
 <script>
 /* EK DERS KAMU ALACAĞI — YASAL FAİZ HESABINDAN BAĞIMSIZ */
-const ekdersCoefficients=[{start:"2026-01-01",end:"2026-07-01",value:1.387871},{start:"2026-07-01",end:"2027-01-01",value:1.575512}];
+const ekdersCoefficients=[{start:"2024-01-01",end:"2024-07-01",value:0.760871},{start:"2024-07-01",end:"2025-01-01",value:0.907796},{start:"2025-01-01",end:"2025-07-01",value:1.012556},{start:"2025-07-01",end:"2026-01-01",value:1.170211},{start:"2026-01-01",end:"2026-07-01",value:1.387871},{start:"2026-07-01",end:"2027-01-01",value:1.575512}];
 const ekdersNames={"140":"Gündüz / ilgili gündüz görevi","150":"Gece / hafta sonu / belleticilik","280":"DYK gündüz","300":"DYK gece / hafta sonu","175":"Özel eğitim gündüz (%25 artırımlı)","187.5":"Özel eğitim gece / hafta sonu (%25 artırımlı)"};
 function ekMoney(v){return new Intl.NumberFormat("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2}).format(v)+" TL";}
 function ekParseMoney(v){if(!v)return 0;v=String(v).replace(/\s|TL|₺/gi,"");if(v.includes(","))v=v.replace(/\./g,"").replace(",",".");else v=v.replace(/,/g,"");return Number(v)||0;}
 function ekCoefficientFor(date){const p=ekdersCoefficients.find(x=>date>=x.start&&date<x.end);return p?p.value:null;}
 function ekUpdateRow(row){
- const type=row.querySelector(".ek-type"),custom=row.querySelector(".ek-custom-indicator"),indicator=row.querySelector(".ek-indicator"),date=row.querySelector(".ek-date"),coefficient=row.querySelector(".ek-coefficient");
- const isCustom=type.value==="custom";custom.style.display=isCustom?"block":"none";
- indicator.readOnly=!isCustom;
- if(!isCustom){indicator.value=type.value;}else if(!indicator.dataset.customReady){indicator.value="";indicator.dataset.customReady="1";}
+ const type=row.querySelector(".ek-type"),indicator=row.querySelector(".ek-indicator"),date=row.querySelector(".ek-date"),coefficient=row.querySelector(".ek-coefficient");
+ indicator.readOnly=true;indicator.value=type.value;
  const auto=date.value?ekCoefficientFor(date.value):null;
  if(auto!==null){coefficient.value=auto;coefficient.dataset.auto="1";}
  else if(coefficient.dataset.auto==="1"){coefficient.value="";delete coefficient.dataset.auto;}
 }
 function addEkdersRow(){
  const body=document.getElementById("ekdersRows"),row=body.querySelector("[data-ek-row]").cloneNode(true);
- row.querySelector(".ek-hours").value="";row.querySelector(".ek-date").value="";row.querySelector(".ek-coefficient").value="";row.querySelector(".ek-indicator").value="140";row.querySelector(".ek-type").value="140";row.querySelector(".ek-custom-indicator").value="";row.querySelector(".ek-custom-indicator").style.display="none";row.querySelector(".ek-indicator").readOnly=true;delete row.querySelector(".ek-indicator").dataset.customReady;delete row.querySelector(".ek-coefficient").dataset.auto;
+ row.querySelector(".ek-hours").value="";row.querySelector(".ek-date").value="";row.querySelector(".ek-coefficient").value="";row.querySelector(".ek-indicator").value="140";row.querySelector(".ek-type").value="140";row.querySelector(".ek-indicator").readOnly=true;delete row.querySelector(".ek-coefficient").dataset.auto;
  body.appendChild(row);refreshEkdersRows();
 }
 function removeEkdersRow(btn){const rows=document.querySelectorAll("#ekdersRows [data-ek-row]");if(rows.length<=1)return;btn.closest("tr").remove();refreshEkdersRows();}
 function refreshEkdersRows(){const rows=document.querySelectorAll("#ekdersRows [data-ek-row]");rows.forEach(r=>r.querySelector(".remove").disabled=rows.length===1);}
 document.addEventListener("change",e=>{if(e.target.matches(".ek-type,.ek-date"))ekUpdateRow(e.target.closest("[data-ek-row]"));});
-function ekTaxDue(income){
- const brackets=[{limit:190000,rate:.15},{limit:400000,rate:.20},{limit:1500000,rate:.27},{limit:5300000,rate:.35},{limit:Infinity,rate:.40}];
+function ekTaxDue(income,year){
+ const tariffs={2024:[110000,230000,870000,3000000],2025:[158000,330000,1200000,4300000],2026:[190000,400000,1500000,5300000]};
+ const limits=tariffs[year];if(!limits)throw new Error("Bu yıl için gelir vergisi tarifesi tanımlı değil.");
+ const brackets=[{limit:limits[0],rate:.15},{limit:limits[1],rate:.20},{limit:limits[2],rate:.27},{limit:limits[3],rate:.35},{limit:Infinity,rate:.40}];
  let tax=0,lower=0;
  for(const b of brackets){const taxable=Math.max(0,Math.min(income,b.limit)-lower);tax+=taxable*b.rate;if(income<=b.limit)break;lower=b.limit;}
  return tax;
@@ -1970,14 +1968,15 @@ function calculateEkders(){
  const rows=Array.from(document.querySelectorAll("#ekdersRows [data-ek-row]")),items=[];let year=null,totalHours=0,gross=0;
  for(let i=0;i<rows.length;i++){
   const r=rows[i],date=r.querySelector(".ek-date").value,hours=Number(r.querySelector(".ek-hours").value),indicator=Number(r.querySelector(".ek-indicator").value),coefficient=Number(r.querySelector(".ek-coefficient").value);
-  if(!date||!hours||hours<=0||!indicator||indicator<=0){alert((i+1)+". satır için ek ders türünü, pozitif saati ve ödeme tarihini kontrol edin.");return;}\n   const expectedCoefficient=ekCoefficientFor(date);if(expectedCoefficient===null){alert((i+1)+". satırdaki ödeme tarihi için otomatik aylık katsayı tanımlı değil. Lütfen tanımlı katsayı dönemi içinden tarih seçin.");return;}\n   if(coefficient!==expectedCoefficient){alert((i+1)+". satırın aylık katsayısı ödeme tarihine göre otomatik güncellenecek. Tarihi yeniden seçin.");return;}
-  const rowYear=Number(date.slice(0,4));if(rowYear!==2026){alert("Gelir vergisi tarifesi ve otomatik katsayı tablosu şu anda 2026 yılı için tanımlıdır. 2026 dışındaki ödeme dönemlerini bu modülde hesaplamayın.");return;}if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
+  if(!date||!hours||hours<=0||!indicator||indicator<=0){alert((i+1)+". satır için ek ders türünü, pozitif saati ve ödeme tarihini kontrol edin.");return;}
+   const expectedCoefficient=ekCoefficientFor(date);if(expectedCoefficient===null){alert((i+1)+". satırdaki ödeme tarihi için otomatik aylık katsayı tanımlı değil. Lütfen tanımlı katsayı dönemi içinden tarih seçin.");return;}\n   if(coefficient!==expectedCoefficient){alert((i+1)+". satırın aylık katsayısı ödeme tarihine göre otomatik güncellenecek. Tarihi yeniden seçin.");return;}
+  const rowYear=Number(date.slice(0,4));if(![2024,2025,2026].includes(rowYear)){alert("Bu ödeme yılı için gelir vergisi tarifesi henüz tanımlı değil.");return;}if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
   const type=r.querySelector(".ek-type"),typeLabel=type.options[type.selectedIndex].text.replace(/\s—\s[\d.,]+$/,"");
   const amount=hours*indicator*coefficient;items.push({type:typeLabel,hours,date,indicator,coefficient,amount});gross+=amount;totalHours+=hours;
  }
  const cumulative=ekParseMoney(document.getElementById("ekCumulative").value),stampRate=Number(document.getElementById("ekStampRate").value),otherRate=Number(document.getElementById("ekOtherRate").value),otherFixed=ekParseMoney(document.getElementById("ekOtherFixed").value);
  if(cumulative<0||stampRate<0||otherRate<0||otherFixed<0){alert("Kesinti ve matrah değerleri negatif olamaz.");return;}
- const incomeTax=Math.max(0,ekTaxDue(cumulative+gross)-ekTaxDue(cumulative)),stamp=gross*stampRate/100,other=gross*otherRate/100+otherFixed,net=gross-incomeTax-stamp-other;
+ let incomeTax;try{incomeTax=Math.max(0,ekTaxDue(cumulative+gross,year)-ekTaxDue(cumulative,year));}catch(err){alert(err.message);return;}const stamp=gross*stampRate/100,other=gross*otherRate/100+otherFixed,net=gross-incomeTax-stamp-other;
  const fmt=n=>ekMoney(n);
  document.getElementById("ekGross").textContent=fmt(gross);document.getElementById("ekIncomeTax").textContent=fmt(incomeTax);document.getElementById("ekStamp").textContent=fmt(stamp);document.getElementById("ekOther").textContent=fmt(other);document.getElementById("ekNet").textContent=fmt(net);document.getElementById("ekTotalHours").textContent=String(totalHours).replace(".",",");
  const institution=document.getElementById("ekInstitution").value.trim(),duty=document.getElementById("ekDuty").value.trim();
@@ -1985,7 +1984,7 @@ function calculateEkders(){
  document.getElementById("ekReportMutemet").textContent=document.getElementById("ekMutemet").value;document.getElementById("ekReportManager").textContent=document.getElementById("ekManager").value;
  const tbody=document.getElementById("ekdersResultRows");tbody.innerHTML="";
  items.forEach(x=>{const tr=document.createElement("tr");[x.type,String(x.hours).replace(".",","),new Date(x.date+"T12:00:00").toLocaleDateString("tr-TR"),String(x.indicator).replace(".",","),String(x.coefficient).replace(".",","),fmt(x.amount)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});tbody.appendChild(tr);});
- lastEkdersReport={items,gross,incomeTax,stamp,other,net,totalHours,year,person,institution,duty,tc:document.getElementById("ekTc").value,birth:document.getElementById("ekBirth").value,debtDate:document.getElementById("ekDebtDate").value,mutemet:document.getElementById("ekMutemet").value,manager:document.getElementById("ekManager").value,prepared:document.getElementById("ekPrepared").value,cumulative,stampRate,otherRate,otherFixed};
+ lastEkdersReport={items,gross,incomeTax,stamp,other,net,totalHours,year,person,institution,duty,tc:document.getElementById("ekTc").value,birth:document.getElementById("ekBirth").value,mutemet:document.getElementById("ekMutemet").value,manager:document.getElementById("ekManager").value,prepared:document.getElementById("ekPrepared").value,cumulative,stampRate,otherRate,otherFixed};
  const box=document.getElementById("ekdersResults");box.style.display="block";box.scrollIntoView({behavior:"smooth",block:"start"});
 }
 function printEkdersReport(){
