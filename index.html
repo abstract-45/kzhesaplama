@@ -1957,8 +1957,8 @@ function ekValidTckn(value){
 }
 function ekValidBirthDate(value){
  if(!value)return false;
- const d=new Date(value+"T00:00:00");
- return !Number.isNaN(d.getTime())&&d.toISOString().slice(0,10)===value&&d<=new Date();
+ const parts=value.split("-").map(Number),[y,m,day]=parts,d=new Date(y,m-1,day);
+ return d.getFullYear()===y&&d.getMonth()===m-1&&d.getDate()===day&&d<=new Date();
 }
 function calculateEkders(){
  const person=document.getElementById("ekPersonName").value.trim(),tc=document.getElementById("ekTc").value.trim(),birth=document.getElementById("ekBirth").value;
