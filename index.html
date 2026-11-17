@@ -1945,7 +1945,7 @@ function calculateEkders(){
  for(let i=0;i<rows.length;i++){
   const r=rows[i],date=r.querySelector(".ek-date").value,hours=Number(r.querySelector(".ek-hours").value),indicator=Number(r.querySelector(".ek-indicator").value),coefficient=Number(r.querySelector(".ek-coefficient").value);
   if(!date||!hours||hours<=0||!indicator||indicator<=0||!coefficient||coefficient<=0){alert((i+1)+". satır için ek ders türü, pozitif saat, ödeme tarihi ve geçerli katsayıyı kontrol edin.");return;}
-  const rowYear=Number(date.slice(0,4));if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
+  const rowYear=Number(date.slice(0,4));if(rowYear!==2026){alert("Gelir vergisi tarifesi ve otomatik katsayı tablosu şu anda 2026 yılı için tanımlıdır. 2026 dışındaki ödeme dönemlerini bu modülde hesaplamayın.");return;}if(year!==null&&year!==rowYear){alert("Gelir vergisi hesabı tek takvim yılı içindir. Farklı yıllara ait ödemeleri ayrı ayrı hesaplayın.");return;}year=rowYear;
   const type=r.querySelector(".ek-type"),typeLabel=type.options[type.selectedIndex].text.replace(/\s—\s[\d.,]+$/,"");
   const amount=hours*indicator*coefficient;items.push({type:typeLabel,hours,date,indicator,coefficient,amount});gross+=amount;totalHours+=hours;
  }
